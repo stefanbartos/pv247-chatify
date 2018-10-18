@@ -1,56 +1,27 @@
-import * as React from "react";
-import "./../../css/Login.css";
-import {FormEvent} from "react";
-//import {Redirect} from "react-router";
-
-//TODO routing
+import * as React from 'react';
+import * as Const from '../../Const';
 
 
-interface Props {
-
-}
-
-interface State {
-    email: string
-    password: string
-}
-
-export class Login extends React.PureComponent<Props, State> {
-    constructor(props: Props) {
-        super(props);
-
-        this.state = {
-            email: "",
-            password: ""
-        };
-    }
-
-    /*
-    validateForm() {
-        return this.state.email.length > 0 && this.state.password.length > 0;
-    }
-    */
-
-    handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        //this.props.history.push("/login");
-    };
-
-    render() {
+export class Login extends React.PureComponent<{eventHandler: any;}> {
+    public render() {
         return (
-            <div className="Login">
-                <form onSubmit={this.handleSubmit}>
-                    <label>User Name</label>
-                    <input type="text" value={this.state.email} />
-
-                    <label>Password</label>
-                    <input type="password" value={this.state.password} />
-
-
-
-                    <input type="submit" value="Log In" data-test="submit" />
+            <html>
+            <div className="container">
+                <form className="form-login">
+                <h2 className="form-login-heading">Please log in</h2>
+                <label htmlFor="inputEmail" className="sr-only">Email address</label>
+                <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus/>
+                <label htmlFor="inputPassword" className="sr-only">Password</label>
+                <input type="password" id="inputPassword" className="form-control" placeholder="Password" required/>
+                <div className="checkbox">
+                      <label><input type="checkbox" value="remember-me"/> Remember me</label>
+                </div>
+                    <a href="#" onClick={() => this.props.eventHandler(Const.CHAT)}>
+                        <button className="btn btn-lg btn-info btn-block" type="submit">Log in</button>
+                    </a>
                 </form>
             </div>
+            </html>
         );
     }
 }
