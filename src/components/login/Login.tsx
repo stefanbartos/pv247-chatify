@@ -1,10 +1,18 @@
 import * as React from "react";
-import {Button, FormGroup, FormControl, ControlLabel} from "react-bootstrap";
-import "./Login.css";
-import {Component} from "react";
+import "./../../css/Login.css";
+import {FormEvent} from "react";
 
-export class Login extends Component {
-    constructor(props) {
+interface Props {
+
+}
+
+interface State {
+    email: string
+    password: string
+}
+
+export class Login extends React.PureComponent<Props, State> {
+    constructor(props: Props) {
         super(props);
 
         this.state = {
@@ -13,48 +21,27 @@ export class Login extends Component {
         };
     }
 
+    /*
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0;
     }
+    */
 
-    handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
-    }
-    handleSubmit = event => {
+    handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-    }
+    };
 
     render() {
         return (
             <div className="Login">
                 <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <ControlLabel>Email</ControlLabel>
-                        <FormControl
-                            autoFocus
-                            type="email"
-                            value={this.state.email}
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
-                        <ControlLabel>Password</ControlLabel>
-                        <FormControl
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                            type="password"
-                        />
-                    </FormGroup>
-                    <Button
-                        block
-                        bsSize="large"
-                        disabled={!this.validateForm()}
-                        type="submit"
-                    >
-                        Login
-                    </Button>
+                    <label>User Name</label>
+                    <input type="text" value={this.state.email} />
+
+                    <label>Password</label>
+                    <input type="password" value={this.state.password} />
+
+                    <input type="submit" value="Log In" data-test="submit" />
                 </form>
             </div>
         );
