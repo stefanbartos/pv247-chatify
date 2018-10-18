@@ -2,7 +2,17 @@ import * as React from 'react';
 import * as Const from '../../Const';
 
 
-export class Login extends React.PureComponent<{eventHandler: any;}, {}> {
+interface Props {
+    eventHandler: any
+}
+
+
+interface State {
+
+}
+
+
+export class Login extends React.PureComponent<Props, State> {
     public render() {
         return (
             <div className="container">

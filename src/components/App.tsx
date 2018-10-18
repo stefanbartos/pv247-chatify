@@ -3,8 +3,17 @@ import * as Const from '../Const';
 import {Login} from './login/Login';
 import {Chat} from './chat/Chat';
 
+interface Props {
 
-export class App extends React.PureComponent<{},{displayForm: String}> {
+}
+
+
+interface State {
+    displayForm: String
+}
+
+
+export class App extends React.PureComponent<Props, State> {
     constructor(props: any) {
         super(props);
 
@@ -13,11 +22,11 @@ export class App extends React.PureComponent<{},{displayForm: String}> {
         };
     }
 
-    renderForm = (displayForm: String) => {
-        if (displayForm === Const.CHAT) {
+    renderForm = (State: String) => {
+        if (State === Const.CHAT) {
             return <Chat eventHandler={this.eventHandler}/>;
         }
-        else if (displayForm === Const.LOGIN) {
+        else if (State === Const.LOGIN) {
             return <Login eventHandler={this.eventHandler}/>;
         }
         return Const.RANDOM;

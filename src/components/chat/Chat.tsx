@@ -3,7 +3,17 @@ import {SendForm} from './SendForm';
 import {MessageList} from './MessageList';
 
 
-export class Chat extends React.PureComponent<{eventHandler: any;}, {}> {
+interface Props {
+    eventHandler: any
+}
+
+
+interface State {
+
+}
+
+
+export class Chat extends React.PureComponent<Props, State> {
 
     render() {
         return (
