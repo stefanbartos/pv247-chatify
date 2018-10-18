@@ -1,6 +1,8 @@
 import * as React from "react";
 import "./../../css/Login.css";
 import {FormEvent} from "react";
+//import {Redirect} from "react-router";
+
 
 interface Props {
 
@@ -29,6 +31,7 @@ export class Login extends React.PureComponent<Props, State> {
 
     handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        //this.props.history.push("/login");
     };
 
     render() {
@@ -40,6 +43,8 @@ export class Login extends React.PureComponent<Props, State> {
 
                     <label>Password</label>
                     <input type="password" value={this.state.password} />
+
+
 
                     <input type="submit" value="Log In" data-test="submit" />
                 </form>

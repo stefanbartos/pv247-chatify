@@ -9,9 +9,11 @@
     "test": "jest --config=jest.config.js --no-cache"
   },
   "dependencies": {
+    "@types/react-router-dom": "^4.3.1",
     "bootstrap": "^3.3.7",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@types/jest": "^23.1.5",
