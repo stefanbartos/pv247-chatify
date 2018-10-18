@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {SendForm} from "./SendForm";
+import {MessageList} from "./MessageList";
 
 
 export class Chat extends React.PureComponent {
@@ -8,7 +9,7 @@ export class Chat extends React.PureComponent {
         return (
             <div className="app">
                 {/*<Title />*/}
-                {/*<MessageList />*/}
+                <MessageList />
                 <SendForm />
             </div>
         )
