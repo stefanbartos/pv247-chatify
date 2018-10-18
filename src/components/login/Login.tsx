@@ -2,10 +2,9 @@ import * as React from 'react';
 import * as Const from '../../Const';
 
 
-export class Login extends React.PureComponent<{eventHandler: any;}> {
+export class Login extends React.PureComponent<{eventHandler: any;}, {}> {
     public render() {
         return (
-            <html>
             <div className="container">
                 <form className="form-login">
                 <h2 className="form-login-heading">Please log in</h2>
@@ -16,12 +15,11 @@ export class Login extends React.PureComponent<{eventHandler: any;}> {
                 <div className="checkbox">
                       <label><input type="checkbox" value="remember-me"/> Remember me</label>
                 </div>
-                    <a href="#" onClick={() => this.props.eventHandler(Const.CHAT)}>
-                        <button className="btn btn-lg btn-info btn-block" type="submit">Log in</button>
-                    </a>
+                    <div className="form-group">
+                        <button onClick={() => this.props.eventHandler(Const.CHAT)} type="submit">Log in</button>
+                    </div>
                 </form>
             </div>
-            </html>
         );
     }
 }
