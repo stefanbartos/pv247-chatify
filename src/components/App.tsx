@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Const from '../Const';
-import {Login} from "./login/Login";
-import {Chat} from "./chat/Chat";
+import {Login} from './login/Login';
+import {Chat} from './chat/Chat';
 
 
 export class App extends React.PureComponent<{},{displayForm: String}> {
