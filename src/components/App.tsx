@@ -34,7 +34,7 @@ export class App extends React.PureComponent<Props, AppState> {
 
     eventHandler = (displayForm: String) => {
         this.setState(() => {
-            return{ displayForm };
+            return {displayForm};
         });
     };
 
