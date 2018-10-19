@@ -13,7 +13,7 @@ interface ChatState {
 }
 
 
-export class Chat extends React.PureComponent<Props, State> {
+export class Chat extends React.PureComponent<Props, ChatState> {
 
     render() {
         return (
