@@ -9,6 +9,6 @@ export class SendForm extends React.PureComponent {
                     placeholder="Type your message and hit ENTER"
                     type="text" />
             </form>
-        )
+        );
     }
 }

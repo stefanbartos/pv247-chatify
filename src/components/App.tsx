@@ -9,7 +9,7 @@ interface Props {
 
 
 interface State {
-    displayForm: String
+    displayForm: String;
 }
 
 

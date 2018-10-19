@@ -4,7 +4,7 @@ import {MessageList} from './MessageList';
 
 
 interface Props {
-    eventHandler: any
+    eventHandler: any;
 }
 
 
@@ -22,6 +22,6 @@ export class Chat extends React.PureComponent<Props, State> {
                 <MessageList />
                 <SendForm />
             </div>
-        )
+        );
     }
 }
