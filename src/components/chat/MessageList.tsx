@@ -14,7 +14,7 @@ export class MessageList extends React.PureComponent {
         return (
             <ul>
                 {messages.map((message) =>
-                    <li>{message}</li>)}
+                    <li key={message}>{message}</li>)}
             </ul>
         );
     }

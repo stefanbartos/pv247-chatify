@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {SendForm} from './SendForm';
 import {MessageList} from './MessageList';
-
+import {Sidebar} from '../channels/Sidebar';
 
 interface Props {
     eventHandler: any;
@@ -17,10 +17,13 @@ export class Chat extends React.PureComponent<Props, ChatState> {
 
     render() {
         return (
-            <div className="app">
-                {/*<Title />*/}
-                <MessageList />
-                <SendForm />
+            <div id="container" className="app">
+                <Sidebar/>
+                <section id="main">
+                    {/*<Title />*/}
+                    <MessageList/>
+                    <SendForm/>
+                </section>
             </div>
         );
     }
