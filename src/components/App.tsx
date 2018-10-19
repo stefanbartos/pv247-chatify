@@ -8,12 +8,12 @@ interface Props {
 }
 
 
-interface State {
+interface AppState {
     displayForm: String;
 }
 
 
-export class App extends React.PureComponent<Props, State> {
+export class App extends React.PureComponent<Props, AppState> {
     constructor(props: any) {
         super(props);
 

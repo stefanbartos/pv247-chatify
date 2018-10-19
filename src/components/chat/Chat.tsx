@@ -8,7 +8,7 @@ interface Props {
 }
 
 
-interface State {
+interface ChatState {
 
 }
 
