@@ -1,14 +1,25 @@
 import * as React from 'react';
 
-export class SendForm extends React.PureComponent {
+
+interface SendFormProps {
+
+}
+
+interface SendFormState {
+
+}
+
+export class SendForm extends React.PureComponent<SendFormProps, SendFormState> {
+
     render() {
         return (
-            <form
-                className="send-message-form">
-                <input
-                    placeholder="Type your message and hit ENTER"
-                    type="text" />
-            </form>
-        );
-    }
+            <div className="row">
+                <div className="input-group">
+                    <input className="form-control" type="text" placeholder="Enter your message..."/>
+                        <span className="input-group-btn">
+                            <button className="btn btn-info btn-block" type="button">Send</button>
+                        </span>
+                </div>
+            </div>
+        )};
 }
