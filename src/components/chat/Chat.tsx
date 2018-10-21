@@ -23,20 +23,13 @@ export class Chat extends React.PureComponent<Props, ChatState> {
                     <div className="container">
                         <span className="navbar-brand mb-0 h1">PV247</span>
                         <ul className="nav navbar-nav navbar-right">
-                            <li className="nav-item dropdown">
-                                <div className="nav-link dropdown-toggle caret-off" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-                                <ul className="dropdown-menu">
-                                    <li className="dropdown-item">Profile</li>
-                                    <li className="dropdown-item">Logout</li>
-                                </ul>
-                            </li>
                             <ProfilePicture/>
                         </ul>
                     </div>
                 </nav>
-                <div id="container" className="app">
+                <div id="container-fluid" className="row">
                     <Sidebar/>
-                    <section id="main">
+                    <div id="main" className="col-md-6">
                         <div className="container">
                             <Title/>
                         </div>
@@ -46,7 +39,7 @@ export class Chat extends React.PureComponent<Props, ChatState> {
                         <div className="container">
                             <SendForm/>
                         </div>
-                    </section>
+                    </div>
                 </div>
             </div>
         );
