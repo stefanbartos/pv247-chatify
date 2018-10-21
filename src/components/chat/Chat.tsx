@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {ProfilePicture} from '../common/ProfilePicture';
-// import {SendForm} from './SendForm';
-// import {MessageList} from './MessageList';
-// import {Sidebar} from '../channels/Sidebar';
+import {SendForm} from './SendForm';
+import {MessageList} from './MessageList';
+import {Sidebar} from '../channels/Sidebar';
+import {Title} from './Title';
 
 import '../../css/chat.css';
+import {ProfilePicture} from '../common/ProfilePicture';
 
 interface Props {
     eventHandler: any;
@@ -33,14 +34,20 @@ export class Chat extends React.PureComponent<Props, ChatState> {
                         </ul>
                     </div>
                 </nav>
-                {/*<div id="container" className="app">*/}
-                {/*<Sidebar/>*/}
-                {/*<section id="main">*/}
-                {/*/!*<Title />*!/*/}
-                {/*<MessageList/>*/}
-                {/*<SendForm/>*/}
-                {/*</section>*/}
-                {/*</div>*/}
+                <div id="container" className="app">
+                    <Sidebar/>
+                    <section id="main">
+                        <div className="container">
+                            <Title/>
+                        </div>
+                        <div className="container">
+                            <MessageList/>
+                        </div>
+                        <div className="container">
+                            <SendForm/>
+                        </div>
+                    </section>
+                </div>
             </div>
         );
     }

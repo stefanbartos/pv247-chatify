@@ -22,9 +22,9 @@ export class Login extends React.PureComponent<Props, State> {
                     <div className="checkbox">
                         <label><input type="checkbox" value="remember-me"/> Remember me</label>
                     </div>
-                    <div className="form-group">
-                        <button onClick={() => this.props.eventHandler(Const.CHAT)} type="submit">Log in</button>
-                    </div>
+                    <a href="#" onClick={() => this.props.eventHandler(Const.CHAT)}>
+                        <button className="btn btn-lg btn-info btn-block" type="submit">Log in</button>
+                    </a>
                 </form>
             </div>
         );
