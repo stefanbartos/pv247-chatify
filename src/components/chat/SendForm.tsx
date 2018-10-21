@@ -21,5 +21,6 @@ export class SendForm extends React.PureComponent<SendFormProps, SendFormState> 
                         </span>
                 </div>
             </div>
-        )};
+        );
+    }
 }
