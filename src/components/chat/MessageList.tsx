@@ -2,6 +2,11 @@ import * as React from 'react';
 
 
 export class MessageList extends React.PureComponent<{}, {}> {
+
+    // TODO
+    // Redesign -> split message list into components (messages and the list itself so it is easier to format the chat)
+    // Make the delete, thumbs-up and thumbs-down buttons responsive
+
     chatMessages = [
         {
             author: 'Yellow Smiley',
