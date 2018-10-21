@@ -21,7 +21,7 @@ export class Chat extends React.PureComponent<Props, ChatState> {
             <div>
                 <nav className="navbar navbar-dark bg-primary">
                     <div className="container">
-                        <span className="navbar-brand mb-0 h1">PV247</span>
+                        <span className="navbar-brand mb-0 h1">PV247 Chatify</span>
                         <ul className="nav navbar-nav navbar-right">
                             <ProfilePicture/>
                         </ul>

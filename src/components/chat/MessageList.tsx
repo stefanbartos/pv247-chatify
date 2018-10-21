@@ -1,20 +1,62 @@
 import * as React from 'react';
 
-// TODO message list
-const messages = [
-    'Where is my project?',
-    'Random message generated',
-    'What is the meaning of life',
-    'I am your father'
-];
 
+export class MessageList extends React.PureComponent<{}, {}> {
+    chatMessages = [
+        {
+            author: 'Yellow Smiley',
+            authorImage: "http://pngimg.com/uploads/smiley/smiley_PNG36233.png",
+            body: 'What is the meaning of life?',
+            thumbsUP: "5",
+            thumbsDown: "1",
+        },
 
-export class MessageList extends React.PureComponent {
-    render() {
+        {
+            author: 'Blue Smiley',
+            authorImage: 'http://pngimg.com/uploads/smiley/smiley_PNG36229.png',
+            body: 'Luke I am your father',
+            thumbsUP: "4",
+            thumbsDown: "2"
+        },
+
+        {
+            author: 'Troll smiley',
+            authorImage: 'http://pngimg.com/uploads/smiley/smiley_PNG188.png',
+            body: 'OMG, why does my face look like this?!',
+            thumbsUP: "1",
+            thumbsDown: "1",
+        },
+    ];
+
+    public render() {
         return (
             <ul>
-                {messages.map((message) =>
-                    <li key={message}>{message}</li>)}
+                {this.chatMessages.map(message =>
+                    <div className="media">
+                        <span className="media-left">
+                            <img src={message.authorImage} className="img-circle" width="25" height="25"/>
+                        </span>
+                        <span className="media-body">
+                            <div key={message.author}> {message.author}</div>
+                        </span>
+                        <div className="media">
+                            <span className="media-left">
+                                <ul key={message.body}> {message.body}</ul>
+                            </span>
+                            <span className="pull-right">
+                            <button type="submit" name="delete">
+                                <i className="glyphicon glyphicon-trash" />
+                            </button>
+                            <button type="submit" name="delete">
+                                <i className="glyphicon glyphicon-thumbs-up" />
+                            </button>
+                            <button type="submit" name="delete">
+                                <i className="glyphicon glyphicon-thumbs-down" />
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                )}
             </ul>
         );
     }
