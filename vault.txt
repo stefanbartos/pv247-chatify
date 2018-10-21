@@ -1,0 +1,3 @@
+repo: https://github.com/ssvinciak/pv247-chatify
+Štefan Svinčiak 433288 @ssvinciak
+Martina Cvinčeková 433474 @mcvincekova
