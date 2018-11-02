@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Const from '../Const';
+import * as Const from '../constants/appConstants';
 import {Login} from './login/Login';
 import {Chat} from './chat/Chat';
 

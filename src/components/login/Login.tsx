@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Const from '../../Const';
+import * as Const from '../../constants/appConstants';
 
 interface Props {
     eventHandler: any;
