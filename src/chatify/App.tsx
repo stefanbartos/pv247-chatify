@@ -1,7 +1,7 @@
 import * as React from 'react';
-import * as Const from '../constants/appConstants';
-import {Login} from './login/Login';
-import {Chat} from './chat/Chat';
+import * as Const from './constants/appConstants';
+import {Login} from './components/login/Login';
+import {Chat} from './components/chat/Chat';
 
 interface Props {
 

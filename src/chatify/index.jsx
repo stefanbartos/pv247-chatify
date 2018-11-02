@@ -8,7 +8,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import {App} from './components/App.tsx';
+import {App} from './App.tsx';
 
 // import {Chat} from './components/chat/Chat.tsx';
 

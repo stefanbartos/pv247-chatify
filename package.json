@@ -1,7 +1,7 @@
 {
   "name": "kentico-onboarding",
   "version": "0.0.1",
-  "main": "src/index.jsx",
+  "main": "src/chatify/index.jsx",
   "private": true,
   "scripts": {
     "build": "webpack --mode=development",
