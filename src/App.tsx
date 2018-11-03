@@ -1,11 +1,11 @@
 import * as React from 'react';
-import * as Const from './constants/appConstants';
-import {Login} from './components/login/Login';
-import {Chat} from './components/chat/Chat';
+import * as Const from './chatify/constants/appConstants';
+import {Login} from './chatify/components/login/Login';
+import {Chat} from './chatify/components/chat/Chat';
 import {createStore} from 'redux';
 // import {Provider} from 'react-redux';
-import {getInitialChannels} from './utils/initialChannels';
-import {rootReducer} from '../common/rootReducer';
+import {getInitialChannels} from './chatify/utils/initialChannels';
+import {rootReducer} from './common/rootReducer';
 
 interface Props {
 
@@ -50,7 +50,7 @@ export class App extends React.PureComponent<Props, AppState> {
     };
 
     public render() {
-        // TODO : return <Provider store={store}
+        // TODO : return <Provider store={store}>
         console.log(state);
         return this.renderForm(this.state.displayForm);
     }
