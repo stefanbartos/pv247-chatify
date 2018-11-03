@@ -37,7 +37,7 @@ export class MessageList extends React.PureComponent<{}, {}> {
         return (
             <ul>
                 {this.chatMessages.map(message =>
-                    <div key="message" className="media">
+                    <div key={Math.random()} className="media">
                         <span className="media-left">
                             <img src={message.authorImage} className="img-circle" width="25" height="25"/>
                         </span>
