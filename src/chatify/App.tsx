@@ -2,6 +2,10 @@ import * as React from 'react';
 import * as Const from './constants/appConstants';
 import {Login} from './components/login/Login';
 import {Chat} from './components/chat/Chat';
+import {createStore} from 'redux';
+// import {Provider} from 'react-redux';
+import {getInitialChannels} from './utils/initialChannels';
+import {rootReducer} from '../common/rootReducer';
 
 interface Props {
 
@@ -12,6 +16,13 @@ interface AppState {
     displayForm: String;
 }
 
+const initialState = {
+    chatify: {
+        channels: getInitialChannels(),
+    }
+};
+
+const state = createStore(rootReducer, initialState);
 
 export class App extends React.PureComponent<Props, AppState> {
     constructor(props: any) {
@@ -39,6 +50,8 @@ export class App extends React.PureComponent<Props, AppState> {
     };
 
     public render() {
+        // TODO : return <Provider store={store}
+        console.log(state);
         return this.renderForm(this.state.displayForm);
     }
 }
