@@ -1,3 +1,5 @@
+declare module '*.png';
+
 type Uuid = string;
 
 type Action = {
