@@ -51,7 +51,7 @@ export class App extends React.PureComponent<Props, AppState> {
 
     public render() {
         // TODO : return <Provider store={store}>
-        console.log(state);
+        console.log(state.getState());
         return this.renderForm(this.state.displayForm);
     }
 }
