@@ -2,15 +2,15 @@ import * as React from 'react';
 import * as Const from './chatify/constants/appConstants';
 import {Login} from './chatify/components/login/Login';
 import {Chat} from './chatify/components/chat/Chat';
-import {createStore} from 'redux';
-// import {Provider} from 'react-redux';
+import {applyMiddleware, compose, createStore} from 'redux';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
 import {getInitialChannels} from './chatify/utils/initialChannels';
 import {rootReducer} from './common/rootReducer';
 
 interface Props {
 
 }
-
 
 interface AppState {
     displayForm: String;
@@ -21,6 +21,13 @@ const initialState = {
         channels: getInitialChannels(),
     }
 };
+
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middleware = [thunk];
+
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(...middleware)
+));
 
 const state = createStore(rootReducer, initialState);
 
@@ -40,7 +47,12 @@ export class App extends React.PureComponent<Props, AppState> {
         else if (State === Const.LOGIN) {
             return <Login eventHandler={this.eventHandler}/>;
         }
-        return Const.RANDOM;
+        return (
+            // TODO return provider -> done
+            <Provider store={store}>
+                return <Chat eventHandler={this.eventHandler}/>
+            </Provider>
+        )
     };
 
     eventHandler = (displayForm: String) => {
@@ -50,8 +62,7 @@ export class App extends React.PureComponent<Props, AppState> {
     };
 
     public render() {
-        // TODO : return <Provider store={store}>
-        console.log(state.getState());
+        console.log(state);
         return this.renderForm(this.state.displayForm);
     }
 }
