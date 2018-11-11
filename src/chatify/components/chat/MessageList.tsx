@@ -2,8 +2,8 @@ import * as React from 'react';
 import { IChatMessage } from "../../models/IChatMessage";
 import uuid = require("uuid");
 import * as Immutable from 'immutable';
-import { IChatMessagePanel } from "./../../models/IChatMessagePanel"
-import { IChatMessageContent } from "./../../models/IChatMessageContent"
+import { IChatMessagePanel } from "../../models/IChatMessagePanel"
+import { IChatMessageContent } from "../../models/IChatMessageContent"
 import {Message} from "./Message";
 import {IState} from "../../../common/IState";
 import {getAllIds, getAlltMessages} from "../../utils/getMessages";
@@ -104,7 +104,7 @@ export class MessageList extends React.PureComponent<IMessageList, {}> {
 
     displaySingleChatMessage = (chatMessagePanel: IChatMessagePanel, chatMessageContent: IChatMessageContent) =>
         (
-            <div className="message-box-line" key={chatMessagePanel.messageId}>
+            <div key={chatMessagePanel.messageId}>
                 <Message chatMessagePanel={chatMessagePanel} chatMessageContent={chatMessageContent}/>
             </div>
         );
@@ -117,6 +117,7 @@ export class MessageList extends React.PureComponent<IMessageList, {}> {
         const testPanel = {
             messageAuthor: "Smiley",
             messageAuthorImage: "http://pngimg.com/uploads/smiley/smiley_PNG36233.png",
+            // TODO create get channel method
             messageId: uuid(),
         };
 
@@ -125,10 +126,13 @@ export class MessageList extends React.PureComponent<IMessageList, {}> {
         };
 
         return (
-            <div className="messages">
-                {messageList.map(message => this.displaySingleChatMessage(message === undefined ? testPanel : message.chatMessagePanel,
-                    message === undefined ? testContent : message.chatMessageContent))}
-            </div>
+            // may be undefined, keep patched for now
+           <ul >
+               {messageList.map(message => {
+                   this.displaySingleChatMessage(message === undefined ? testPanel : message.chatMessagePanel,
+                       message === undefined ? testContent : message.chatMessageContent);
+               })}
+           </ul>
         );
     }
 }
@@ -140,6 +144,7 @@ const mapStateToProps = (state: IState): MessageListState => {
     return {
         messageList: getAlltMessages(state),
         messageIdsList: getAllIds(state),
+        chatChannelId: uuid(),
     };
 };
 
@@ -150,4 +155,4 @@ const mapDispatchToProps = (dispatch: Dispatch): MessageListProps => {
     };
 };
 
-export const MessageListContainer = connect(mapStateToProps, mapDispatchToProps) (MessageList);
+export const MessageListCom = connect(mapStateToProps, mapDispatchToProps) (MessageList);

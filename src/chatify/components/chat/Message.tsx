@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IChatMessagePanel } from "./../../models/IChatMessagePanel"
-import { IChatMessageContent } from "./../../models/IChatMessageContent"
+import { IChatMessagePanel } from "../../models/IChatMessagePanel"
+import { IChatMessageContent } from "../../models/IChatMessageContent"
 import { MessageContent} from "./MessageContent";
 import {MessagePanel} from "./MessagePanel";
 
@@ -15,6 +15,7 @@ export class Message extends React.PureComponent<MessageProps, {}> {
     public render() {
         return (
             <div className="chat-message-box">
+                <h1>Message</h1>
                 <img src={this.props.chatMessagePanel.messageAuthorImage}/>
                 <div className="chat-message-content">
                     <MessagePanel chatMessagePanel={this.props.chatMessagePanel}/>

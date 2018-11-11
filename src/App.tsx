@@ -42,7 +42,11 @@ export class App extends React.PureComponent<Props, AppState> {
 
     renderForm = (State: String) => {
         if (State === Const.CHAT) {
-            return <Chat eventHandler={this.eventHandler}/>;
+            return (
+                <Provider store={store}>
+                    <Chat eventHandler={this.eventHandler}/>
+                </Provider>
+            );
         }
         else if (State === Const.LOGIN) {
             return <Login eventHandler={this.eventHandler}/>;
@@ -50,7 +54,7 @@ export class App extends React.PureComponent<Props, AppState> {
         return (
             // TODO return provider -> done
             <Provider store={store}>
-                return <Chat eventHandler={this.eventHandler}/>
+                <Chat eventHandler={this.eventHandler}/>
             </Provider>
         )
     };
