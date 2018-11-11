@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SendForm} from './SendForm';
-import {MessageList} from './MessageList';
+// import {MessageListContainer} from './MessageList';
 import {Sidebar} from '../channels/Sidebar';
 import {Title} from './Title';
 
@@ -34,7 +34,7 @@ export class Chat extends React.PureComponent<Props, ChatState> {
                             <Title/>
                         </div>
                         <div className="container">
-                            <MessageList/>
+                            {/*<MessageListContainer />*/}
                         </div>
                         <div className="container">
                             <SendForm/>

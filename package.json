@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/redux-thunk": "^2.1.0",
+    "@types/reselect": "^2.2.0",
     "bootstrap": ">=4.1.2",
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.3.1",
@@ -22,6 +23,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

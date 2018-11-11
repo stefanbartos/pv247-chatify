@@ -1,3 +1,3 @@
-export interface IChatMessageContent{
-    chatMessageBody: string;
+export interface IChatMessageContent {
+    chatMessageContent: string;
 }
