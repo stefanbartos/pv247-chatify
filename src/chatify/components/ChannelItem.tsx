@@ -21,9 +21,9 @@ export class ChannelItem extends React.PureComponent<IProps, any> {
         const {index, channel} = this.props;
 
         return (
-            <div key={index} className="channel-list__item">
+            <li key={index} className="nav-item">
                 <div>{channel.name}</div>
-            </div>
+            </li>
         );
     }
 }

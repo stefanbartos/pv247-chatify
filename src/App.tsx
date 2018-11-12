@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as Const from './chatify/constants/appConstants';
 import {Login} from './chatify/components/login/Login';
-import {Chatify} from './chatify/components/chat/Chatify';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {getInitialChannels} from './chatify/utils/initialChannels';
 import {rootReducer} from './common/rootReducer';
 import {Navigation} from './common/components/Navigation';
 import {getInitialMessages} from './chatify/utils/initialMessages';
+import {ChatifyContainer} from './chatify/containers/Chatify';
 
 interface Props {
 
@@ -44,7 +44,7 @@ export class App extends React.PureComponent<Props, AppState> {
                 <>
                     <Navigation/>
                     <main>
-                        <Chatify eventHandler={this.eventHandler}/>
+                        <ChatifyContainer/>
                     </main>
                 </>
             </Provider>
