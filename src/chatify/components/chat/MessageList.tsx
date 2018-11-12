@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IChatMessage } from '../../models/IChatMessage';
+//import { IChatMessage } from '../../models/IChatMessage';
 //import uuid = require('uuid');
 import * as Immutable from 'immutable';
 import { IChatMessagePanel } from '../../models/IChatMessagePanel';
@@ -11,11 +11,11 @@ import {Message} from './Message';
 // import {connect} from 'react-redux';
 
 interface MessageListProps {
-    readonly sendChatMessage: ( channelUuid: Uuid, chatMessage: IChatMessage ) => void;
+    messageIdsList: Immutable.List<Uuid>;
 }
 
 interface MessageListState {
-    messageList: Immutable.Map<string, IChatMessage>;
+    //messageIdsList: Immutable.List<Uuid>;
 }
 
 interface IMessageList extends MessageListProps, MessageListState {
