@@ -1,7 +1,7 @@
 import * as React from 'react';
 //import { IChatMessage } from '../../models/IChatMessage';
 //import uuid = require('uuid');
-import * as Immutable from 'immutable';
+// import * as Immutable from 'immutable';
 import { IChatMessagePanel } from '../../models/IChatMessagePanel';
 import { IChatMessageContent } from '../../models/IChatMessageContent';
 import {Message} from './Message';
@@ -10,19 +10,19 @@ import {Message} from './Message';
 // import {sendChatMessage} from '../../actions/sendChatMessage';
 // import {connect} from 'react-redux';
 
-interface MessageListProps {
-    messageIdsList: Immutable.List<Uuid>;
-}
+// interface MessageListProps {
+//     messageIdsList: Immutable.List<Uuid>;
+// }
 
-interface MessageListState {
-    //messageIdsList: Immutable.List<Uuid>;
-}
+// interface MessageListState {
+//     //messageIdsList: Immutable.List<Uuid>;
+// }
 
-interface IMessageList extends MessageListProps, MessageListState {
+// interface IMessageList extends MessageListProps, MessageListState {
+//
+// }
 
-}
-
-export class MessageList extends React.PureComponent<IMessageList, {}> {
+export class MessageList extends React.PureComponent<{}, {}> {
 
     // chatMessages = [
     //     {
