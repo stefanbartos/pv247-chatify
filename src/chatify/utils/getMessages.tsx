@@ -1,4 +1,4 @@
-import {IState} from "../../common/IState";
+import {IState} from '../../common/IState';
 // @ts-ignore
 import {createSelector} from 'reselect';
 

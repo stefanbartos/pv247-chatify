@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { IChatMessage } from "../../models/IChatMessage";
-import uuid = require("uuid");
+import { IChatMessage } from '../../models/IChatMessage';
+import uuid = require('uuid');
 import * as Immutable from 'immutable';
-import { IChatMessagePanel } from "../../models/IChatMessagePanel"
-import { IChatMessageContent } from "../../models/IChatMessageContent"
-import {Message} from "./Message";
-import {IState} from "../../../common/IState";
-import {getAllIds, getAlltMessages} from "../../utils/getMessages";
-import {Dispatch} from "redux";
-import {sendChatMessage} from "../../actions/sendChatMessage";
-import {connect} from "react-redux";
+import { IChatMessagePanel } from '../../models/IChatMessagePanel';
+import { IChatMessageContent } from '../../models/IChatMessageContent';
+import {Message} from './Message';
+import {IState} from '../../../common/IState';
+import {getAllIds, getAlltMessages} from '../../utils/getMessages';
+import {Dispatch} from 'redux';
+import {sendChatMessage} from '../../actions/sendChatMessage';
+import {connect} from 'react-redux';
 
 interface MessageListProps {
     readonly sendChatMessage: ( channelUuid: Uuid, chatMessage: IChatMessage ) => void;
@@ -18,7 +18,7 @@ interface MessageListProps {
 interface MessageListState {
     messageList: Immutable.Map<string, IChatMessage>;
     chatChannelId: Uuid;
-    messageIdsList: Immutable.List<Uuid>
+    messageIdsList: Immutable.List<Uuid>;
 }
 
 interface IMessageList extends MessageListProps, MessageListState {
@@ -34,12 +34,12 @@ export class MessageList extends React.PureComponent<IMessageList, {}> {
     componentDidMount() {
         this.props.sendChatMessage(this.props.chatChannelId, {
             chatMessagePanel: {
-                messageAuthor: "Yellow Smiley",
-                messageAuthorImage: "http://pngimg.com/uploads/smiley/smiley_PNG36233.png",
+                messageAuthor: 'Yellow Smiley',
+                messageAuthorImage: 'http://pngimg.com/uploads/smiley/smiley_PNG36233.png',
                 messageId: uuid(),
             },
             chatMessageContent: {
-                chatMessageContent: "What is the meaning of life?",
+                chatMessageContent: 'What is the meaning of life?',
             },
         });
 
@@ -104,9 +104,9 @@ export class MessageList extends React.PureComponent<IMessageList, {}> {
 
     displaySingleChatMessage = (chatMessagePanel: IChatMessagePanel, chatMessageContent: IChatMessageContent) =>
         (
-            <div key={chatMessagePanel.messageId}>
+            <li key={chatMessagePanel.messageId}>
                 <Message chatMessagePanel={chatMessagePanel} chatMessageContent={chatMessageContent}/>
-            </div>
+            </li>
         );
 
     public render() {
@@ -115,14 +115,14 @@ export class MessageList extends React.PureComponent<IMessageList, {}> {
         });
 
         const testPanel = {
-            messageAuthor: "Smiley",
-            messageAuthorImage: "http://pngimg.com/uploads/smiley/smiley_PNG36233.png",
+            messageAuthor: 'Smiley',
+            messageAuthorImage: 'http://pngimg.com/uploads/smiley/smiley_PNG36233.png',
             // TODO create get channel method
             messageId: uuid(),
         };
 
         const testContent = {
-            chatMessageContent: "Random text",
+            chatMessageContent: 'Random text',
         };
 
         return (

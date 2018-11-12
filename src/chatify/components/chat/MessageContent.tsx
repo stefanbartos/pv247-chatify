@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IChatMessageContent } from "../../models/IChatMessageContent";
+import { IChatMessageContent } from '../../models/IChatMessageContent';
 
 interface ChatMessageContentProps {
     readonly chatMessageContent: IChatMessageContent;

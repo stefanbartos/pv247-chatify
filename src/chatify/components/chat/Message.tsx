@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { IChatMessagePanel } from "../../models/IChatMessagePanel"
-import { IChatMessageContent } from "../../models/IChatMessageContent"
-import { MessageContent} from "./MessageContent";
-import {MessagePanel} from "./MessagePanel";
+import { IChatMessagePanel } from '../../models/IChatMessagePanel';
+import { IChatMessageContent } from '../../models/IChatMessageContent';
+import { MessageContent} from './MessageContent';
+import {MessagePanel} from './MessagePanel';
 
 
 interface MessageProps {
@@ -22,6 +22,6 @@ export class Message extends React.PureComponent<MessageProps, {}> {
                     <MessageContent chatMessageContent={this.props.chatMessageContent}/>
                 </div>
             </div>
-        )
+        );
     }
 }

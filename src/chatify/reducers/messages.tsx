@@ -1,8 +1,8 @@
 import * as Immutable from 'immutable';
 import { combineReducers } from 'redux';
-import { CHATIFY_MESSAGE_SEND  } from '../constants/actionTypes'
-import { IChatMessages } from "../models/IChatMessages"
-import { IChatMessage} from "../models/IChatMessage";
+import { CHATIFY_MESSAGE_SEND  } from '../constants/actionTypes';
+import { IChatMessages } from '../models/IChatMessages';
+import { IChatMessage} from '../models/IChatMessage';
 
 const messageId = (prevState = Immutable.Map<Uuid, IChatMessage>(), action: Action):
     Immutable.Map<Uuid, IChatMessage> => {

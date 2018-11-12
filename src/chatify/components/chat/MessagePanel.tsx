@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {IChatMessagePanel} from "../../models/IChatMessagePanel";
+import {IChatMessagePanel} from '../../models/IChatMessagePanel';
 
 interface MessagePannelProps {
     readonly chatMessagePanel: IChatMessagePanel;
