@@ -6,3 +6,5 @@ const getChatMessages = ((state: IState) => state.chatify.messageList);
 export const getAllIds = createSelector([getChatMessages], messageList => messageList.messageIdsList);
 export const getAlltMessages = createSelector([getChatMessages], messageList => messageList.messageId);
 
+// TODO - only for initial messages and also rename file
+

@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import {App} from './App.tsx';
 
-// import {Chat} from './components/chat/Chat.tsx';
+// import {Chatify} from './components/chat/Chatify.tsxtsx';
 
 
 ReactDOM.render(<App />, document.getElementById('app-root'));
