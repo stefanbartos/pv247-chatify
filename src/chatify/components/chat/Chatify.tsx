@@ -19,8 +19,10 @@ export class Chatify extends React.PureComponent<Props, ChatState> {
         return (
             <div>
                 <div id="container-fluid" className="row">
-                    <Sidebar/>
-                    <div id="main" className="col-md-6">
+                    <div id="sidebar" className="col-md-2">
+                        <Sidebar/>
+                    </div>
+                    <div id="messageList" className="col-md-6">
                         <div className="container">
                             <Title/>
                         </div>
