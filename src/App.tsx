@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import {getInitialChannels} from './chatify/utils/initialChannels';
 import {rootReducer} from './common/rootReducer';
 import {Navigation} from './common/components/Navigation';
+import {getInitialMessages} from "./chatify/utils/initialMessages";
 
 interface Props {
 
@@ -19,11 +20,9 @@ interface AppState {
 const initialState = {
     chatify: {
         channels: getInitialChannels(),
+        messageList: getInitialMessages(),
     }
 };
-
-// const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const middleware = [thunk];
 
 const store = createStore(rootReducer, initialState);
 

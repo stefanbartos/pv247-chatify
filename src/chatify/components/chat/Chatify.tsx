@@ -38,5 +38,3 @@ export class Chatify extends React.PureComponent<Props, ChatState> {
         );
     }
 }
-
-// TODO - this must contain sidebar + messageList
