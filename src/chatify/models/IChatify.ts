@@ -7,10 +7,5 @@ import { IChatMessage } from "./IChatMessage";
 // HashMap<channelId, Message(id, text ...)>()
 export interface IChatify {
     channels: Immutable.List<IChannelItem>;
-    messageList: IChatMessages;
-}
-
-export interface IChatMessages {
-    messageIdsList: Immutable.List<Uuid>;
-    messageId: Immutable.Map<Uuid, IChatMessage>;
+    messageList: Immutable.List<IChatMessage>;
 }
