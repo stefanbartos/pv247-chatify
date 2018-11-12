@@ -1,6 +1,6 @@
 import * as Immutable from 'immutable';
 import {IChannelItem} from './IChannelItem';
-import { IChatMessage } from "./IChatMessage";
+import { IChatMessage } from './IChatMessage';
 
 
 // TODO - should we include messages in app model?

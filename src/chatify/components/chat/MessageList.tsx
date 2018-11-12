@@ -1,6 +1,6 @@
 import * as React from 'react';
-//import { IChatMessage } from '../../models/IChatMessage';
-//import uuid = require('uuid');
+// import { IChatMessage } from '../../models/IChatMessage';
+// import uuid = require('uuid');
 // import * as Immutable from 'immutable';
 import { IChatMessagePanel } from '../../models/IChatMessagePanel';
 import { IChatMessageContent } from '../../models/IChatMessageContent';
@@ -92,11 +92,11 @@ export class MessageList extends React.PureComponent<{}, {}> {
     public render() {
         return (
             // may be undefined, keep patched for now
-            //<ul>
+            // <ul>
             //    {messageList.map(message => {
             //        this.displaySingleChatMessage(message : message.chatMessagePanel, message : message.chatMessageContent);
             //    })}
-            //</ul>
+            // </ul>
             <div>Test</div>
         );
     }

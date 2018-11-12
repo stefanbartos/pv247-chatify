@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import {getInitialChannels} from './chatify/utils/initialChannels';
 import {rootReducer} from './common/rootReducer';
 import {Navigation} from './common/components/Navigation';
-import {getInitialMessages} from "./chatify/utils/initialMessages";
+import {getInitialMessages} from './chatify/utils/initialMessages';
 
 interface Props {
 
