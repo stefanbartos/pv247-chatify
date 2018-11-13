@@ -18,4 +18,5 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     };
 };
 
+// @ts-ignore
 export const MessageCon = connect<IMessageStateProps, IMessageDispatchProps, IChatMessage>(mapStateToProps, mapDispatchToProps)(Message);

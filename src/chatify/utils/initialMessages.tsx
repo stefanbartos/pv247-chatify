@@ -1,6 +1,6 @@
-import * as Immutable from "immutable";
-import * as uuid from "uuid";
-import {IChatMessage} from "../models/IChatMessage";
+import * as Immutable from 'immutable';
+import * as uuid from 'uuid';
+import {IChatMessage} from '../models/IChatMessage';
 
 export const getInitialMessages = (): Immutable.List<IChatMessage> =>  Immutable.List([
     {
