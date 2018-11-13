@@ -54,13 +54,14 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
 
     private onValueChanged = (event: any) => {
         const { value } = event.currentTarget;
+        console.log(value);
         this.setState(() => ({ text: value}));
     };
 
     public render() {
         return (
             <div>
-            <ul className="nav">
+            <ul className="text-body">
                 {this.props.messageIdsList.map((id: Uuid, index: number) => (
                 <MessageCon
                     key={index}
