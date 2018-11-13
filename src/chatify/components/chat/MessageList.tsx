@@ -53,7 +53,7 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
     };
 
     private onValueChanged = (event: any) => {
-        const { value } = event.currnetTarget;
+        const { value } = event.currentTarget;
         this.setState(() => ({ text: value}));
     };
 
@@ -73,7 +73,7 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
             <div className="row">
                 <div className="input-group">
                     <span className="input-group-btn">
-                        <button className="btn btn-info btn-block" type="button" onClick={this.onSendMessage}>Send</button>
+                        <button className="btn btn-info" type="button" onClick={this.onSendMessage}>Send</button>
                         <input
                             type="text"
                             value={this.state.text}
