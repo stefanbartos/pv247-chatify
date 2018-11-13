@@ -32,7 +32,8 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
                             <Title/>
                         </div>
                         <div className="container">
-                            <MessageList  />
+                            <MessageList
+                                messageIdsList={this.props.messageIdsList}/>
                         </div>
                         <div className="container">
                             <SendForm/>

@@ -11,7 +11,8 @@ import {Dispatch} from 'redux';
 
 const mapStateToProps = (state: IState): IChatifyStateProps => {
     return {
-        channelIds: state.chatify.channels.map((i: IChannelItem) => i.id).toList()
+        channelIds: state.chatify.channels.map((i: IChannelItem) => i.id).toList(),
+        messageIdsList: state.chatify.messageList.map(() => 'as').toList()
     };
 };
 
