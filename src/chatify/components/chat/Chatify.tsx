@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {SendForm} from './SendForm';
+// import {SendForm} from './SendForm';
 import {Title} from './Title';
 import * as Immutable from 'immutable';
 
 import '../../css/chat.css';
 import {ChannelList} from '../ChannelList';
-// import {MessageList} from './MessageList';
+import {MessageList} from './MessageList';
 
 export interface IChatifyStateProps {
     channelIds: Immutable.List<Uuid>;
@@ -33,13 +33,13 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
                             <Title/>
                         </div>
                         <div className="container">
-                            {/*<MessageList*/}
-                                {/*messageIdsList={this.props.messageIdsList}*/}
-                                {/*onSendMessage={this.props.onSendMessage}/>*/}
+                            <MessageList
+                                messageIdsList={this.props.messageIdsList}
+                                onSendMessage={this.props.onSendMessage}/>
                         </div>
-                        <div className="container">
-                            <SendForm/>
-                        </div>
+                        {/*<div className="container">*/}
+                            {/*<SendForm/>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
