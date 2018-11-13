@@ -7,6 +7,8 @@ body, html {
     border: 0;
 }
 
-main {
+#app-root {
+    display: flex;
+    flex-flow: column;
     height: 100%;
 }
