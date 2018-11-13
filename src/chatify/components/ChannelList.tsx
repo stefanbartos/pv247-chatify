@@ -23,44 +23,44 @@ export class ChannelList extends React.PureComponent<IProps, IState> {
 
     private onAddChannel = () => {
         this.props.onChannelAdd(this.state.name);
-        this.setState(_ => ({name : ''}));
+        this.setState(_ => ({name: ''}));
     };
 
     private onValueChanged = (event: any) => {
-        const { value } = event.currentTarget;
+        const {value} = event.currentTarget;
         console.log(value);
-        this.setState(() => ({ name: value }));
+        this.setState(() => ({name: value}));
     };
 
 
     render() {
         return (
-          <nav className="sidebar-nav">
-            <div className="sidebar-header">
-              Channels
-            </div>
-            <ul className="nav flex-column">
-                {this.props.channelsIds.map((id: Uuid, index: number) => (
-                    <ChannelItemContainer
-                        key={index}
-                        id={id}
-                        index={index + 1}
+            <nav className="sidebar-nav">
+                <div className="sidebar-header">
+                    Channels
+                </div>
+                <ul className="nav flex-column">
+                    {this.props.channelsIds.map((id: Uuid, index: number) => (
+                        <ChannelItemContainer
+                            key={index}
+                            id={id}
+                            index={index + 1}
+                        />
+                    ))
+                    }
+                </ul>
+                <div id="bottom">
+                    <button type="button" className="btn btn-info" onClick={this.onAddChannel}>
+                        Add channel
+                    </button>
+                    <input
+                        type="text"
+                        value={this.state.name}
+                        onChange={this.onValueChanged}
+                        placeholder="Channel name..."
                     />
-                ))
-                }
-            </ul>
-            <div id="bottom">
-                <button type="button" className="btn btn-info" onClick={this.onAddChannel}>
-                    Add channel
-                </button>
-                <input
-                    type="text"
-                    value={this.state.name}
-                    onChange={this.onValueChanged}
-                    placeholder="Channel name..."
-                />
-            </div>
-          </nav>
+                </div>
+            </nav>
         );
     }
 }
