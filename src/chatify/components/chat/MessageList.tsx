@@ -15,6 +15,10 @@ interface IState {
 export class MessageList extends React.PureComponent<MessageListProps, IState> {
     constructor (props: MessageListProps) {
         super(props);
+
+        this.state = {
+            text : ''
+        };
     }
 
     // chatMessages = [
@@ -62,7 +66,7 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
                     key={index}
                     id={id}
                     index={index + 1}
-                    />
+                     />
                 ))
                 }
             </ul>

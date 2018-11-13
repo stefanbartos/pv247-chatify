@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {SendForm} from './SendForm';
-// import {MessageList} from './MessageList';
 import {Title} from './Title';
 import * as Immutable from 'immutable';
 
 import '../../css/chat.css';
 import {ChannelList} from '../ChannelList';
+// import {MessageList} from './MessageList';
 
 export interface IChatifyStateProps {
     channelIds: Immutable.List<Uuid>;
@@ -14,6 +14,7 @@ export interface IChatifyStateProps {
 
 export interface IChatifyDispatchProps  {
     readonly onChannelAdd: (text: string) => void;
+    readonly onSendMessage: (text: string) => void;
 }
 
 export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDispatchProps > {
@@ -33,7 +34,8 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
                         </div>
                         <div className="container">
                             {/*<MessageList*/}
-                                {/*messageIdsList={this.props.messageIdsList}/>*/}
+                                {/*messageIdsList={this.props.messageIdsList}*/}
+                                {/*onSendMessage={this.props.onSendMessage}/>*/}
                         </div>
                         <div className="container">
                             <SendForm/>
