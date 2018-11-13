@@ -24,6 +24,14 @@ export class Message extends React.PureComponent<IProps, any> {
         return (
 
             <li key={index} className="nav-item">
+                <div className="media">
+                        <span className="media-left">
+                            <img src={message.messageAuthorImage} className="img-circle" width="25" height="25"/>
+                        </span>
+                    <span className="media-body">
+                            <div key={message.messageAuthor}> {message.messageAuthor}</div>
+                        </span>
+                </div>
                 <div>{message.chatMessageText}</div>
             </li>
         );

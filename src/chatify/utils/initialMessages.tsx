@@ -17,7 +17,7 @@ export const getInitialMessages = (): Immutable.List<IChatMessage> =>  Immutable
     },
     {
         messageAuthor: 'Blue Smiley',
-        messageAuthorImage: 'http://pngimg.com/uploads/smiley/smiley_PNG36233.png',
+        messageAuthorImage: 'http://pngimg.com/uploads/smiley/smiley_PNG36229.png',
         id: uuid(),
         chatMessageText: 'This conversation is going nowhere',
     }
