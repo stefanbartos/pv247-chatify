@@ -7,4 +7,3 @@ export const chatify = (prevState = {} as IChatify, action: Action): IChatify =>
     messageList: messages(prevState.messageList, action),
     activeChannel: ''
 });
-
