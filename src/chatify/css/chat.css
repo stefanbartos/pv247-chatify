@@ -1,5 +1,12 @@
+body, html {
+    height: 100%;
+}
+
 .profile-picture {
     height: 50px;
     border: 0;
 }
 
+main {
+    height: 100%;
+}

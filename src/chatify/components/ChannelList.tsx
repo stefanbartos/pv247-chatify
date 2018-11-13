@@ -1,6 +1,7 @@
 import * as Immutable from 'immutable';
 import * as React from 'react';
 import {ChannelItemContainer} from '../containers/ChannelItem';
+import '../css/sidebar.css';
 
 interface IProps {
     readonly onChannelAdd: (name: string) => void;
@@ -38,7 +39,7 @@ export class ChannelList extends React.PureComponent<IProps, IState> {
             <div className="sidebar-header">
               Channels
             </div>
-            <ul className="nav">
+            <ul className="nav flex-column">
                 {this.props.channelsIds.map((id: Uuid, index: number) => (
                     <ChannelItemContainer
                         key={index}

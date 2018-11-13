@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as profilePicture from './profile-picture.png';
+import '../../css/chat.css';
 
 export class ProfilePicture extends React.PureComponent<any, any> {
     constructor(props: any) {
@@ -21,16 +22,18 @@ export class ProfilePicture extends React.PureComponent<any, any> {
     }
 
     render() {
-        const menuClass = `dropdown-menu${this.state.isExpanded ? ' show' : ''} col`;
+        const showAttr = this.state.isExpanded ? 'show' : '';
+        const menuClass = `dropdown-menu ${showAttr}`;
+        const navDropdownClass = `nav-item dropdown ${showAttr}`;
         return (
-            <div className="dropdown" onClick={this.toggleDropdown}>
+            <li className={navDropdownClass} onClick={this.toggleDropdown}>
                 <img className="profile-picture img-circle"
-                     src={profilePicture} />
-                <ul className={menuClass} aria-labelledby="dropdownMenuButton">
-                    <li className="dropdown-item"><a>Profile</a></li>
-                    <li className="dropdown-item"><a>Logout</a></li>
-                </ul>
-            </div>
+                     src={profilePicture} aria-expanded={this.state.isExpanded} />
+                <div className={menuClass} aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item">Profile</a>
+                    <a className="dropdown-item">Logout</a>
+                </div>
+            </li>
         );
     }
 }

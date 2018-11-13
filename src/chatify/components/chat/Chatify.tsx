@@ -3,7 +3,6 @@ import {SendForm} from './SendForm';
 import {Title} from './Title';
 import * as Immutable from 'immutable';
 
-import '../../css/chat.css';
 import {ChannelList} from '../ChannelList';
 // import {MessageList} from './MessageList';
 
@@ -22,7 +21,7 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
         return (
             <div id="container-fluid">
                 <div className="row">
-                    <div id="sidebar" className="col-md-2">
+                    <div id="sidebar" className="col-md-3">
                         <ChannelList
                             channelsIds={this.props.channelIds}
                             onChannelAdd={this.props.onChannelAdd}

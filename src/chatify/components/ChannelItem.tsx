@@ -22,7 +22,9 @@ export class ChannelItem extends React.PureComponent<IProps, any> {
 
         return (
             <li key={index} className="nav-item">
-                <div>{channel.name}</div>
+                <a className="nav-link" href="#">
+                    {channel.name}
+                </a>
             </li>
         );
     }
