@@ -28,7 +28,7 @@ export class ChannelList extends React.PureComponent<IProps, IState> {
     private onValueChanged = (event: any) => {
         const { value } = event.currentTarget;
         console.log(value);
-        this.setState(_ => ({ value }));
+        this.setState(() => ({ name: value }));
     };
 
 
@@ -49,7 +49,7 @@ export class ChannelList extends React.PureComponent<IProps, IState> {
                 }
             </ul>
             <div id="bottom">
-                <button type="button" className="btn btn-info" onSubmit={this.onAddChannel}>
+                <button type="button" className="btn btn-info" onClick={this.onAddChannel}>
                     Add channel
                 </button>
                 <input
