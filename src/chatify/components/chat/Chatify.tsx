@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SendForm} from './SendForm';
-import {MessageList} from './MessageList';
+// import {MessageList} from './MessageList';
 import {Title} from './Title';
 import * as Immutable from 'immutable';
 
@@ -32,8 +32,8 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
                             <Title/>
                         </div>
                         <div className="container">
-                            <MessageList
-                                messageIdsList={this.props.messageIdsList}/>
+                            {/*<MessageList*/}
+                                {/*messageIdsList={this.props.messageIdsList}/>*/}
                         </div>
                         <div className="container">
                             <SendForm/>

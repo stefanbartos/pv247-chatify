@@ -8,7 +8,7 @@ import {sendChatMessage} from '../actions/sendChatMessage';
 const mapStateToProps = (state: IState, props: MessageProps) => {
     return {
         message: state.chatify.messageList.find(
-            (i: IChatMessage) => i.chatMessagePanel.messageId === props.chatMessagePanel.messageId)
+            (i: IChatMessage) => i.id === props.chatMessagePanel.messageId)
     };
 };
 

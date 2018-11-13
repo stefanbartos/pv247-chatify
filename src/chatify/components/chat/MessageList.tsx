@@ -1,11 +1,21 @@
 import * as React from 'react';
 import * as Immutable from 'immutable';
+import {MessageCon} from '../../containers/MessageCon';
+// import {Message} from "./Message";
 
 interface MessageListProps {
+    onSendMessage: (text: string) => void;
     messageIdsList: Immutable.List<Uuid>;
 }
 
-export class MessageList extends React.PureComponent<MessageListProps> {
+interface IState {
+    text: string;
+}
+
+export class MessageList extends React.PureComponent<MessageListProps, IState> {
+    constructor (props: MessageListProps) {
+        super(props);
+    }
 
     // chatMessages = [
     //     {
@@ -33,20 +43,42 @@ export class MessageList extends React.PureComponent<MessageListProps> {
     //     },
     // ];
 
-    // displaySingleChatMessage = (chatMessagePanel: IChatMessagePanel, chatMessageContent: IChatMessageContent) =>
-        // (
-            // <li key={chatMessagePanel.messageId}>
-            //   <Message chatMessagePanel={chatMessagePanel} chatMessageContent={chatMessageContent}/>
-            // </li>
-       // );
+    private onSendMessage = () => {
+        this.props.onSendMessage(this.state.text);
+        this.setState(_ => ({text: ''}));
+    };
+
+    private onValueChanged = (event: any) => {
+        const { value } = event.currnetTarget;
+        this.setState(() => ({ text: value}));
+    };
 
     public render() {
         return (
-            // may be undefined, keep patched for now
-            // <ul>
-            //    {this.props.me}
-            // </ul>
-            <div>Test</div>
+            <div>
+            <ul className="nav">
+                {this.props.messageIdsList.map((id: Uuid, index: number) => (
+                <MessageCon
+                    key={index}
+                    id={id}
+                    index={index + 1}
+                    />
+                ))
+                }
+            </ul>
+            <div className="row">
+                <div className="input-group">
+                    <span className="input-group-btn">
+                        <button className="btn btn-info btn-block" type="button" onClick={this.onSendMessage}>Send</button>
+                        <input
+                            type="text"
+                            value={this.state.text}
+                            onChange={this.onValueChanged}
+                            placeholder="Enter your message..."/>
+                    </span>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
