@@ -3,15 +3,25 @@ import { IChatMessagePanel } from '../../models/IChatMessagePanel';
 import { IChatMessageContent } from '../../models/IChatMessageContent';
 import { MessageContent} from './MessageContent';
 import {MessagePanel} from './MessagePanel';
+import {IChatMessage} from '../../models/IChatMessage';
 
-
-interface MessageProps {
+export interface MessageProps {
     readonly chatMessagePanel: IChatMessagePanel;
     readonly chatMessageContent: IChatMessageContent;
-
 }
 
-export class Message extends React.PureComponent<MessageProps, {}> {
+export interface IMessageStateProps {
+    readonly message: IChatMessage;
+}
+
+export interface IMessageDispatchProps {
+    readonly onClick: () => void;
+}
+
+type IProps = MessageProps & IMessageStateProps & IMessageDispatchProps;
+
+
+export class Message extends React.PureComponent<IProps, any> {
     public render() {
         return (
             <div className="chat-message-box">

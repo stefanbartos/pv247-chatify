@@ -9,6 +9,7 @@ import {ChannelList} from '../ChannelList';
 
 export interface IChatifyStateProps {
     channelIds: Immutable.List<Uuid>;
+    messageIdsList: Immutable.List<Uuid>;
 }
 
 export interface IChatifyDispatchProps  {
