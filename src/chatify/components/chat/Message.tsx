@@ -27,15 +27,18 @@ export class Message extends React.PureComponent<IProps, any> {
                     <span className="media-left">
                         <img src={message.messageAuthorImage} className="img-circle" width="25" height="25"/>
                     </span>
-                    <span className="media-body">
-                            <div key={message.messageAuthor}> {message.messageAuthor}</div>
+                    <span className="media-right">
+                        <div key={message.messageAuthor}> {message.messageAuthor}</div>
                     </span>
                 </div>
-                <div>{message.chatMessageText}</div>
-                <div>
-                <button className="btn btn-default btn-sm" type="button">Upvote</button>
-                <button className="btn btn-default btn-sm" type="button">Downvote</button>
-                <button className="btn btn-default btn-danger" type="button">Delete</button>
+                <div className="row">
+                    <div className="col-md-6">{message.chatMessageText}</div>
+                    <div className="col-md-1" key={message.messageUpvotes}> {message.messageUpvotes}</div>
+                    <div className="col-md-4">
+                        <button className="btn btn-default btn-sm" type="button">Upvote</button>
+                        <button className="btn btn-default btn-sm" type="button">Downvote</button>
+                        <button className="btn btn-default btn-danger" type="button">Delete</button>
+                    </div>
                 </div>
             </li>
         );
