@@ -3,5 +3,5 @@ export interface IChatMessage {
     messageAuthorImage: string;
     id: Uuid;
     chatMessageText: string;
-
+    messageUpvotes: number;
 }
