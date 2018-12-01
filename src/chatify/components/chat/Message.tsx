@@ -22,7 +22,6 @@ export class Message extends React.PureComponent<IProps, any> {
         const {index, message} = this.props;
 
         return (
-
             <li key={index} className="nav-item">
                 <div className="media">
                     <span className="media-left">
@@ -30,9 +29,14 @@ export class Message extends React.PureComponent<IProps, any> {
                     </span>
                     <span className="media-body">
                             <div key={message.messageAuthor}> {message.messageAuthor}</div>
-                        </span>
+                    </span>
                 </div>
                 <div>{message.chatMessageText}</div>
+                <div>
+                <button className="btn btn-default btn-sm" type="button">Upvote</button>
+                <button className="btn btn-default btn-sm" type="button">Downvote</button>
+                <button className="btn btn-default btn-danger" type="button">Delete</button>
+                </div>
             </li>
         );
     }
