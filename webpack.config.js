@@ -40,7 +40,8 @@ module.exports = {
           { loader: 'css-loader' }
         ],
       },
-      { test: /\.css$/,
+      {
+        test: /\.css$/,
         exclude: [
           path.resolve(__dirname, './node_modules')
         ],
@@ -49,7 +50,8 @@ module.exports = {
           { loader: "css-loader" }
         ]
       },
-      { test: /\.less$/,
+      {
+        test: /\.less$/,
         exclude: [
           path.resolve(__dirname, './node_modules')
         ],
@@ -82,6 +84,7 @@ module.exports = {
   devtool: mode === 'development' ? 'eval-source-map' : null,
   devServer: {
     contentBase: path.resolve(__dirname, './build'),
+    historyApiFallback: true,
     port: 3000,
     open: true,
   }

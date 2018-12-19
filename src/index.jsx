@@ -8,10 +8,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import {App} from './App.tsx';
-
-// import {Chatify} from './components/chat/Chatify.tsxtsx';
-
+import { App } from './App.tsx';
 
 ReactDOM.render(<App />, document.getElementById('app-root'));
-// ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app-root'));

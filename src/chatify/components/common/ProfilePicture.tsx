@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as profilePicture from './profile-picture.png';
 import '../../css/chat.css';
+import { Link } from 'react-router-dom';
 
 export class ProfilePicture extends React.PureComponent<any, any> {
     constructor(props: any) {
@@ -28,9 +29,9 @@ export class ProfilePicture extends React.PureComponent<any, any> {
         return (
             <li className={navDropdownClass} onClick={this.toggleDropdown}>
                 <img className="profile-picture img-circle"
-                     src={profilePicture} aria-expanded={this.state.isExpanded} />
+                    src={profilePicture} aria-expanded={this.state.isExpanded} />
                 <div className={menuClass} aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item">Profile</a>
+                    <Link to="/Profile" className="dropdown-item">Profile</Link>
                     <a className="dropdown-item">Logout</a>
                 </div>
             </li>

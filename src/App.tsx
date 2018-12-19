@@ -1,13 +1,20 @@
 import * as React from 'react';
-import * as Const from './chatify/constants/appConstants';
-import {Login} from './chatify/components/login/Login';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import {getInitialChannels} from './chatify/utils/initialChannels';
-import {rootReducer} from './common/rootReducer';
-import {Navigation} from './common/components/Navigation';
-import {getInitialMessages} from './chatify/utils/initialMessages';
-import {ChatifyContainer} from './chatify/containers/Chatify';
+import { Login } from './chatify/components/login/Login';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { getInitialChannels } from './chatify/utils/initialChannels';
+import { rootReducer } from './common/rootReducer';
+import { Navigation } from './common/components/Navigation';
+import { getInitialMessages } from './chatify/utils/initialMessages';
+import { ChatifyContainer } from './chatify/containers/Chatify';
+import thunkMiddleware from 'redux-thunk';
+import {
+    BrowserRouter,
+    Route,
+    Switch
+} from 'react-router-dom';
+import { NotFound } from './common/components/NotFound';
+import { Profile } from './chatify/components/Profile';
 
 interface Props {
 
@@ -24,41 +31,28 @@ const initialState = {
     }
 };
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(rootReducer, initialState, applyMiddleware(thunkMiddleware));
 
 export class App extends React.PureComponent<Props, AppState> {
-    constructor(props: any) {
-        super(props);
-
-        this.state = {
-            displayForm: Const.LOGIN
-        };
-    }
-
-    renderForm = (State: String) => {
-        if (State === Const.LOGIN) {
-            return <Login eventHandler={this.eventHandler}/>;
-        }
+    render() {
         return (
             <Provider store={store}>
-                <>
-                    <Navigation/>
-                    <main>
-                        <ChatifyContainer/>
-                    </main>
-                </>
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" render={() => (
+                            <>
+                                <Navigation />
+                                <main>
+                                    <ChatifyContainer />
+                                </main>
+                            </>
+                        )} />
+                        <Route path="/Login" component={Login} />
+                        <Route path="/Profile" component={Profile} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </BrowserRouter>
             </Provider>
         );
-    };
-
-    eventHandler = (displayForm: String) => {
-        this.setState(() => {
-            return {displayForm};
-        });
-    };
-
-    public render() {
-        console.log(store);
-        return this.renderForm(this.state.displayForm);
     }
 }

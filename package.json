@@ -24,7 +24,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "why-did-you-update": "^1.0.6"
   },
   "devDependencies": {
     "@types/jest": "^23.1.5",
