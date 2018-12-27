@@ -7,7 +7,7 @@ export const userRepository = {
 export const loginApiAsync = async (email: string): Promise<IUser> => {
     return new Promise(async (resolve, reject) => {
         const requestOptions = {
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json-patch+json' },
             body: JSON.stringify({ email })
         };
