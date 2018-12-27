@@ -1,30 +1,95 @@
 import * as React from 'react';
-import * as Const from '../../constants/appConstants';
+import { Link } from 'react-router-dom';
 
-interface Props {
-    eventHandler: any;
+export interface ILoginProps {
+    onLogin(email: string): void;
 }
 
-interface State {
-
+interface ILoginState {
+    email: string;
+    password: string;
+    submitted: boolean;
 }
 
-export class Login extends React.PureComponent<Props, State> {
+export class Login extends React.PureComponent<ILoginProps, ILoginState> {
+    constructor(props: ILoginProps) {
+        super(props);
+
+        this.state = {
+            email: '',
+            password: '',
+            submitted: false
+        };
+    }
+    // readonly state = {
+    //     email: '',
+    //     password: '',
+    //     submitted: false
+    // };
+
+    private onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (!this.state.email) {
+            return;
+        }
+        this.props.onLogin(this.state.email);
+
+        this.setState(() => ({
+            submitted: true
+        }));
+    };
+
+    private handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const input = e.target.value;
+        this.setState(() => ({
+            password: input
+        }));
+    };
+
+    public handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        // 'e.target.value' must be assigned to variable
+        // see: https://www.duncanleung.com/blog/2017-08-14-fixing-react-warnings-synthetic-events-in-setstate/
+        const input = e.target.value;
+        this.setState(() => ({
+            email: input
+        }));
+    };
+
     public render() {
+        const { email, password, submitted } = this.state;
         return (
-            <div className="container">
-                <form className="form-login">
-                    <h2 className="form-login-heading">Please log in</h2>
-                    <label htmlFor="inputEmail" className="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus/>
-                    <label htmlFor="inputPassword" className="sr-only">Password</label>
-                    <input type="password" id="inputPassword" className="form-control" placeholder="Password" required/>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value="remember-me"/> Remember me</label>
+            <div className="col-md-6 offset-md-3">
+                <h2>Login</h2>
+                <form className="form-login" onSubmit={this.onSubmit}>
+                    <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="email"
+                            value={email}
+                            onChange={this.handleEmailChange} />
+                        {submitted && !email &&
+                            <div className="help-block">Email is required</div>
+                        }
                     </div>
-                    <a href="#" onClick={() => this.props.eventHandler(Const.CHAT)}>
-                        <button className="btn btn-lg btn-info btn-block" type="submit">Log in</button>
-                    </a>
+                    <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name="password"
+                            value={password}
+                            onChange={this.handlePasswordChange} />
+                        {submitted && !password &&
+                            <div className="help-block">Password is required</div>
+                        }
+                    </div>
+                    <div className="form-group">
+                        <button className="btn btn-primary">Login</button>
+                        <Link to="/register" className="btn btn-link">Register</Link>
+                    </div>
                 </form>
             </div>
         );
