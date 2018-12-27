@@ -9,4 +9,4 @@ const mapDispatchToProps = (dispatch: Dispatch): ILoginProps => {
   };
 };
 
-export const LoginContainer = connect(null, mapDispatchToProps)(Login);
+export const LoginContainer = connect<ILoginProps>(null, mapDispatchToProps)(Login);
