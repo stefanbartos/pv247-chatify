@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import * as PropTypes from 'prop-types';
 
 export interface ILoginProps {
     onLogin(email: string): void;
@@ -12,20 +13,17 @@ interface ILoginState {
 }
 
 export class Login extends React.PureComponent<ILoginProps, ILoginState> {
-    constructor(props: ILoginProps) {
-        super(props);
+    static displayName = 'Login';
 
-        this.state = {
-            email: '',
-            password: '',
-            submitted: false
-        };
-    }
-    // readonly state = {
-    //     email: '',
-    //     password: '',
-    //     submitted: false
-    // };
+    static propTypes = {
+        onLogin: PropTypes.func.isRequired
+    };
+
+    readonly state = {
+        email: '',
+        password: '',
+        submitted: false
+    };
 
     private onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -89,6 +87,9 @@ export class Login extends React.PureComponent<ILoginProps, ILoginState> {
                     <div className="form-group">
                         <button className="btn btn-primary">Login</button>
                         <Link to="/register" className="btn btn-link">Register</Link>
+                    </div>
+                    <div>
+                        
                     </div>
                 </form>
             </div>
