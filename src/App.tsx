@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Login } from './chatify/components/login/Login';
 import { Provider } from 'react-redux';
 import { Navigation } from './common/components/Navigation';
 import { ChatifyContainer } from './chatify/containers/Chatify';
@@ -11,6 +10,7 @@ import {
 import { NotFound } from './common/components/NotFound';
 import { Profile } from './chatify/components/Profile';
 import { store } from './store';
+import { LoginContainer } from './chatify/containers/LoginContainer';
 
 interface Props {
 
@@ -34,7 +34,7 @@ export class App extends React.PureComponent<Props, AppState> {
                                 </main>
                             </>
                         )} />
-                        <Route path="/Login" component={Login} />
+                        <Route path="/Login" component={LoginContainer} />
                         <Route path="/Profile" component={Profile} />
                         <Route component={NotFound} />
                     </Switch>
