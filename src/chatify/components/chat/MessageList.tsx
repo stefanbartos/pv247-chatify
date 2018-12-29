@@ -32,9 +32,10 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
     };
 
     public render() {
+        // @ts-ignore
         return (
             <div>
-            <ul className="text-body">
+            <ul className="message-list">
                 {this.props.messageIdsList.map((id: Uuid, index: number) => (
                 <MessageCon
                     key={index}

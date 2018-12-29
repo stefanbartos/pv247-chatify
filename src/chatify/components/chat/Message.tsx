@@ -4,6 +4,7 @@ import {IChatMessage} from '../../models/IChatMessage';
 export interface MessageProps {
     readonly id: Uuid;
     readonly index: number;
+    readonly likes: number;
 }
 
 export interface IMessageStateProps {
@@ -35,8 +36,12 @@ export class Message extends React.PureComponent<IProps, any> {
                     <div className="col-md-6">{message.chatMessageText}</div>
                     <div className="col-md-1" key={message.messageUpvotes}> {message.messageUpvotes}</div>
                     <div className="col-md-4">
-                        <button className="btn btn-default btn-sm" type="button">Upvote</button>
-                        <button className="btn btn-default btn-sm" type="button">Downvote</button>
+                        <button type="button" className="btn btn-default btn-sm">
+                            <span className="glyphicon glyphicon-thumbs-up">Like </span>
+                        </button>
+                        <button type="button" className="btn btn-default btn-sm">
+                            <span className="glyphicon glyphicon-thumbs-down">Dislike </span>
+                        </button>
                         <button className="btn btn-default btn-danger" type="button">Delete</button>
                     </div>
                 </div>
