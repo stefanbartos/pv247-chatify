@@ -1,4 +1,4 @@
-import { API_URL } from './helpers/AppConfig';
+import { API_AUTH_URL } from '../chatify/constants/api';
 import { IUser } from '../chatify/models/IUser';
 export const userRepository = {
     login
@@ -12,7 +12,7 @@ export const loginApiAsync = async (email: string): Promise<IUser> => {
             body: JSON.stringify({ email })
         };
         try {
-            const response = await fetch(`${API_URL}/auth`, requestOptions);
+            const response = await fetch(API_AUTH_URL, requestOptions);
             if (response.ok) {
                 const json = await response.json();
                 resolve({ email, token: json.token, expiration: json.expiration });
@@ -32,7 +32,7 @@ function login(email: string): any {
         body: JSON.stringify({ email })
     };
 
-    return fetch(`${API_URL}/auth`, requestOptions)
+    return fetch(API_AUTH_URL, requestOptions)
         .then(handleResponse)
         .then(response => {
             if (response.token) {
