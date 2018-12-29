@@ -12,6 +12,7 @@ import { Profile } from './chatify/components/Profile';
 import { store } from './store';
 import { LoginContainer } from './chatify/containers/LoginContainer';
 import { PrivateRoute } from './common/components/PrivateRoute';
+import { RegisterContainer } from './chatify/containers/RegisterContainer';
 
 interface Props {
 
@@ -36,6 +37,7 @@ export class App extends React.PureComponent<Props, AppState> {
                             </>
                         )} />
                         <Route path="/Login" component={LoginContainer} />
+                        <Route path="/Register" component={RegisterContainer} />
                         <PrivateRoute path="/Profile" component={Profile} />
                         <Route component={NotFound} />
                     </Switch>
