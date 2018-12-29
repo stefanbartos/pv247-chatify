@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import * as routes from '../../constants/routes';
 
 interface IRegisterState {
     email: string;
@@ -35,7 +36,7 @@ export class Register extends React.PureComponent<any, IRegisterState> {
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
-                        Already registered? <Link to="/login" className="btn btn-link">Login</Link>
+                        Already registered? <Link to={routes.LOGIN} className="btn btn-link">Login</Link>
                     </div>
                 </form>
             </div>

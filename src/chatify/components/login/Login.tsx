@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
+import * as routes from '../../constants/routes';
 
 export interface ILoginProps {
     onLogin(email: string): void;
@@ -86,10 +87,7 @@ export class Login extends React.PureComponent<ILoginProps, ILoginState> {
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">Login</button>
-                        <Link to="/register" className="btn btn-link">Register</Link>
-                    </div>
-                    <div>
-                        
+                        <Link to={routes.REGISTER} className="btn btn-link">Register</Link>
                     </div>
                 </form>
             </div>
