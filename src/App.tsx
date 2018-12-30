@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { NotFound } from './common/components/NotFound';
 import { Profile } from './chatify/components/profile/Profile';
-import { store } from './store';
+import { createChatifyStore } from './createChatifyStore';
 import { LoginContainer } from './chatify/containers/LoginContainer';
 import { PrivateRoute } from './common/components/PrivateRoute';
 import { RegisterContainer } from './chatify/containers/RegisterContainer';
@@ -22,6 +22,8 @@ interface Props {
 interface AppState {
     displayForm: String;
 }
+
+const store = createChatifyStore();
 
 export class App extends React.PureComponent<Props, AppState> {
     render() {
