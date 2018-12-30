@@ -1,4 +1,4 @@
-import {IChatify} from '../chatify/models/IChatify';
+import { IChatify } from '../chatify/models/IChatify';
 
 export interface IState {
     chatify: IChatify;
