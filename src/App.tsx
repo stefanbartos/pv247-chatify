@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import { Navigation } from './common/components/Navigation';
-import { ChatifyContainer } from './chatify/containers/Chatify';
+import { ChatifyContainer } from './chatify/containers/ChatifyContainer';
 import {
     BrowserRouter,
     Route,

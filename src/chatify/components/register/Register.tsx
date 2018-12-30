@@ -11,6 +11,13 @@ export class Register extends React.PureComponent<any, IRegisterState> {
         email: ''
     };
 
+    private handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const { value } = e.target;
+        this.setState(() => ({
+            email: value
+        }));
+    }
+
     private onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -32,6 +39,7 @@ export class Register extends React.PureComponent<any, IRegisterState> {
                             className="form-control"
                             name="email"
                             value={email}
+                            onChange={this.handleEmailChange}
                         />
                     </div>
                     <div className="form-group">

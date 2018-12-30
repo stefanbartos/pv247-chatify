@@ -1,9 +1,16 @@
-import {IChatify} from '../models/IChatify';
-import {channels} from './channels';
-import {messages} from './messages';
+import { isLoggingIn } from './isLogginIn';
+import { IChatify } from '../models/IChatify';
+import { channels } from './channels';
+import { messages } from './messages';
+import { token } from './token';
+import { isLoggedIn } from './isLoggedIn';
 
 export const chatify = (prevState = {} as IChatify, action: Action): IChatify => ({
     channels: channels(prevState.channels, action),
     messageList: messages(prevState.messageList, action),
-    activeChannel: ''
+    activeChannel: '',
+    isLoggingIn: isLoggingIn(prevState.isLoggingIn, action),
+    isLoggedIn: isLoggedIn(prevState.isLoggedIn, action),
+    token: token(prevState.token, action),
+    user: null
 });

@@ -4,17 +4,16 @@ import {
     CHATIFY_USER_LOGIN_FAILURE
 } from '../constants/actionTypes';
 
-export const users = (prevState: any, action: Action): any => {
+export const isLoggingIn = (prevState: boolean, action: Action): boolean => {
     switch (action.type) {
         case CHATIFY_USER_LOGIN_STARTED: {
-            return prevState;
+            return true;
         }
-        case CHATIFY_USER_LOGIN_SUCCESS: {
-            return prevState;
-        }
+        case CHATIFY_USER_LOGIN_SUCCESS:
         case CHATIFY_USER_LOGIN_FAILURE: {
-            return prevState;
+            return false;
         }
+
         default:
             return prevState;
     }

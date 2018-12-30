@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Login, ILoginProps } from '../components/login/Login';
-import { loginUser } from '../actions/loginUser';
+import { loginUser } from '../actions/authentication/loginUser';
 
 const mapDispatchToProps = (dispatch: Dispatch): ILoginProps => {
   return {
