@@ -1,7 +1,7 @@
-import {CHATIFY_MESSAGE_UPVOTE} from '../constants/actionTypes';
+import {CHATIFY_MESSAGE_UPVOTE_STARTED} from '../constants/actionTypes';
 
 export const updateChatMessage = (id: Uuid): Action => ({
-    type: CHATIFY_MESSAGE_UPVOTE,
+    type: CHATIFY_MESSAGE_UPVOTE_STARTED,
     payload: {
         id,
     }

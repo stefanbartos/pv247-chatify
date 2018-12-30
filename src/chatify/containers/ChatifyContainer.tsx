@@ -8,7 +8,7 @@ import {
 } from '../components/chat/Chatify';
 import {IChannelItem} from '../models/IChannelItem';
 import {Dispatch} from 'redux';
-import {sendChatMessage} from '../actions/sendChatMessage';
+import {sendChatMessage} from '../actions/sendChatMessageSuccess';
 import {IChatMessage} from '../models/IChatMessage';
 
 const mapStateToProps = (state: IState): IChatifyStateProps => {
@@ -21,7 +21,7 @@ const mapStateToProps = (state: IState): IChatifyStateProps => {
 const mapDispatchToProps = (dispatch: Dispatch): IChatifyDispatchProps => {
     return {
         onChannelAdd: (text: string) => dispatch(createChannel(text)),
-        onSendMessage: (text: string) => dispatch(sendChatMessage(text))
+        onSendMessage: (channelId: Uuid, chatMessage: IChatMessage) => dispatch(sendChatMessage(channelId, chatMessage))
     };
 };
 

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import * as Immutable from 'immutable';
 import {MessageCon} from '../../containers/MessageCon';
+import {IChatMessage} from '../../models/IChatMessage';
 
 interface MessageListProps {
-    onSendMessage: (text: string) => void;
+    onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
     messageIdsList: Immutable.List<Uuid>;
+    channelId: Uuid;
 }
 
 interface IState {
@@ -21,7 +23,15 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
     }
 
     private onSendMessage = () => {
-        this.props.onSendMessage(this.state.text);
+        const chatMessage: IChatMessage = {
+            messageAuthor: 'Author',
+            messageAuthorImage: 'image',
+            id: '',
+            chatMessageText: this.state.text,
+            messageUpvotes: 0,
+        };
+
+        this.props.onSendMessage(this.props.channelId, chatMessage);
         this.setState(_ => ({text: ''}));
     };
 
