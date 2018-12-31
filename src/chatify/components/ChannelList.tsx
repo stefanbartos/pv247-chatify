@@ -1,6 +1,7 @@
 import * as Immutable from 'immutable';
 import * as React from 'react';
-import {ChannelItemContainer} from '../containers/ChannelItem';
+import * as PropTypes from 'prop-types';
+import { ChannelItemContainer } from '../containers/ChannelItem';
 import '../css/sidebar.css';
 
 interface IProps {
@@ -13,25 +14,27 @@ interface IState {
 }
 
 export class ChannelList extends React.PureComponent<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
+    static propTypes = {
+        onChannelAdd: PropTypes.func.isRequired
+    };
 
-        this.state = {
-            name: ''
-        };
-    }
+    readonly state = {
+        name: ''
+    };
 
     private onAddChannel = () => {
         this.props.onChannelAdd(this.state.name);
-        this.setState(_ => ({name: ''}));
+        this.setState(() => ({
+            name: ''
+        }));
     };
 
-    private onValueChanged = (event: any) => {
-        const {value} = event.currentTarget;
-        console.log(value);
-        this.setState(() => ({name: value}));
+    private onValueChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        this.setState(() => ({
+            name: value
+        }));
     };
-
 
     render() {
         return (
