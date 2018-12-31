@@ -26,13 +26,14 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
         const chatMessage: IChatMessage = {
             messageAuthor: 'Author',
             messageAuthorImage: 'image',
-            id: '',
+            id: '1',
             chatMessageText: this.state.text,
             messageUpvotes: 0,
         };
 
         this.props.onSendMessage(this.props.channelId, chatMessage);
-        this.setState(_ => ({text: ''}));
+        console.log(chatMessage.id);
+        this.setState(_ => ({text: chatMessage.chatMessageText}));
     };
 
     private onValueChanged = (event: any) => {

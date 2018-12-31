@@ -11,7 +11,7 @@ import {ChatMessageCustomDataModel} from '../../api/chatMessage/chatMessageCusto
 
 export const sendChatMessage = (channelId: string, chatMessage: IChatMessage): any =>
     async (dispatch: Dispatch): Promise<void> => {
-        dispatch(sendChatMessageStarted());
+        // dispatch(sendChatMessageStarted());
 
         const customData: ChatMessageCustomDataModel = {
             likes: 0

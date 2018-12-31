@@ -1,7 +1,6 @@
 import {ChatMessageCustomDataModel} from './chatMessageCustomDataModel';
 import {ChatMessageGetModel} from './chatMessageGetModel';
 import {ChatMessagePostModel} from './chatMessagePostModel';
-import { PostRequest } from '../requests/postRequest';
 import { createApiMessageUrl } from '../../chatify/constants/api';
 import {PostRequest} from '../requests/postRequest';
 
