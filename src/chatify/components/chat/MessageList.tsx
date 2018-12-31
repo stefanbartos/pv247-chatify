@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Immutable from 'immutable';
 import {MessageCon} from '../../containers/MessageCon';
 import {IChatMessage} from '../../models/IChatMessage';
+import * as PropTypes from 'prop-types';
 
 interface MessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
@@ -14,13 +15,14 @@ interface IState {
 }
 
 export class MessageList extends React.PureComponent<MessageListProps, IState> {
-    constructor (props: MessageListProps) {
-        super(props);
 
-        this.state = {
+    static propTypes = {
+        onSendMessage: PropTypes.func.isRequired
+    };
+
+    readonly state = {
             text : ''
-        };
-    }
+    };
 
     private onSendMessage = () => {
         const chatMessage: IChatMessage = {
@@ -33,13 +35,17 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
 
         this.props.onSendMessage(this.props.channelId, chatMessage);
         console.log(chatMessage.id);
-        this.setState(_ => ({text: chatMessage.chatMessageText}));
+        this.setState(() => ({
+            text: chatMessage.chatMessageText
+        }));
     };
 
-    private onValueChanged = (event: any) => {
-        const { value } = event.currentTarget;
+    private onValueChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
         console.log(value);
-        this.setState(() => ({ text: value}));
+        this.setState(() => ({
+            text: value
+        }));
     };
 
     public render() {
