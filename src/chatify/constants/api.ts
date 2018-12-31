@@ -14,3 +14,4 @@ export const createApiDownloadFileUri = (file: string) => `${API_URL}/file/${fil
 
 // MESSAGE
 export const createApiMessageUrl = (channelId: string) => `${API_BASE_APP_URL}/channel/${channelId}/message`;
+export const deleteApiMessageUrl = (channelId: string, chatMessageId: string) => `${API_BASE_APP_URL}/channel/${channelId}/message/${chatMessageId}`;
