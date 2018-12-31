@@ -15,6 +15,7 @@ export interface IChatifyStateProps {
 export interface IChatifyDispatchProps  {
     readonly onChannelAdd: (text: string) => void;
     readonly onSendMessage: (chanelId: Uuid, chatMessage: IChatMessage) => void;
+    readonly onDeleteMessage: (channelId: Uuid, chatMessageId: Uuid) => void;
 }
 
 export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDispatchProps > {

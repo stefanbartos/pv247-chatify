@@ -9,16 +9,23 @@ export interface MessageProps {
 
 export interface IMessageStateProps {
     readonly message: IChatMessage;
+    readonly channelId: Uuid;
 }
 
 export interface IMessageDispatchProps {
     readonly onClick: () => void;
+    readonly onDeleteMessage: (channelId: Uuid, chatMessageId: Uuid) => void;
 }
 
 type IProps = MessageProps & IMessageStateProps & IMessageDispatchProps;
 
 
 export class Message extends React.PureComponent<IProps, any> {
+    private onDeleteMessage = () => {
+        this.props.onDeleteMessage(this.props.channelId, this.props.message.id);
+    };
+
+
     public render() {
         const {index, message} = this.props;
 
@@ -42,7 +49,7 @@ export class Message extends React.PureComponent<IProps, any> {
                         <button type="button" className="btn btn-default btn-sm">
                             <span className="glyphicon glyphicon-thumbs-down">Dislike </span>
                         </button>
-                        <button className="btn btn-default btn-danger" type="button">Delete</button>
+                        <button className="btn btn-default btn-danger" type="button" onClick={this.onDeleteMessage}>Delete</button>
                     </div>
                 </div>
             </li>
