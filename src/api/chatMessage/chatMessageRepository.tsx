@@ -1,8 +1,8 @@
 import {ChatMessageCustomDataModel} from './chatMessageCustomDataModel';
 import {ChatMessageGetModel} from './chatMessageGetModel';
 import {ChatMessagePostModel} from './chatMessagePostModel';
-import { API_URL } from '../../chatify/constants/api';
-import { API_APP_ID } from '../../chatify/constants/api';
+import { PostRequest } from '../requests/postRequest';
+import { createApiMessageUrl } from '../../chatify/constants/api';
 import {PostRequest} from '../requests/postRequest';
 
 
@@ -12,7 +12,7 @@ export const postChatMessage = async (channelId: string, chatMessage: string, cu
         customData
     };
 
-    const response = await fetch(API_URL + 'app/' + API_APP_ID + '/channel/' + channelId + '/message', PostRequest(requestBody));
+    const response = await fetch(createApiMessageUrl(channelId), PostRequest(requestBody));
 
     if (response.status === 201) {
         return await response.json();
