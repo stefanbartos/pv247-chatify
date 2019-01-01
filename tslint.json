@@ -84,6 +84,7 @@
     "no-unsafe-finally": true,
     "no-default-export": true,
     "no-require-imports": true,
+    "no-consecutive-blank-lines": true,
     "no-void-expression": [
       true,
       "ignore-arrow-function-shorthand"
