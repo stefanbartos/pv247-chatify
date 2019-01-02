@@ -22,7 +22,6 @@ export const loginUserFailure = (err: any): Action => ({
     }
 });
 
-
 export const registerUserStarted = (): Action => ({
     type: actionTypes.CHATIFY_USER_REGISTER_STARTED
 });
@@ -34,7 +33,6 @@ export const registerUserSuccess = (): Action => ({
 export const registerUserFailure = (): Action => ({
     type: actionTypes.CHATIFY_USER_REGISTER_FAILURE
 });
-
 
 export const logoutUserSuccess = (): Action => ({
     type: actionTypes.CHATIFY_USER_LOGOUT
