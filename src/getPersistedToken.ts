@@ -11,7 +11,7 @@ const isTokenValid = () => {
         return false;
     }
     const expirationDate: Date = new Date(JSON.parse(persistedExpirationJson));
-    return expirationDate.getTime() < Date.now();
+    return expirationDate.getTime() > Date.now();
 };
 
 export const getPersistedToken = (): string | null => {
