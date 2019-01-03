@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Picture from '../../images/default-profile.png';
+import { UserDetailsContainer } from '../../containers/profile/UserDetailsContainer';
 
 export class Profile extends React.PureComponent {
     readonly state = {
@@ -28,16 +29,7 @@ export class Profile extends React.PureComponent {
                 <img src={Picture} />
                 <input type="file" onChange={this.onFileSelect} />
                 <button onClick={this.onFileUpload}>Upload</button>
-                <form className="form-profile">
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
-                            // className="form-control"
-                            name="email"
-                            readOnly />
-                    </div>
-                </form>
+                <UserDetailsContainer />
             </div>
         );
     }

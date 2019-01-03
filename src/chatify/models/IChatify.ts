@@ -2,6 +2,7 @@ import * as Immutable from 'immutable';
 import { IChannelItem } from './IChannelItem';
 import { IChatMessage } from './IChatMessage';
 import { IUser } from './IUser';
+import { IProfile } from './IProfile';
 
 export interface IChatify {
     channels: Immutable.List<IChannelItem>;
@@ -10,5 +11,5 @@ export interface IChatify {
     token: string | null;
     isLoggingIn: boolean;
     isLoggedIn: boolean;
-    user: IUser | null;
+    profile: IProfile;
 }

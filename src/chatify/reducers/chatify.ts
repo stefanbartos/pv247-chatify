@@ -1,3 +1,4 @@
+import { profile } from './profile/profile';
 import { isLoggingIn } from './isLogginIn';
 import { IChatify } from '../models/IChatify';
 import { channels } from './channels';
@@ -12,5 +13,5 @@ export const chatify = (prevState = {} as IChatify, action: Action): IChatify =>
     isLoggingIn: isLoggingIn(prevState.isLoggingIn, action),
     isLoggedIn: isLoggedIn(prevState.isLoggedIn, action),
     token: token(prevState.token, action),
-    user: null
+    profile: profile(prevState.profile, action),
 });
