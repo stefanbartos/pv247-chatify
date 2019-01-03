@@ -3,10 +3,12 @@ const API_APP_ID: Uuid = '4d274b79-c813-4eb5-8cb5-372151c63307';
 const API_BASE_APP_URL: string = `${API_URL}/app/${API_APP_ID}`;
 
 // AUTHENTICATION
-export const API_AUTH_URL = `${API_URL}/auth`;
+export const createApiAuthenticationUrl = () => `${API_URL}/auth`;
 
 // USER INFO
-export const createApiUserUri = (email: string) => `${API_URL}/${API_APP_ID}/user/${email}`;
+const API_USER_URL: string = `${API_URL}/${API_APP_ID}/user`;
+export const createUserRegistrationApiUrl = () => API_USER_URL;
+export const createApiSpecificUserUrl = (email: string) => `${API_USER_URL}/${email}`;
 
 // FILE
 export const createApiFileUri = () => `${API_URL}/file`;

@@ -1,4 +1,12 @@
 import { connect } from 'react-redux';
-import { Register } from '../components/register/Register';
+import { Register, IRegisterProps } from '../components/register/Register';
+import { Dispatch } from 'redux';
+import { registerUser } from '../actions/authentication/registerUser';
 
-export const RegisterContainer = connect(null, null)(Register);
+const mapDispatchToProps = (dispatch: Dispatch): IRegisterProps => {
+    return {
+        onRegister: (email: string) => dispatch(registerUser(email))
+    };
+};
+
+export const RegisterContainer = connect(null, mapDispatchToProps)(Register);

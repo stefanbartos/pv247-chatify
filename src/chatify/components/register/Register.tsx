@@ -2,11 +2,15 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as routes from '../../constants/routes';
 
+export interface IRegisterProps {
+    onRegister(email: string): void;
+}
+
 interface IRegisterState {
     email: string;
 }
 
-export class Register extends React.PureComponent<any, IRegisterState> {
+export class Register extends React.PureComponent<IRegisterProps, IRegisterState> {
     readonly state = {
         email: ''
     };
@@ -24,6 +28,8 @@ export class Register extends React.PureComponent<any, IRegisterState> {
         if (!this.state.email) {
             return;
         }
+
+        this.props.onRegister(this.state.email);
     }
 
     render() {
