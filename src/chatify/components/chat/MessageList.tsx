@@ -3,7 +3,7 @@ import * as Immutable from 'immutable';
 import {MessageCon} from '../../containers/MessageCon';
 import {IChatMessage} from '../../models/IChatMessage';
 import * as PropTypes from 'prop-types';
-import {Editor, EditorState} from 'draft-js';
+import {SendForm} from './SendForm';
 
 interface MessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
@@ -13,7 +13,6 @@ interface MessageListProps {
 
 interface IState {
     text: string;
-    editorState: EditorState;
 }
 
 export class MessageList extends React.PureComponent<MessageListProps, IState> {
@@ -24,7 +23,6 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
 
     readonly state = {
         text: '',
-        editorState: EditorState.createEmpty()
     };
 
     private onSendMessage = () => {
@@ -32,7 +30,7 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
             messageAuthor: 'Author',
             messageAuthorImage: 'image',
             id: '1',
-            chatMessageText: this.state.editorState.getCurrentContent().getPlainText(),
+            chatMessageText: this.state.text,
             messageUpvotes: 0,
         };
 
@@ -51,38 +49,28 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
     //     }));
     // };
 
-    onChange = (editorState: EditorState) => {
-        this.setState(() => ({
-            editorState
-        }));
-    };
-
     public render() {
         // @ts-ignore
         return (
             <div>
-            <ul className="message-list">
-                {this.props.messageIdsList.map((id: Uuid, index: number) => (
-                <MessageCon
-                    key={index}
-                    id={id}
-                    index={index + 1}
-                     />
-                ))
-                }
-            </ul>
-            <div className="row">
-                    <Editor
-                        editorState={this.state.editorState}
-                        onChange={this.onChange}
-                    />
-                    <span className="input-group-btn">
+                <ul className="message-list">
+                    {this.props.messageIdsList.map((id: Uuid, index: number) => (
+                    <MessageCon
+                        key={index}
+                        id={id}
+                        index={index + 1}
+                         />
+                    ))
+                    }
+                </ul>
+                <div className="row">
+                    <div className="col">
+                        <SendForm/>
+                    </div>
+                </div>
+                <div className="row">
+                    <span className="float-left">
                         <button className="btn btn-info" type="button" onClick={this.onSendMessage}>Send</button>
-                        {/*<input*/}
-                            {/*type="text"*/}
-                            {/*value={this.state.text}*/}
-                            {/*onChange={this.onValueChanged}*/}
-                            {/*placeholder="Enter your message..."/>*/}
                     </span>
                 </div>
             </div>

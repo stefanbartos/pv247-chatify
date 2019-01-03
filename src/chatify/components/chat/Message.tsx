@@ -19,12 +19,10 @@ export interface IMessageDispatchProps {
 
 type IProps = MessageProps & IMessageStateProps & IMessageDispatchProps;
 
-
 export class Message extends React.PureComponent<IProps, any> {
     private onDeleteMessage = () => {
         this.props.onDeleteMessage(this.props.channelId, this.props.message.id);
     };
-
 
     public render() {
         const {index, message} = this.props;
