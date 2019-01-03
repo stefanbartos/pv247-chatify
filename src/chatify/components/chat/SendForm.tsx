@@ -2,7 +2,6 @@ import * as React from 'react';
 // @ts-ignore
 import Draft, {Editor, EditorState, RichUtils} from 'draft-js';
 import EditorCommand = Draft.Component.Base.EditorCommand;
-// import createStyles from 'draft-js-custom-styles';
 
 interface SendFormProps {
 
@@ -12,8 +11,6 @@ interface SendFormState {
     editorState: EditorState;
 }
 
-// https://www.npmjs.com/package/draft-js-custom-styles
-// const { styles, customStyleFn } = createStyles(['font-size', 'color'], 'CUSTOM_');
 
 export class SendForm extends React.PureComponent<SendFormProps, SendFormState> {
 
@@ -61,14 +58,13 @@ export class SendForm extends React.PureComponent<SendFormProps, SendFormState> 
     render() {
         return (
             <div>
-              <button onClick={this.onUnderlineClick}>Underline</button>
-              <button onClick={this.onToggleCode}>Code Block</button>
-              <button onClick={this.onBoldClick}>Bold</button>
-              <button onClick={this.onItalicClick}>Italic</button>
+              <button className="editor-button" onClick={this.onUnderlineClick}>Underline</button>
+              <button className="editor-button" onClick={this.onToggleCode}>Code Block</button>
+              <button className="editor-button" onClick={this.onBoldClick}>Bold</button>
+              <button className="editor-button" onClick={this.onItalicClick}>Italic</button>
             <Editor
                 editorState={this.state.editorState}
                 onChange={this.onChange}
-                // customStyleFn={customStyleFn}
                 handleKeyCommand={this.handleKeyCommand}
                 placeholder="Write something ..."
             />
