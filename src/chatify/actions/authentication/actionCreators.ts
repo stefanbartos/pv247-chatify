@@ -7,6 +7,10 @@ export const receiveToken = (token: string): Action => ({
     }
 });
 
+export const invalidateToken = (): Action => ({
+    type: actionTypes.CHATIFY_INVALIDATE_TOKEN
+});
+
 export const loginUserStarted = (): Action => ({
     type: actionTypes.CHATIFY_USER_LOGIN_STARTED
 });
