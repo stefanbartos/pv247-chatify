@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { uploadUserDetails } from '../../actions/profile/updateProfileUserDetails';
-import { UserDetailsFormik } from '../../components/profile/UserDetails';
+import { UserDetails } from '../../components/profile/UserDetails';
 import { connect } from 'react-redux';
 import { IState } from '../../../common/IState';
 import { IUserDetails } from '../../models/IUserDetails';
@@ -23,4 +23,4 @@ const mapStateToProps = (state: IState) => {
     return userDetails ? userDetails : details;
 };
 
-export const UserDetailsContainer = connect(mapStateToProps, mapDispatchToProps)(UserDetailsFormik);
+export const UserDetailsContainer = connect(mapStateToProps, mapDispatchToProps)(UserDetails);
