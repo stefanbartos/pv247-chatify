@@ -1,7 +1,6 @@
 import * as Immutable from 'immutable';
 import { IChannelItem } from './IChannelItem';
 import { IChatMessage } from './IChatMessage';
-import { IUser } from './IUser';
 import { IProfile } from './IProfile';
 
 export interface IChatify {
