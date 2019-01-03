@@ -3,6 +3,7 @@ import * as Immutable from 'immutable';
 import {MessageCon} from '../../containers/MessageCon';
 import {IChatMessage} from '../../models/IChatMessage';
 import * as PropTypes from 'prop-types';
+import {Editor, EditorState} from 'draft-js';
 
 interface MessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
@@ -12,6 +13,7 @@ interface MessageListProps {
 
 interface IState {
     text: string;
+    editorState: EditorState;
 }
 
 export class MessageList extends React.PureComponent<MessageListProps, IState> {
@@ -21,7 +23,8 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
     };
 
     readonly state = {
-            text : ''
+        text: '',
+        editorState: EditorState.createEmpty()
     };
 
     private onSendMessage = () => {
@@ -29,7 +32,7 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
             messageAuthor: 'Author',
             messageAuthorImage: 'image',
             id: '1',
-            chatMessageText: this.state.text,
+            chatMessageText: this.state.editorState.getCurrentContent().getPlainText(),
             messageUpvotes: 0,
         };
 
@@ -40,11 +43,17 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
         }));
     };
 
-    private onValueChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        console.log(value);
+    // private onValueChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { value } = event.target;
+    //     console.log(value);
+    //     this.setState(() => ({
+    //         text: value
+    //     }));
+    // };
+
+    onChange = (editorState: EditorState) => {
         this.setState(() => ({
-            text: value
+            editorState
         }));
     };
 
@@ -63,16 +72,18 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
                 }
             </ul>
             <div className="row">
-                <div className="input-group">
+                    <Editor
+                        editorState={this.state.editorState}
+                        onChange={this.onChange}
+                    />
                     <span className="input-group-btn">
                         <button className="btn btn-info" type="button" onClick={this.onSendMessage}>Send</button>
-                        <input
-                            type="text"
-                            value={this.state.text}
-                            onChange={this.onValueChanged}
-                            placeholder="Enter your message..."/>
+                        {/*<input*/}
+                            {/*type="text"*/}
+                            {/*value={this.state.text}*/}
+                            {/*onChange={this.onValueChanged}*/}
+                            {/*placeholder="Enter your message..."/>*/}
                     </span>
-                    </div>
                 </div>
             </div>
         );
