@@ -10,7 +10,7 @@ export interface IAvatarDispatchProps {
     onAvatarUpload: (file: File) => void;
 }
 
-export class Avatar extends React.PureComponent<null, IAvatarState> {
+export class Avatar extends React.PureComponent<IAvatarDispatchProps, IAvatarState> {
     readonly state: IAvatarState = {
         isFileSelected: false
     };
@@ -31,8 +31,10 @@ export class Avatar extends React.PureComponent<null, IAvatarState> {
         }));
     }
 
-    private onFileUpload = (e: React.MouseEvent<HTMLButtonElement>): void => {
-        console.log(e);
+    private onFileUpload = (): void => {
+        if (this.state.selectedFile) {
+            this.props.onAvatarUpload(this.state.selectedFile);
+        }
     }
 
     render() {
