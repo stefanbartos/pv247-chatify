@@ -11,7 +11,7 @@ export const createUserRegistrationApiUrl = () => API_USER_URL;
 export const createApiSpecificUserUrl = (email: string) => `${API_USER_URL}/${email}`;
 
 // FILE
-export const createApiFileUri = () => `${API_URL}/file`;
+export const apiUploadFileUrl = `${API_URL}/file`;
 export const createApiDownloadFileUri = (file: string) => `${API_URL}/file/${file}/download-link`;
 
 // MESSAGE
