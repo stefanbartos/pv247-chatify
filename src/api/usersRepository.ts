@@ -1,6 +1,9 @@
-import { createApiAuthenticationUrl, createUserRegistrationApiUrl } from './../chatify/constants/api';
+import { IUserDetails } from './../chatify/models/IUserDetails';
+import { createApiAuthenticationUrl, createUserRegistrationApiUrl, createApiSpecificUserUrl } from './../chatify/constants/api';
 import { IAuthenticationResponse } from '../chatify/models/IAuthenticationResponse';
 import { IUserRegistrationResponse } from '../chatify/models/IUserRegistrationResponse';
+import { convertToServerDetails, convertFromServerUserDetails } from './utils/conversion/profileUserDetails';
+import { fetchUpdate } from './utils/fetchUpdate';
 
 export const loginApiAsync = async (email: string): Promise<IAuthenticationResponse> => {
     return new Promise(async (resolve, reject) => {
@@ -42,6 +45,22 @@ export const registerApiAsync = async (email: string): Promise<IUserRegistration
             }
         } catch (e) {
             reject(e);
+        }
+    });
+};
+
+export const uploadUserDetailsApiAsync = async (userDetails: IUserDetails, token: string) => {
+    const url = createApiSpecificUserUrl(userDetails.email);
+    const serverDetail = convertToServerDetails(userDetails);
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            console.log(serverDetail);
+            const response = await fetchUpdate(url, token, serverDetail);
+            const updatedDetails = convertFromServerUserDetails(response);
+            resolve(updatedDetails);
+        } catch (err) {
+            reject(err);
         }
     });
 };

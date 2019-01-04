@@ -1,27 +1,20 @@
 import { IUserDetails } from '../../models/IUserDetails';
 import { Dispatch } from 'redux';
-// import { IState } from '../../../common/IState';
-// import { createApiSpecificUserUrl } from '../../constants/api';
-// import { convertToServerDetails } from '../../../api/utils/conversion/profileUserDetails';
-// import { performAuthorizedRequest } from '../../../api/utils/performAuthorizedRequest';
+import { IState } from '../../../common/IState';
+import { uploadUserDetailsApiAsync } from '../../../api/usersRepository';
+import { updateProfileUserDetailsStarted, updateProfileUserDetailsFailed, updateProfileUserDetailsSuccess } from './actionCreators';
 
 export const uploadUserDetails = (userDetails: IUserDetails): any =>
-    async (dispatch: Dispatch/* , getState: () => IState */) => {
-        console.log('som tu');
-        console.log(dispatch);
-        console.log(userDetails);
+    async (dispatch: Dispatch, getState: () => IState) => {
+        dispatch(updateProfileUserDetailsStarted());
 
-        // const requestUrl: string = createApiSpecificUserUrl(userDetails.email);
-        // const token: string | null = getState().chatify.token;
-        // const serverDetails: any = convertToServerDetails(userDetails);
-
-        // try {
-        //     await performAuthorizedRequest(dispatch,
-        //         async () => {
-
-        //             return dispatch(uploadUserDetails(userDetails));
-        //         });
-        // } catch (err) {
-
-        // }
+        const token: any = getState().chatify.token;
+        try {
+            console.log(userDetails);
+            const response: any = await uploadUserDetailsApiAsync(userDetails, token);
+            dispatch(updateProfileUserDetailsSuccess(response));
+        } catch (err) {
+            console.log(`še to posralo: ${err}`);
+            dispatch(updateProfileUserDetailsFailed());
+        }
     };
