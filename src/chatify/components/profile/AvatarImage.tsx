@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Picture from '../../images/default-profile.png';
 
 interface IAvatarImageProps {
-    url: string | null;
+    url?: string;
 }
 
 const imgStyle = {
