@@ -7,7 +7,7 @@ interface IAvatarState {
 }
 
 export interface IAvatarStateProps {
-    avatarUrl?: string;
+    readonly avatarUrl?: string;
 }
 
 export interface IAvatarDispatchProps {
