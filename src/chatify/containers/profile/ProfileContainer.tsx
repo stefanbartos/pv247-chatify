@@ -1,4 +1,12 @@
 import { connect } from 'react-redux';
-import { Profile } from '../../components/profile/Profile';
+import { Profile, IProfileDispatchProps } from '../../components/profile/Profile';
+import { Dispatch } from 'redux';
+import { fetchUserProfile } from '../../actions/profile/fetchUserProfile';
 
-export const ProfileContainer = connect(null, null)(Profile);
+const mapDispatchToProps = (dispatch: Dispatch): IProfileDispatchProps => {
+    return {
+        fetchUserProfile: () => dispatch(fetchUserProfile())
+    };
+};
+
+export const ProfileContainer = connect<IProfileDispatchProps>(null, mapDispatchToProps)(Profile);

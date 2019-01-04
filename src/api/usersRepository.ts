@@ -4,6 +4,7 @@ import { IAuthenticationResponse } from '../chatify/models/IAuthenticationRespon
 import { IUserRegistrationResponse } from '../chatify/models/IUserRegistrationResponse';
 import { convertToServerDetails, convertFromServerUserDetails } from './utils/conversion/profileUserDetails';
 import { fetchUpdate } from './utils/fetchUpdate';
+import { fetchReceive } from './utils/fetchReceive';
 
 export const loginApiAsync = async (email: string): Promise<IAuthenticationResponse> => {
     return new Promise(async (resolve, reject) => {
@@ -55,10 +56,23 @@ export const uploadUserDetailsApiAsync = async (userDetails: IUserDetails, token
 
     return new Promise(async (resolve, reject) => {
         try {
-            console.log(serverDetail);
             const response = await fetchUpdate(url, token, serverDetail);
             const updatedDetails = convertFromServerUserDetails(response);
             resolve(updatedDetails);
+        } catch (err) {
+            reject(err);
+        }
+    });
+};
+
+export const getUserDetailsApiAsync = async (email: string, token: string) => {
+    const url = createApiSpecificUserUrl(email);
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            const serverDetails = await fetchReceive(url, token);
+            const receivedUserDetails = convertFromServerUserDetails(serverDetails);
+            resolve(receivedUserDetails);
         } catch (err) {
             reject(err);
         }

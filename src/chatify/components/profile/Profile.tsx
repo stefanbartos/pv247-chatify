@@ -2,7 +2,11 @@ import * as React from 'react';
 import * as Picture from '../../images/default-profile.png';
 import { UserDetailsContainer } from '../../containers/profile/UserDetailsContainer';
 
-export class Profile extends React.PureComponent {
+export interface IProfileDispatchProps {
+    fetchUserProfile: () => void;
+}
+
+export class Profile extends React.PureComponent<IProfileDispatchProps> {
     readonly state = {
         selectedFile: null
     };
@@ -22,7 +26,12 @@ export class Profile extends React.PureComponent {
         console.log(e);
     }
 
+    componentDidMount() {
+        this.props.fetchUserProfile();
+    }
+
     render() {
+        console.log(this.props.fetchUserProfile);
         return (
             <div className="profile">
                 <h2>Profile</h2>
