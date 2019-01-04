@@ -8,9 +8,9 @@ import {
 } from '../components/chat/Chatify';
 import {IChannelItem} from '../models/IChannelItem';
 import {Dispatch} from 'redux';
-import {sendChatMessage} from '../actions/sendChatMessage';
 import {IChatMessage} from '../models/IChatMessage';
 import {deleteChatMessage} from '../actions/deleteChatMessage';
+import {sendChatMessage} from '../actions/chatMessage/sendChatMessage';
 
 const mapStateToProps = (state: IState): IChatifyStateProps => {
     return {

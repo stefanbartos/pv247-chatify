@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as Immutable from 'immutable';
 import {MessageCon} from '../../containers/MessageCon';
-import {IChatMessage} from '../../models/IChatMessage';
 import * as PropTypes from 'prop-types';
-import {SendForm} from './SendForm';
+import {SendFormContainer} from './SendFormContainer';
+import {IChatMessage} from '../../models/IChatMessage';
 
 interface MessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
@@ -12,33 +12,13 @@ interface MessageListProps {
 }
 
 interface IState {
-    text: string;
+
 }
 
 export class MessageList extends React.PureComponent<MessageListProps, IState> {
 
     static propTypes = {
         onSendMessage: PropTypes.func.isRequired
-    };
-
-    readonly state = {
-        text: '',
-    };
-
-    private onSendMessage = () => {
-        const chatMessage: IChatMessage = {
-            messageAuthor: 'Author',
-            messageAuthorImage: 'image',
-            id: '1',
-            chatMessageText: this.state.text,
-            messageUpvotes: 0,
-        };
-
-        this.props.onSendMessage(this.props.channelId, chatMessage);
-        console.log(chatMessage.id);
-        this.setState(() => ({
-            text: chatMessage.chatMessageText
-        }));
     };
 
     // private onValueChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,13 +45,8 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
                 </ul>
                 <div className="row">
                     <div className="col">
-                        <SendForm/>
+                        <SendFormContainer />
                     </div>
-                </div>
-                <div className="row">
-                    <span className="float-left">
-                        <button className="btn btn-info" type="button" onClick={this.onSendMessage}>Send</button>
-                    </span>
                 </div>
             </div>
         );
