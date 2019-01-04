@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Picture from '../../images/default-profile.png';
 import { UserDetailsContainer } from '../../containers/profile/UserDetailsContainer';
+import { ClipLoader } from 'react-spinners';
 
 export interface IProfileStateProps {
     readonly isFetchingUserDetails: boolean;
@@ -35,14 +36,17 @@ export class Profile extends React.PureComponent<IProfileDispatchProps & IProfil
     }
 
     render() {
-        console.log(this.props.fetchUserProfile);
         return (
             <div className="profile">
                 <h2>Profile</h2>
                 <img src={Picture} />
                 <input type="file" onChange={this.onFileSelect} />
                 <button onClick={this.onFileUpload}>Upload</button>
-                <UserDetailsContainer />
+                <div className="container">
+                    <h2>User details</h2>
+                    {this.props.isFetchingUserDetails ? <ClipLoader /> : <UserDetailsContainer />}
+                </div>
+
             </div>
         );
     }
