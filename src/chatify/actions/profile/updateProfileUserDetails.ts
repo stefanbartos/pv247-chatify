@@ -10,7 +10,6 @@ export const uploadUserDetails = (userDetails: IUserDetails): any =>
 
         const token: any = getState().chatify.token;
         try {
-            console.log(userDetails);
             const response: any = await uploadUserDetailsApiAsync(userDetails, token);
             dispatch(updateProfileUserDetailsSuccess(response));
         } catch (err) {
