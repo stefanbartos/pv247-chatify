@@ -1,10 +1,11 @@
 import { IUserDetails } from './../chatify/models/IUserDetails';
-import { createApiAuthenticationUrl, createUserRegistrationApiUrl, createApiSpecificUserUrl } from './../chatify/constants/api';
+import { createApiAuthenticationUrl, createUserRegistrationApiUrl, createApiSpecificUserUrl, API_UPLOAD_FILE_URL, createApiDownloadFileUri } from './../chatify/constants/api';
 import { IAuthenticationResponse } from '../chatify/models/IAuthenticationResponse';
 import { IUserRegistrationResponse } from '../chatify/models/IUserRegistrationResponse';
 import { convertToServerDetails, convertFromServerUserDetails } from './utils/conversion/profileUserDetails';
 import { fetchUpdate } from './utils/fetchUpdate';
 import { fetchReceive } from './utils/fetchReceive';
+import { fetchFileUpload } from './utils/fetchFileUpload';
 
 export const loginApiAsync = async (email: string): Promise<IAuthenticationResponse> => {
     return new Promise(async (resolve, reject) => {
@@ -52,6 +53,7 @@ export const registerApiAsync = async (email: string): Promise<IUserRegistration
 
 export const uploadUserDetailsApiAsync = async (userDetails: IUserDetails, token: string) => {
     const url = createApiSpecificUserUrl(userDetails.email);
+    console.log(userDetails);
     const serverDetail = convertToServerDetails(userDetails);
 
     return new Promise(async (resolve, reject) => {
@@ -73,6 +75,32 @@ export const getUserDetailsApiAsync = async (email: string, token: string) => {
             const serverDetails = await fetchReceive(url, token);
             const receivedUserDetails = convertFromServerUserDetails(serverDetails);
             resolve(receivedUserDetails);
+        } catch (err) {
+            reject(err);
+        }
+    });
+};
+
+export const uploadFileApiAsync = async (file: File, token: string): Promise<any> => {
+    const url = API_UPLOAD_FILE_URL;
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            const serverUploadResponse = await fetchFileUpload(url, token, file);
+            resolve(serverUploadResponse);
+        } catch (err) {
+            reject(err);
+        }
+    });
+};
+
+export const fetchFileApiAsync = async (fileId: string, token: string): Promise<any> => {
+    const url = createApiDownloadFileUri(fileId);
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            const serverResponse = await fetchReceive(url, token);
+            resolve(serverResponse);
         } catch (err) {
             reject(err);
         }
