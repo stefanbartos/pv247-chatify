@@ -2,11 +2,15 @@ import * as React from 'react';
 import * as Picture from '../../images/default-profile.png';
 import { UserDetailsContainer } from '../../containers/profile/UserDetailsContainer';
 
+export interface IProfileStateProps {
+    readonly isFetchingUserDetails: boolean;
+}
+
 export interface IProfileDispatchProps {
     fetchUserProfile: () => void;
 }
 
-export class Profile extends React.PureComponent<IProfileDispatchProps> {
+export class Profile extends React.PureComponent<IProfileDispatchProps & IProfileStateProps> {
     readonly state = {
         selectedFile: null
     };
