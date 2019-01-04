@@ -44,3 +44,20 @@ export const uploadAvatarSuccess = (): Action => ({
 export const uploadAvatarFailed = (): Action => ({
     type: actionTypes.CHATIFY_PROFILE_UPLOAD_AVATAR_FAILED,
 });
+
+// AVATAR FETCHING
+
+export const fetchAvatarStarted = (): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_FETCH_AVATAR_STARTED,
+});
+
+export const fetchAvatarSuccess = (avatarUrl: string): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_FETCH_AVATAR_SUCCESS,
+    payload: {
+        avatarUrl
+    }
+});
+
+export const fetchAvatarFailed = (): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_FETCH_AVATAR_FAILED,
+});
