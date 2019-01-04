@@ -6,6 +6,10 @@ interface IAvatarState {
     isFileSelected: boolean;
 }
 
+export interface IAvatarDispatchProps {
+    onAvatarUpload: (file: File) => void;
+}
+
 export class Avatar extends React.PureComponent<null, IAvatarState> {
     readonly state: IAvatarState = {
         isFileSelected: false
