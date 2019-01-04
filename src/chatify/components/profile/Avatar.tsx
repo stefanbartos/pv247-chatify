@@ -47,7 +47,7 @@ export class Avatar extends React.PureComponent<null, IAvatarState> {
                     <button
                         className="btn btn-primary"
                         onClick={this.onFileUpload}
-                        disabled={this.state.isFileSelected}>
+                        disabled={!this.state.isFileSelected}>
                         Upload avatar
                     </button>
                 </div>
