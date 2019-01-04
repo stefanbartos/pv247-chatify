@@ -1,3 +1,4 @@
+import { fetchAvatar } from './fetchAvatar';
 import { Dispatch } from 'redux';
 import { uploadAvatarStarted, uploadAvatarFailed } from './actionCreators';
 import { IState } from '../../../common/IState';
@@ -21,6 +22,7 @@ export const uploadAvatar = (file: File): any =>
             };
 
             await dispatch(uploadUserDetails(updatedUserDetails));
+            await dispatch(fetchAvatar(updatedUserDetails.avatarId));
         } catch (err) {
             console.log(`chyby su pre slabych ${err}`);
             dispatch(uploadAvatarFailed());
