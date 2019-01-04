@@ -14,6 +14,7 @@ export interface IChatifyStateProps {
 
 export interface IChatifyDispatchProps  {
     readonly onChannelAdd: (text: string) => void;
+    readonly onChannelClick: (channelId: Uuid) => void;
     readonly onSendMessage: (chanelId: Uuid, chatMessage: IChatMessage) => void;
     readonly onDeleteMessage: (channelId: Uuid, chatMessageId: Uuid) => void;
 }

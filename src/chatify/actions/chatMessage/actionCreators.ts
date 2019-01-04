@@ -32,5 +32,3 @@ export const sendChatMessageSuccess = (chatMessage: ChatMessageGetModel): Action
 export const sendChatMessageFailure = (): Action => ({
     type: actionTypes.CHATIFY_MESSAGE_SEND_FAILURE
 });
-
-

@@ -11,6 +11,7 @@ import {Dispatch} from 'redux';
 import {IChatMessage} from '../models/IChatMessage';
 import {deleteChatMessage} from '../actions/deleteChatMessage';
 import {sendChatMessage} from '../actions/chatMessage/sendChatMessage';
+import {fetchChatMessages} from '../actions/chatMessage/fetchChatMessages';
 
 const mapStateToProps = (state: IState): IChatifyStateProps => {
     return {
@@ -22,6 +23,7 @@ const mapStateToProps = (state: IState): IChatifyStateProps => {
 const mapDispatchToProps = (dispatch: Dispatch): IChatifyDispatchProps => {
     return {
         onChannelAdd: (text: string) => dispatch(createChannel(text)),
+        onChannelClick: (channelId: Uuid) => dispatch(fetchChatMessages(channelId)),
         onSendMessage: (channelId: Uuid, chatMessage: IChatMessage) => dispatch(sendChatMessage(channelId, chatMessage)),
         onDeleteMessage: (channelId: Uuid, chatMessageId: Uuid) => dispatch(deleteChatMessage(channelId, chatMessageId))
     };
