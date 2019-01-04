@@ -10,7 +10,7 @@ const UserDetailsForm = (props: FormikProps<IUserDetailsFormData>) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-group row">
-                <label className="col-sm-1 col-form-label">Email</label>
+                <label className="col-sm-2 col-form-label">Email</label>
                 <div>
                     <Field
                         name="email"
@@ -22,11 +22,11 @@ const UserDetailsForm = (props: FormikProps<IUserDetailsFormData>) => {
                 </div>
             </div>
             <div className="form-group row">
-                <label className="col-sm-1">First name</label>
+                <label className="col-sm-2">First name</label>
                 <Field type="text" name="firstName" />
             </div>
             <div className="form-group row">
-                <label className="col-sm-1">Last name</label>
+                <label className="col-sm-2">Last name</label>
                 <Field type="text" name="lastName" />
             </div>
             <button type="submit" className="btn btn-primary" disabled={!dirty || isSubmitting}>
