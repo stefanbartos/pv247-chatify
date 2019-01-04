@@ -15,3 +15,18 @@ export const updateProfileUserDetailsFailed = (): Action => ({
 export const updateProfileUserDetailsStarted = (): Action => ({
     type: actionTypes.CHATIFY_PROFILE_UPDATE_USER_DETAILS_STARTED,
 });
+
+export const fetchProfileUserDetailsStarted = (): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_STARTED,
+});
+
+export const fetchProfileUserDetailsSuccess = (userDetails: IUserDetails): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_SUCCESS,
+    payload: {
+        userDetails
+    }
+});
+
+export const fetchProfileUserDetailsFailed = (): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_FAILED,
+});
