@@ -12,7 +12,6 @@ const mapDispatchToProps = (dispatch: Dispatch): IAvatarDispatchProps => {
 
 const mapStateToProps = (state: IState): IAvatarStateProps => {
     return {
-        isFetchingAvatar: state.chatify.profile.isFetchingAvatar,
         avatarUrl: state.chatify.profile.avatarUrl
     };
 };

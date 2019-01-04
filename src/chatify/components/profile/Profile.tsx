@@ -5,6 +5,7 @@ import { AvatarContainer } from '../../containers/profile/AvatarContainer';
 
 export interface IProfileStateProps {
     readonly isFetchingUserDetails: boolean;
+    readonly isFetchingAvatar: boolean;
 }
 
 export interface IProfileDispatchProps {

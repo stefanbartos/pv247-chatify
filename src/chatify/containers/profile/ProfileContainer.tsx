@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch: Dispatch): IProfileDispatchProps => {
 
 const mapStateToProps = (state: IState): IProfileStateProps => {
     return {
+        isFetchingAvatar: state.chatify.profile.isFetchingAvatar,
         isFetchingUserDetails: state.chatify.profile.isFetchingUserDetails
     };
 };

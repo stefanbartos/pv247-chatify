@@ -7,7 +7,6 @@ interface IAvatarState {
 }
 
 export interface IAvatarStateProps {
-    isFetchingAvatar: boolean;
     avatarUrl?: string;
 }
 
