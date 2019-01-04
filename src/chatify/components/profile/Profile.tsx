@@ -27,7 +27,7 @@ export class Profile extends React.PureComponent<IProfileDispatchProps & IProfil
                 <h1>Profile</h1>
                 <div className="container">
                     <h2>Avatar</h2>
-                    <AvatarContainer />
+                    {this.props.isFetchingAvatar ? <ClipLoader /> : <AvatarContainer />}
                 </div>
                 <div className="container">
                     <h2>User details</h2>
