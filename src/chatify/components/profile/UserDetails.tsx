@@ -48,6 +48,7 @@ export interface UserDetailsFormikStateProps {
 
 export const UserDetails = withFormik<UserDetailsFormikDispatchProps & UserDetailsFormikStateProps,
     IUserDetailsFormData>({
+        enableReinitialize: true,
         mapPropsToValues: (props) => {
             return {
                 email: props.email,
