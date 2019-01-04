@@ -30,3 +30,17 @@ export const fetchProfileUserDetailsSuccess = (userDetails: IUserDetails): Actio
 export const fetchProfileUserDetailsFailed = (): Action => ({
     type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_FAILED,
 });
+
+// AVATAR UPLOADING
+
+export const uploadAvatarStarted = (): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_UPLOAD_AVATAR_STARTED,
+});
+
+export const uploadAvatarSuccess = (): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_UPLOAD_AVATAR_SUCCESS,
+});
+
+export const uploadAvatarFailed = (): Action => ({
+    type: actionTypes.CHATIFY_PROFILE_UPLOAD_AVATAR_FAILED,
+});
