@@ -6,11 +6,16 @@ interface IAvatarState {
     isFileSelected: boolean;
 }
 
+export interface IAvatarStateProps {
+    isFetchingAvatar: boolean;
+    avatarUrl?: string;
+}
+
 export interface IAvatarDispatchProps {
     onAvatarUpload: (file: File) => void;
 }
 
-export class Avatar extends React.PureComponent<IAvatarDispatchProps, IAvatarState> {
+export class Avatar extends React.PureComponent<IAvatarDispatchProps & IAvatarStateProps, IAvatarState> {
     readonly state: IAvatarState = {
         isFileSelected: false
     };
@@ -40,7 +45,7 @@ export class Avatar extends React.PureComponent<IAvatarDispatchProps, IAvatarSta
     render() {
         return (
             <div className="container avatar">
-                <AvatarImage url={'https://www.w3schools.com/w3css/img_lights.jpg'} />
+                <AvatarImage url={this.props.avatarUrl} />
                 <div>
                     <input type="file" onChange={this.onFileSelect} />
                 </div>
