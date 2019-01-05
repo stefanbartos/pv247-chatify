@@ -1,7 +1,5 @@
-import * as Immutable from 'immutable';
-
 export interface ICreateChannelDto {
-    channelName: string;
+    name: string;
     author: string;
-    members: Immutable.List<string>;
+    members: string[];
 }
