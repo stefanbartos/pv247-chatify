@@ -1,7 +1,7 @@
 import { profile } from './profile/profile';
 import { isLoggingIn } from './isLogginIn';
 import { IChatify } from '../models/IChatify';
-import { channels } from './channels';
+import { channels } from './channel/channels';
 import { messages } from './messages';
 import { token } from './token';
 import { isLoggedIn } from './isLoggedIn';

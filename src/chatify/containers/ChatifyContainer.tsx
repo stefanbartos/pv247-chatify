@@ -1,6 +1,6 @@
 import { IState } from '../../common/IState';
 import { connect } from 'react-redux';
-import { createChannel } from '../actions/actionCreators';
+import { createChannel } from '../actions/channel/createChannel';
 import {
     IChatifyStateProps,
     IChatifyDispatchProps,
