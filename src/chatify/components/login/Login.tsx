@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import * as PropTypes from 'prop-types';
 import * as routes from '../../constants/routes';
 
-export interface ILoginProps {
-    onLogin(email: string): void;
+export interface ILoginDispatchProps {
+    onLogin(email: string, redirect: () => void): void;
 }
+
+export interface ILoginOwnProps extends RouteComponentProps<any> { }
 
 interface ILoginState {
     email: string;
@@ -13,7 +16,7 @@ interface ILoginState {
     submitted: boolean;
 }
 
-export class Login extends React.PureComponent<ILoginProps, ILoginState> {
+export class Login extends React.PureComponent<ILoginDispatchProps & ILoginOwnProps, ILoginState> {
     static displayName = 'Login';
 
     static propTypes = {
@@ -32,11 +35,13 @@ export class Login extends React.PureComponent<ILoginProps, ILoginState> {
         if (!this.state.email) {
             return;
         }
-        this.props.onLogin(this.state.email);
-
         this.setState(() => ({
             submitted: true
         }));
+
+        const redirect = () => this.props.history.push('/');
+
+        this.props.onLogin(this.state.email, redirect);
     };
 
     private handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {

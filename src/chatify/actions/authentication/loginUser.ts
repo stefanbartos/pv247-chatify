@@ -4,7 +4,7 @@ import { loginApiAsync } from '../../../api/usersRepository';
 import { loginUserStarted, loginUserSuccess, loginUserFailure, receiveToken } from './actionCreators';
 import { IAuthenticationResponse } from '../../models/IAuthenticationResponse';
 
-export const loginUser = (email: string): any => async (dispatch: Dispatch): Promise<void> => {
+export const loginUser = (email: string, redirect: () => void): any => async (dispatch: Dispatch): Promise<void> => {
     dispatch(loginUserStarted());
     try {
         const response: IAuthenticationResponse = await loginApiAsync(email);
@@ -13,6 +13,7 @@ export const loginUser = (email: string): any => async (dispatch: Dispatch): Pro
 
         dispatch(receiveToken(response.token));
         dispatch(loginUserSuccess());
+        redirect();
     }
     catch (err) {
         console.log(err);
