@@ -1,6 +1,6 @@
 import { validateResponse } from './validateResponse';
 
-export const fetchRequest = (url: string, token: string, bodyJson: string) =>
+export const fetchRequest = (url: string, token: string, bodyJson: any | undefined) =>
     fetch(
         url,
         {

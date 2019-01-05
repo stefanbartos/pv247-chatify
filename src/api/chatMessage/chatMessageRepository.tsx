@@ -2,13 +2,19 @@ import {createApiMessageUrl} from '../../chatify/constants/api';
 import {IChatMessage} from '../../chatify/models/IChatMessage';
 import {fetchReceive} from '../utils/fetchReceive';
 import {fetchRequest} from '../utils/fetchRequest';
+import {ChatMessagePostModel} from './chatMessagePostModel';
 
 export const postChatMessage = async (channelId: string, chatMessage: IChatMessage, token: string) => {
 
     const url = createApiMessageUrl(channelId);
     return new Promise(async (resolve, reject) => {
         try {
-            const response = await fetchRequest(url, token, chatMessage.chatMessageText);
+            const requestBody: ChatMessagePostModel = {
+                value: chatMessage.chatMessageText,
+                customData: {}
+            };
+
+            const response = await fetchRequest(url, token, requestBody);
             resolve(response);
         } catch (e) {
             reject(e);
