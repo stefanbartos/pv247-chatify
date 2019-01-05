@@ -45,7 +45,8 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
                 </ul>
                 <div className="row">
                     <div className="col">
-                        <SendFormContainer />
+                        <SendFormContainer
+                        channelId={this.props.channelId}/>
                     </div>
                 </div>
             </div>
