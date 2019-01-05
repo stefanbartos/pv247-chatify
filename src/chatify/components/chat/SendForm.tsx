@@ -3,28 +3,18 @@ import * as React from 'react';
 import Draft, {Editor, EditorState, RichUtils} from 'draft-js';
 import EditorCommand = Draft.Component.Base.EditorCommand;
 import {IChatMessage} from '../../models/IChatMessage';
-import {IState} from '../../../common/IState';
-import {Dispatch} from 'redux';
-import {connect} from 'react-redux';
-import {sendChatMessage} from '../../actions/chatMessage/sendChatMessage';
 import '../../css/sendForm.css';
 
-interface SendFormDispatchProps {
+export interface SendFormProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
-}
-
-interface SendFormStateProps {
     channelId: Uuid;
 }
 
-interface SendFromProps extends SendFormDispatchProps, SendFormStateProps {
-}
-
-interface SendFormState {
+export interface SendFormState {
     editorState: EditorState;
 }
 
-class SendForm extends React.PureComponent<SendFromProps, SendFormState> {
+export class SendForm extends React.PureComponent<SendFormProps, SendFormState> {
 
     constructor(props: any) {
         super(props);
@@ -103,21 +93,3 @@ class SendForm extends React.PureComponent<SendFromProps, SendFormState> {
         );
     }
 }
-
-const mapStateToProps = (state: IState): SendFormStateProps => {
-
-    const activeChannel = state.chatify.channels.get(0);
-
-    return {
-        // @ts-ignore
-        channelId: activeChannel.id
-    };
-};
-
-const mapDispatchToProps = (dispatch: Dispatch): SendFormDispatchProps => {
-    return {
-        onSendMessage: (channelUuid: Uuid, message: IChatMessage) => dispatch(sendChatMessage(channelUuid, message))
-    };
-};
-
-export const SendFormContainer = connect(mapStateToProps, mapDispatchToProps)(SendForm);

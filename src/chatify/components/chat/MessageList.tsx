@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Immutable from 'immutable';
 import {MessageCon} from '../../containers/MessageCon';
 import * as PropTypes from 'prop-types';
-import {SendFormContainer} from './SendFormContainer';
+import {SendForm} from './SendForm';
 import {IChatMessage} from '../../models/IChatMessage';
 
 interface MessageListProps {
@@ -21,14 +21,6 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
         onSendMessage: PropTypes.func.isRequired
     };
 
-    // private onValueChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     const { value } = event.target;
-    //     console.log(value);
-    //     this.setState(() => ({
-    //         text: value
-    //     }));
-    // };
-
     public render() {
         // @ts-ignore
         return (
@@ -45,8 +37,9 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
                 </ul>
                 <div className="row">
                     <div className="col">
-                        <SendFormContainer
-                        channelId={this.props.channelId}/>
+                        <SendForm
+                            channelId={this.props.channelId}
+                            onSendMessage={this.props.onSendMessage}/>
                     </div>
                 </div>
             </div>
