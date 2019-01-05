@@ -6,12 +6,12 @@ import {
     IChatifyDispatchProps,
     Chatify
 } from '../components/chat/Chatify';
-import {IChannelItem} from '../models/IChannelItem';
-import {Dispatch} from 'redux';
-import {IChatMessage} from '../models/IChatMessage';
-import {deleteChatMessage} from '../actions/deleteChatMessage';
-import {sendChatMessage} from '../actions/chatMessage/sendChatMessage';
-import {fetchChatMessages} from '../actions/chatMessage/fetchChatMessages';
+import { IChannelItem } from '../models/IChannelItem';
+import { Dispatch } from 'redux';
+import { IChatMessage } from '../models/IChatMessage';
+import { deleteChatMessage } from '../actions/deleteChatMessage';
+import { sendChatMessage } from '../actions/chatMessage/sendChatMessage';
+import { fetchChatMessages } from '../actions/chatMessage/fetchChatMessages';
 
 const mapStateToProps = (state: IState): IChatifyStateProps => {
     return {
