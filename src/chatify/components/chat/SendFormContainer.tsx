@@ -7,6 +7,7 @@ import {IState} from '../../../common/IState';
 import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import {sendChatMessage} from '../../actions/chatMessage/sendChatMessage';
+import '../../css/sendForm.css';
 
 interface SendFormDispatchProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
@@ -32,7 +33,7 @@ class SendForm extends React.PureComponent<SendFromProps, SendFormState> {
         };
     }
 
-    private sendMessage = () => {
+    sendMessage = () => {
         const chatMessage: IChatMessage = {
             messageAuthor: 'Author',
             messageAuthorImage: 'image',
@@ -41,9 +42,9 @@ class SendForm extends React.PureComponent<SendFromProps, SendFormState> {
             messageUpvotes: 0,
         };
 
-        this.props.onSendMessage('9b2f6045-8dae-413b-aa7e-d7c6423d32e8', chatMessage);
+        this.props.onSendMessage(this.props.channelId, chatMessage);
 
-        console.log(chatMessage.id);
+        // console.log(chatMessage.id);
         // this.setState(() => ({
         //     text: chatMessage.chatMessageText
         // }));
@@ -109,8 +110,12 @@ class SendForm extends React.PureComponent<SendFromProps, SendFormState> {
 }
 
 const mapStateToProps = (state: IState): SendFormStateProps => {
+
+    const activeChannel = state.chatify.channels.get(0);
+
     return {
-        channelId: state.chatify.activeChannel
+        // @ts-ignore
+        channelId: activeChannel.id
     };
 };
 
