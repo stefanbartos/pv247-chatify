@@ -13,7 +13,7 @@ interface IChatifyRouterProps {
     id?: string;
 }
 
-export interface IChatifyOwnProps extends RouteComponentProps<IChatifyRouterProps> { }
+interface IChatifyOwnProps extends RouteComponentProps<IChatifyRouterProps> { }
 
 export interface IChatifyStateProps {
     channelIds: Immutable.List<Uuid>;
