@@ -10,6 +10,7 @@
     "test": "jest --config=jest.config.js --no-cache"
   },
   "dependencies": {
+    "@types/react-router": "^4.4.3",
     "@types/redux-form": "^7.4.14",
     "@types/redux-thunk": "^2.1.0",
     "@types/reselect": "^2.2.0",
