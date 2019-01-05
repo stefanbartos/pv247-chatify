@@ -8,7 +8,14 @@ import {IChatMessage} from '../models/IChatMessage';
 export const messages = (prevState = Immutable.List<IChatMessage>(), action: Action): Immutable.List<IChatMessage> => {
     switch (action.type) {
         case CHATIFY_MESSAGE_SEND_SUCCESS: {
-            const {id, messageAuthor= 'Smiley', messageAuthorImage= 'http://pngimg.com/uploads/smiley/smiley_PNG149.png', chatMessageText, messageUpvotes= 0} = action.payload;
+
+            const chatMessage = action.payload.chatMessage;
+            const {
+                id = chatMessage.id,
+                messageAuthor= chatMessage.createdBy,
+                messageAuthorImage= 'http://pngimg.com/uploads/smiley/smiley_PNG149.png',
+                chatMessageText= chatMessage.value,
+                messageUpvotes= 0} = action.payload;
 
             return prevState.push({id, messageAuthor, messageAuthorImage, chatMessageText, messageUpvotes});
         }

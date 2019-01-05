@@ -35,19 +35,14 @@ class SendForm extends React.PureComponent<SendFromProps, SendFormState> {
 
     sendMessage = () => {
         const chatMessage: IChatMessage = {
-            messageAuthor: 'Author',
-            messageAuthorImage: 'image',
-            id: '9b2f6045-8dae-413b-aa7e-d7c6423d32e8',
+            messageAuthor: '',
+            messageAuthorImage: '',
+            id: '',
             chatMessageText: this.state.editorState.getCurrentContent().getPlainText(),
             messageUpvotes: 0,
         };
 
         this.props.onSendMessage(this.props.channelId, chatMessage);
-
-        // console.log(chatMessage.id);
-        // this.setState(() => ({
-        //     text: chatMessage.chatMessageText
-        // }));
     };
 
     onChange = (editorState: EditorState) => {
