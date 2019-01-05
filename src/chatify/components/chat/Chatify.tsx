@@ -8,12 +8,12 @@ import { Navigation } from '../../../common/components/Navigation';
 import { RouteComponentProps } from 'react-router';
 import { CHANNEL_ID } from '../../constants/routes';
 
-interface ChatifyRouterProps {
+interface IChatifyRouterProps {
     match: string;
     id?: string;
 }
 
-export interface ChatifyOwnProps extends RouteComponentProps<ChatifyRouterProps> { }
+export interface IChatifyOwnProps extends RouteComponentProps<IChatifyRouterProps> { }
 
 export interface IChatifyStateProps {
     channelIds: Immutable.List<Uuid>;
@@ -27,7 +27,7 @@ export interface IChatifyDispatchProps {
     readonly onDeleteMessage: (channelId: Uuid, chatMessageId: Uuid) => void;
 }
 
-export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDispatchProps & ChatifyOwnProps> {
+export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDispatchProps & IChatifyOwnProps> {
     render() {
         const { match } = this.props;
         const isChannelSelected = match.path === CHANNEL_ID;
