@@ -23,6 +23,7 @@ export interface IChatifyStateProps {
 export interface IChatifyDispatchProps {
     readonly onChannelAdd: (text: string) => void;
     readonly onChannelClick: (channelId: Uuid) => void;
+    readonly fetchChannels: () => void;
     readonly onSendMessage: (chanelId: Uuid, chatMessage: IChatMessage) => void;
     readonly onDeleteMessage: (channelId: Uuid, chatMessageId: Uuid) => void;
 }
@@ -40,6 +41,7 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
                             <ChannelList
                                 channelsIds={this.props.channelIds}
                                 onChannelAdd={this.props.onChannelAdd}
+                                fetchChannels={this.props.fetchChannels}
                             />
                         </div>
                         {isChannelSelected

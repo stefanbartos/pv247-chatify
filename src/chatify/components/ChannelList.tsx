@@ -7,6 +7,7 @@ import '../css/sidebar.css';
 interface IChannelListOwnProps {
     readonly onChannelAdd: (name: string) => void;
     readonly channelsIds: Immutable.List<Uuid>;
+    readonly fetchChannels: () => void;
 }
 
 interface IChannelListState {
@@ -35,6 +36,11 @@ export class ChannelList extends React.PureComponent<IChannelListOwnProps, IChan
             name: value
         }));
     };
+
+    componentDidMount() {
+        console.log('som tu');
+        this.props.fetchChannels();
+    }
 
     render() {
         return (

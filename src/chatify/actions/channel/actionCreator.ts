@@ -1,3 +1,4 @@
+import * as Immutable from 'immutable';
 import * as actionTypes from '../../constants/actionTypes';
 import { IChannelItem } from '../../models/IChannelItem';
 
@@ -14,4 +15,19 @@ export const createChannelSuccess = (channelItem: IChannelItem): Action => ({
 
 export const createChannelFailed = (): Action => ({
     type: actionTypes.CHATIFY_CHANNEL_ADD_FAILURE,
+});
+
+export const fetchChannelsStarted = (): Action => ({
+    type: actionTypes.CHATIFY_FETCH_CHANNELS_STARTED,
+});
+
+export const fetchChannelsSuccess = (channelItems: Immutable.List<IChannelItem>): Action => ({
+    type: actionTypes.CHATIFY_FETCH_CHANNELS_SUCCESS,
+    payload: {
+        channelItems
+    }
+});
+
+export const fetchChannelsFailed = (): Action => ({
+    type: actionTypes.CHATIFY_FETCH_CHANNELS_FAILURE,
 });

@@ -1,4 +1,4 @@
-export interface IChannelApiReponse {
+export interface IChannelServer {
     id: string;
     name: string;
     customData: {
