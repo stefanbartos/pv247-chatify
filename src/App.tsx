@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { Navigation } from './common/components/Navigation';
 import { ChatifyContainer } from './chatify/containers/ChatifyContainer';
 import {
     BrowserRouter,
@@ -16,31 +15,17 @@ import * as routes from './chatify/constants/routes';
 import { ErrorBoundary } from './common/components/ErrorBounderies';
 import { ProfileContainer } from './chatify/containers/profile/ProfileContainer';
 
-interface Props {
-
-}
-
-interface AppState {
-    displayForm: String;
-}
-
 const store = createChatifyStore();
 
-export class App extends React.PureComponent<Props, AppState> {
+export class App extends React.PureComponent {
     render() {
         return (
             <ErrorBoundary>
                 <Provider store={store}>
                     <BrowserRouter>
                         <Switch>
-                            <Route exact path={routes.ROOT} render={() => (
-                                <>
-                                    <Navigation />
-                                    <main>
-                                        <ChatifyContainer />
-                                    </main>
-                                </>
-                            )} />
+                            <PrivateRoute exact path={routes.ROOT} component={ChatifyContainer} />
+                            <PrivateRoute path={routes.CHANNEL_ID} component={ChatifyContainer} />
                             <Route path={routes.LOGIN} component={LoginContainer} />
                             <Route path={routes.REGISTER} component={RegisterContainer} />
                             <PrivateRoute path={routes.PROFILE} component={ProfileContainer} />
