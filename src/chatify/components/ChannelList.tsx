@@ -4,16 +4,16 @@ import * as PropTypes from 'prop-types';
 import { ChannelItemContainer } from '../containers/ChannelItem';
 import '../css/sidebar.css';
 
-interface IProps {
+interface IChannelListOwnProps {
     readonly onChannelAdd: (name: string) => void;
     readonly channelsIds: Immutable.List<Uuid>;
 }
 
-interface IState {
+interface IChannelListState {
     readonly name: string;
 }
 
-export class ChannelList extends React.PureComponent<IProps, IState> {
+export class ChannelList extends React.PureComponent<IChannelListOwnProps, IChannelListState> {
     static propTypes = {
         onChannelAdd: PropTypes.func.isRequired
     };
