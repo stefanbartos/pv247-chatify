@@ -12,7 +12,7 @@ export const loginUser = (email: string, redirect: () => void): any => async (di
         localStorage.setItem(localStorageKeys.TOKEN_EXPIRATION, JSON.stringify(response.expiration));
 
         dispatch(receiveToken(response.token));
-        dispatch(loginUserSuccess());
+        await dispatch(loginUserSuccess());
         redirect();
     }
     catch (err) {
