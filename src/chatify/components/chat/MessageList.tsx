@@ -9,6 +9,7 @@ interface MessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
     messageIdsList: Immutable.List<Uuid>;
     channelId: Uuid;
+    fetchMessages: (channelId: Uuid) => void;
 }
 
 interface IState {
@@ -20,6 +21,11 @@ export class MessageList extends React.PureComponent<MessageListProps, IState> {
     static propTypes = {
         onSendMessage: PropTypes.func.isRequired
     };
+
+    componentDidMount() {
+        console.log('fetch messages');
+        this.props.fetchMessages(this.props.channelId);
+    }
 
     public render() {
         // @ts-ignore

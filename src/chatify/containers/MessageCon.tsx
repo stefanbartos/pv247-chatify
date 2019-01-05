@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { IState } from '../../common/IState';
 import { IMessageDispatchProps, IMessageStateProps, Message, MessageProps } from '../components/chat/Message';
 import { IChatMessage } from '../models/IChatMessage';
-import {sendChatMessage} from '../actions/chatMessage/sendChatMessage';
+import {deleteChatMessage} from '../actions/chatMessage/deleteChatMessage';
 
 const mapStateToProps = (state: IState, props: MessageProps) => {
     return {
@@ -14,7 +14,7 @@ const mapStateToProps = (state: IState, props: MessageProps) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        onSend: (channelId: Uuid, message: IChatMessage) => dispatch(sendChatMessage(channelId, message))
+        onDeleteMessage: (channelId: Uuid, messageId: Uuid) => dispatch(deleteChatMessage(channelId, messageId))
     };
 };
 

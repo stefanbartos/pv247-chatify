@@ -25,4 +25,3 @@ export const getInitialMessages = (): Immutable.List<IChatMessage> =>  Immutable
         messageUpvotes: 16,
     }
 ]);
-

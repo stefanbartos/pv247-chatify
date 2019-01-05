@@ -1,21 +1,24 @@
 import * as actionTypes from '../../constants/actionTypes';
 import {IChatMessage} from '../../models/IChatMessage';
-import {List} from 'immutable';
 import {ChatMessageGetModel} from '../../../api/chatMessage/chatMessageGetModel';
+import {CHATIFY_MESSAGE_DELETE_STARTED} from '../../constants/actionTypes';
+import {CHATIFY_MESSAGE_DELETE_SUCCESS} from '../../constants/actionTypes';
+import {CHATIFY_MESSAGE_DELETE_FAILURE} from '../../constants/actionTypes';
+import * as Immutable from 'immutable';
 
 export const fetchChatMessagesStarted = (): Action => ({
-    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_STARTED,
+    type: actionTypes.CHATIFY_FETCH_MESSAGES_STARTED,
 });
 
-export const fetchChatMessagesSuccess = (chatMessages: List<IChatMessage>): Action => ({
-    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_SUCCESS,
+export const fetchChatMessagesSuccess = (chatMessages: Immutable.List<IChatMessage>): Action => ({
+    type: actionTypes.CHATIFY_FETCH_MESSAGES_SUCCESS,
     payload: {
         chatMessages
     }
 });
 
 export const fetchChatMessagesFailed = (): Action => ({
-    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_FAILED,
+    type: actionTypes.CHATIFY_FETCH_MESSAGES_FAILURE,
 });
 
 export const sendChatMessageStarted = (): Action => ({
@@ -31,4 +34,19 @@ export const sendChatMessageSuccess = (chatMessage: ChatMessageGetModel): Action
 
 export const sendChatMessageFailure = (): Action => ({
     type: actionTypes.CHATIFY_MESSAGE_SEND_FAILURE
+});
+
+export const deleteChatMessageStarted = (): Action => ({
+    type: CHATIFY_MESSAGE_DELETE_STARTED
+});
+
+export const deleteChatMessageSuccess = (chatMessageId: string): Action => ({
+    type: CHATIFY_MESSAGE_DELETE_SUCCESS,
+    payload: {
+        chatMessageId
+    }
+});
+
+export const deleteChatMessageFailure = (): Action => ({
+    type: CHATIFY_MESSAGE_DELETE_FAILURE
 });

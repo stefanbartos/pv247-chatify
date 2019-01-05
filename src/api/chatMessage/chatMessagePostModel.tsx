@@ -1,4 +1,6 @@
 export interface ChatMessagePostModel {
     value: string;
-    customData: {};
+    customData: {
+        upvotes: number;
+    };
 }

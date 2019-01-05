@@ -1,5 +1,6 @@
 import * as Immutable from 'immutable';
 import {
+    CHATIFY_FETCH_MESSAGES_SUCCESS,
     CHATIFY_MESSAGE_SEND_SUCCESS,
     CHATIFY_MESSAGE_UPVOTE_STARTED
 } from '../constants/actionTypes';
@@ -15,7 +16,7 @@ export const messages = (prevState = Immutable.List<IChatMessage>(), action: Act
                 messageAuthor= chatMessage.createdBy,
                 messageAuthorImage= 'http://pngimg.com/uploads/smiley/smiley_PNG149.png',
                 chatMessageText= chatMessage.value,
-                messageUpvotes= 0} = action.payload;
+                messageUpvotes= chatMessage.customData.upvotes} = action.payload;
 
             return prevState.push({id, messageAuthor, messageAuthorImage, chatMessageText, messageUpvotes});
         }
@@ -25,6 +26,9 @@ export const messages = (prevState = Immutable.List<IChatMessage>(), action: Act
             const previousMessage = prevState.get(index);
 
             return prevState.set(index, { ...previousMessage, id, messageAuthor, messageAuthorImage, chatMessageText, messageUpvotes });
+        }
+        case CHATIFY_FETCH_MESSAGES_SUCCESS: {
+            return action.payload.chatMessages;
         }
         default:
             return prevState;
