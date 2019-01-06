@@ -62,7 +62,7 @@ export class ChannelMembersList extends React.PureComponent<ChannelMembersListPr
                         className="add-channel-input"
                         value={this.state.memberName}
                         onChange={this.onValueChanged}
-                        placeholder="Channel name..."
+                        placeholder="Member name..."
                     />
                     <div className="text-center">
                         <button type="button" className="btn btn-primary" onClick={this.onAddMember}>
