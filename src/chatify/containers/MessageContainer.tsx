@@ -4,6 +4,7 @@ import { IState } from '../../common/IState';
 import { IMessageDispatchProps, IMessageStateProps, Message, IMessageOwnProps } from '../components/chat/Message';
 import { IChatMessage } from '../models/IChatMessage';
 import { deleteChatMessage } from '../actions/chatMessage/deleteChatMessage';
+import {updateChatMessage} from '../actions/chatMessage/updateChatMessage';
 
 const mapStateToProps = (state: IState, props: IMessageOwnProps): any => {
     return {
@@ -15,6 +16,8 @@ const mapStateToProps = (state: IState, props: IMessageOwnProps): any => {
 const mapDispatchToProps = (dispatch: Dispatch): IMessageDispatchProps => {
     return {
         onDeleteMessage: (channelId: Uuid, messageId: Uuid) => dispatch(deleteChatMessage(channelId, messageId)),
+        // TODO
+        onUpdateMessage: (channelId: Uuid, message: IChatMessage, upvotesCount: number) => dispatch(updateChatMessage(channelId, message, upvotesCount)),
     };
 };
 
