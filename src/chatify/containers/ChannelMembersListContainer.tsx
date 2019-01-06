@@ -12,12 +12,10 @@ import { IChannelItem } from '../models/IChannelItem';
 
 const mapStateToProps = (state: IState, ownProps: IChannelMembersListOwnProps): IChannelMembersListStateProps => {
     return {
-        memberEmails: state
-            .chatify
+        memberEmails: state.chatify
             .channels
             .find((ch: IChannelItem) => ch.id === ownProps.channelId)!
             .members
-            .toList()
     };
 };
 

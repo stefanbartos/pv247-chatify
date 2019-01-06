@@ -10,7 +10,7 @@ export const fetchChannelsForUser = (): any =>
         dispatch(fetchChannelsStarted());
 
         const token: string = getState().chatify.token!;
-        const email: string = getState().chatify.profile.userDetails!.email;
+        const email: string = getState().chatify.email!;
         try {
             const channels = await fetchAllChannelsApiAsync(token);
             const userChannels: IChannelItem[] = [];

@@ -38,7 +38,11 @@ export class ChannelMembersList extends React.PureComponent<ChannelMembersListPr
     }
 
     private onAddMember = () => {
-        console.log('add member');
+        if (this.state.memberName.length === 0
+            || this.props.memberEmails.includes(this.state.memberName)) {
+            return;
+        }
+        this.props.addMemberToChannel(this.props.channelId, this.state.memberName);
     }
 
     render() {

@@ -15,8 +15,11 @@ export const loginUserStarted = (): Action => ({
     type: actionTypes.CHATIFY_USER_LOGIN_STARTED
 });
 
-export const loginUserSuccess = (): Action => ({
-    type: actionTypes.CHATIFY_USER_LOGIN_SUCCESS
+export const loginUserSuccess = (email: string): Action => ({
+    type: actionTypes.CHATIFY_USER_LOGIN_SUCCESS,
+    payload: {
+        email
+    }
 });
 
 export const loginUserFailure = (err: any): Action => ({

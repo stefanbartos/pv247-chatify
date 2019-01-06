@@ -5,6 +5,7 @@ import { channels } from './channel/channels';
 import { messages } from './messages';
 import { token } from './token';
 import { isLoggedIn } from './isLoggedIn';
+import { email } from './email';
 
 export const chatify = (prevState = {} as IChatify, action: Action): IChatify => ({
     channels: channels(prevState.channels, action),
@@ -14,4 +15,5 @@ export const chatify = (prevState = {} as IChatify, action: Action): IChatify =>
     isLoggedIn: isLoggedIn(prevState.isLoggedIn, action),
     token: token(prevState.token, action),
     profile: profile(prevState.profile, action),
+    email: email(prevState.email, action)
 });

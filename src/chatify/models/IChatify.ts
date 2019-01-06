@@ -11,4 +11,5 @@ export interface IChatify {
     isLoggingIn: boolean;
     isLoggedIn: boolean;
     profile: IProfile;
+    email: string | null;
 }
