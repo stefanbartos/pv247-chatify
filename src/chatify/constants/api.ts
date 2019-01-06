@@ -21,4 +21,4 @@ export const updateApiMessageUrl = (channelId: string, chatMessageId: string) =>
 
 // CHANNEL
 export const API_CHANNEL_URL = `${API_BASE_APP_URL}/channel`;
-export const createSpecificChannelUrl = (channelId: string) => `${API_URL}/channel/${channelId}`;
+export const createSpecificChannelUrl = (channelId: string) => `${API_BASE_APP_URL}/channel/${channelId}`;
