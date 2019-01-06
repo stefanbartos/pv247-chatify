@@ -1,8 +1,5 @@
 export async function validateResponse(response: Response): Promise<any> {
     if (response.ok) {
-        if (response.statusText === 'No Content') {
-            return {};
-        }
         return await response.json();
     }
     else {
