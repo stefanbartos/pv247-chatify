@@ -1,5 +1,8 @@
 import * as localStorageKeys from './chatify/constants/localStorageKeys';
-import { removeAuthenticationDataFromLocalStorage } from './common/localStorageUtils';
+import {
+    removeAuthenticationDataFromLocalStorage,
+    allAuthenticationDataAreSet
+} from './common/localStorageUtils';
 
 const isTokenValid = () => {
     const persistedExpirationJson: string | null = localStorage.getItem(localStorageKeys.TOKEN_EXPIRATION);
@@ -12,7 +15,7 @@ const isTokenValid = () => {
 
 export const getPersistedToken = (): string | null => {
     const persistedTokenJson: string | null = localStorage.getItem(localStorageKeys.TOKEN);
-    if (persistedTokenJson && !isTokenValid()) {
+    if (persistedTokenJson === null || !allAuthenticationDataAreSet() || !isTokenValid()) {
         removeAuthenticationDataFromLocalStorage();
         return null;
     }
