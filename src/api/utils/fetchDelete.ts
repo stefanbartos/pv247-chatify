@@ -7,6 +7,7 @@ export const fetchDelete = (url: string, token: string) =>
             method: 'DELETE',
             headers: {
                 Authorization: `bearer ${token}`,
+                'Content-Type': 'application/json',
                 Accept: 'application/json',
             },
         })
