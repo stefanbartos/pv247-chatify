@@ -1,10 +1,9 @@
-import * as localStorageKeys from './../../constants/localStorageKeys';
 import { logoutUserSuccess } from './actionCreators';
 import { Dispatch } from 'redux';
+import { removeAuthenticationDataFromLocalStorage } from '../../../common/localStorageUtils';
 
-export const logoutUser = () => async (dispatch: Dispatch) => {
-    localStorage.removeItem(localStorageKeys.TOKEN);
-    localStorage.removeItem(localStorageKeys.TOKEN_EXPIRATION);
+export const logoutUser = (): any => async (dispatch: Dispatch): Promise<void> => {
+    removeAuthenticationDataFromLocalStorage();
 
     dispatch(logoutUserSuccess());
 };

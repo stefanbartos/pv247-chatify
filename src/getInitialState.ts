@@ -1,9 +1,8 @@
-import { EMAIL } from './chatify/constants/localStorageKeys';
-import { getPersistedToken } from './getPersistedToken';
+import { getPersistedToken, getPersistedEmail } from './common/localStorageUtils';
 
 export const getInitialState = () => ({
     chatify: {
         token: getPersistedToken(),
-        email: localStorage.getItem(EMAIL)
+        email: getPersistedEmail()
     }
 });
