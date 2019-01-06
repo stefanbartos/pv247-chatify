@@ -62,16 +62,19 @@ export class ChannelList extends React.PureComponent<IChannelListOwnProps, IChan
                     ))
                     }
                 </ul>
-                <div id="bottom">
-                    <button type="button" className="btn btn-info" onClick={this.onAddChannel}>
-                        Add channel
-                    </button>
+                <div className="bottom">
                     <input
                         type="text"
+                        className="add-channel-input"
                         value={this.state.name}
                         onChange={this.onValueChanged}
                         placeholder="Channel name..."
                     />
+                    <div className="text-center">
+                        <button type="button" className="btn btn-primary" onClick={this.onAddChannel}>
+                            Add channel
+                        </button>
+                    </div>
                 </div>
             </nav>
         );
