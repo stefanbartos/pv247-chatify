@@ -42,7 +42,6 @@ export class ChannelList extends React.PureComponent<IChannelListOwnProps, IChan
     };
 
     componentDidMount() {
-        console.log('som tu');
         this.props.fetchChannels();
     }
 
