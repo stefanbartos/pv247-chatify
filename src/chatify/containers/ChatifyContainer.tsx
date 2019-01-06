@@ -12,7 +12,7 @@ import { IChatMessage } from '../models/IChatMessage';
 import { deleteChatMessage } from '../actions/chatMessage/deleteChatMessage';
 import { sendChatMessage } from '../actions/chatMessage/sendChatMessage';
 import { fetchChatMessages } from '../actions/chatMessage/fetchChatMessages';
-import { fetchChannelsForUser } from '../actions/channel/fetchChannels';
+import { fetchChannelsForUser } from '../actions/channel/fetchChannelsForUser';
 
 const mapStateToProps = (state: IState): IChatifyStateProps => {
     return {
