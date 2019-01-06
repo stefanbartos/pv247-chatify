@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IChatMessage } from '../../models/IChatMessage';
-import '../../css/messageAuthorImg.css';
+import '../../css/chatMessage.css';
 
 export interface IMessageOwnProps {
     readonly id: Uuid;

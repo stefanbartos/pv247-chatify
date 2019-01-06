@@ -7,6 +7,7 @@
 .message-author-name {
     border-radius: 5px;
     background: #cccccc;
+    margin: 10px;
 }
 
 .row-border {
