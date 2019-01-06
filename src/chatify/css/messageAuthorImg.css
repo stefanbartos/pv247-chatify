@@ -1,0 +1,17 @@
+.message-author-img {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+.message-author-name {
+    border-radius: 5px;
+    background: #cccccc;
+}
+
+.row-border {
+    border-right: solid #cccccc;
+    border-bottom: solid #cccccc;
+    border-left: solid #cccccc;
+    border-radius: 5px;
+}

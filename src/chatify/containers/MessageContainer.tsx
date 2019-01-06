@@ -16,7 +16,6 @@ const mapStateToProps = (state: IState, props: IMessageOwnProps): any => {
 const mapDispatchToProps = (dispatch: Dispatch): IMessageDispatchProps => {
     return {
         onDeleteMessage: (channelId: Uuid, messageId: Uuid) => dispatch(deleteChatMessage(channelId, messageId)),
-        // TODO
         onUpdateMessage: (channelId: Uuid, message: IChatMessage, upvotesCount: number) => dispatch(updateChatMessage(channelId, message, upvotesCount)),
     };
 };

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IChatMessage } from '../../models/IChatMessage';
+import '../../css/messageAuthorImg.css';
 
 export interface IMessageOwnProps {
     readonly id: Uuid;
@@ -40,13 +41,13 @@ export class Message extends React.PureComponent<IProps, any> {
             <li key={index} className="nav-item">
                 <div className="media">
                     <span className="media-left">
-                        <img src={message.messageAuthorImage} className="img-circle" width="25" height="25" />
+                        <img src={message.messageAuthorImage} className="message-author-img"/>
                     </span>
                     <span className="media-right">
-                        <div key={message.messageAuthor}> {message.messageAuthor}</div>
+                        <div className="message-author-name" key={message.messageAuthor}> {message.messageAuthor}</div>
                     </span>
                 </div>
-                <div className="row">
+                <div className="row row-border">
                     <div className="col-md-6">{message.chatMessageText}</div>
                     <div className="col-md-1" key={message.messageUpvotes}> {message.messageUpvotes}</div>
                     <div className="col-md-4">
