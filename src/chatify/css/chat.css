@@ -16,3 +16,7 @@ body, html {
 ul {
     list-style-type: none;
 }
+
+.channel-title {
+    border-bottom: solid;
+}
