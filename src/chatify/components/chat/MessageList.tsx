@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as Immutable from 'immutable';
-import {MessageCon} from '../../containers/MessageCon';
+import { MessageCon } from '../../containers/MessageCon';
 import * as PropTypes from 'prop-types';
-import {SendForm} from './SendForm';
-import {IChatMessage} from '../../models/IChatMessage';
+import { SendForm } from './SendForm';
+import { IChatMessage } from '../../models/IChatMessage';
 
 interface IMessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
@@ -29,11 +29,11 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
             <div>
                 <ul className="message-list">
                     {this.props.messageIdsList.map((id: Uuid, index: number) => (
-                    <MessageCon
-                        key={index}
-                        id={id}
-                        index={index + 1}
-                         />
+                        <MessageCon
+                            key={index}
+                            id={id}
+                            index={index + 1}
+                        />
                     ))
                     }
                 </ul>
@@ -41,7 +41,7 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
                     <div className="col">
                         <SendForm
                             channelId={this.props.channelId}
-                            onSendMessage={this.props.onSendMessage}/>
+                            onSendMessage={this.props.onSendMessage} />
                     </div>
                 </div>
             </div>
