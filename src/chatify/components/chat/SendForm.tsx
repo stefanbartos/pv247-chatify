@@ -1,8 +1,7 @@
 import * as React from 'react';
-// @ts-ignore
-import Draft, {Editor, EditorState, RichUtils} from 'draft-js';
-import EditorCommand = Draft.Component.Base.EditorCommand;
-import {IChatMessage} from '../../models/IChatMessage';
+import { Editor, EditorState, RichUtils } from 'draft-js';
+import { DraftEditorCommand as EditorCommand } from 'draft-js';
+import { IChatMessage } from '../../models/IChatMessage';
 import '../../css/sendForm.css';
 
 export interface SendFormProps {
@@ -72,23 +71,23 @@ export class SendForm extends React.PureComponent<SendFormProps, SendFormState> 
     render() {
         return (
             <div>
-            <div>
-              <button className="editor-button" onClick={this.onUnderlineClick}>Underline</button>
-              <button className="editor-button" onClick={this.onToggleCode}>Code Block</button>
-              <button className="editor-button" onClick={this.onBoldClick}>Bold</button>
-              <button className="editor-button" onClick={this.onItalicClick}>Italic</button>
-            <Editor
-                editorState={this.state.editorState}
-                onChange={this.onChange}
-                handleKeyCommand={this.handleKeyCommand}
-                placeholder="Write something ..."
-            />
-            </div>
-            <div className="row">
-                <span className="float-left">
-                    <button className="btn btn-info" type="button" onClick={this.sendMessage}>Send</button>
-                </span>
-            </div>
+                <div>
+                    <button className="editor-button" onClick={this.onUnderlineClick}>Underline</button>
+                    <button className="editor-button" onClick={this.onToggleCode}>Code Block</button>
+                    <button className="editor-button" onClick={this.onBoldClick}>Bold</button>
+                    <button className="editor-button" onClick={this.onItalicClick}>Italic</button>
+                    <Editor
+                        editorState={this.state.editorState}
+                        onChange={this.onChange}
+                        handleKeyCommand={this.handleKeyCommand}
+                        placeholder="Write something ..."
+                    />
+                </div>
+                <div className="row">
+                    <span className="float-left">
+                        <button className="btn btn-info" type="button" onClick={this.sendMessage}>Send</button>
+                    </span>
+                </div>
             </div>
         );
     }
