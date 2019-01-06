@@ -23,6 +23,12 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
         this.props.fetchMessages(this.props.channelId);
     }
 
+    componentDidUpdate(prevProps: IMessageListProps) {
+        if (prevProps.channelId !== this.props.channelId) {
+            this.props.fetchMessages(this.props.channelId);
+        }
+    }
+
     public render() {
         // @ts-ignore
         return (
