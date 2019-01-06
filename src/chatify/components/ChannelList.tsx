@@ -1,7 +1,7 @@
 import * as Immutable from 'immutable';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { ChannelItemContainer } from '../containers/ChannelItem';
+import { ChannelItemContainer } from '../containers/ChannelItemContainer';
 import '../css/sidebar.css';
 
 interface IChannelListOwnProps {
