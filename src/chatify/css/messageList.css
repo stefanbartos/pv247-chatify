@@ -1,0 +1,10 @@
+.message-list {
+    background-color: white;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style-type: none;
+}

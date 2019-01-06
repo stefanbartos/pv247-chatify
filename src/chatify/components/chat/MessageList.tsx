@@ -4,6 +4,7 @@ import { MessageContainer } from '../../containers/MessageContainer';
 import * as PropTypes from 'prop-types';
 import { SendForm } from './SendForm';
 import { IChatMessage } from '../../models/IChatMessage';
+import '../../css/messageList.css';
 
 interface IMessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
@@ -31,7 +32,8 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
     public render() {
         return (
             <div>
-                <ul className="message-list">
+                <div className="message-list">
+                <ul>
                     {this.props.messageIdsList.map((id: Uuid, index: number) => (
                         <MessageContainer
                             key={index}
@@ -42,6 +44,7 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
                     ))
                     }
                 </ul>
+                </div>
                 <div className="row">
                     <div className="col">
                         <SendForm
