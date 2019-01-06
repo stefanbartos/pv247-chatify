@@ -24,7 +24,11 @@ export class ChannelList extends React.PureComponent<IChannelListOwnProps, IChan
     };
 
     private onAddChannel = () => {
-        this.props.onChannelAdd(this.state.name);
+        const channelName = this.state.name.trim();
+        if (channelName.length === 0) {
+            return;
+        }
+        this.props.onChannelAdd(channelName);
         this.setState(() => ({
             name: ''
         }));
