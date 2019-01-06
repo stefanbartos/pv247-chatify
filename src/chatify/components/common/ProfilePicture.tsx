@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as profilePicture from './profile-picture.png';
 import '../../css/chat.css';
 import { Link } from 'react-router-dom';
+import { PROFILE } from '../../constants/routes';
 
 export class ProfilePicture extends React.PureComponent<any, any> {
     constructor(props: any) {
@@ -31,7 +32,7 @@ export class ProfilePicture extends React.PureComponent<any, any> {
                 <img className="profile-picture img-circle"
                     src={profilePicture} aria-expanded={this.state.isExpanded} />
                 <div className={menuClass} aria-labelledby="dropdownMenuButton">
-                    <Link to="/Profile" className="dropdown-item">Profile</Link>
+                    <Link to={PROFILE} className="dropdown-item">Profile</Link>
                     <a className="dropdown-item">Logout</a>
                 </div>
             </li>
