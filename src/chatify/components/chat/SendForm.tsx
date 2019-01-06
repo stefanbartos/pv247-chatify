@@ -70,7 +70,7 @@ export class SendForm extends React.PureComponent<SendFormProps, SendFormState> 
 
     render() {
         return (
-            <div>
+            <div className="send-input">
                 <div>
                     <button className="editor-button" onClick={this.onUnderlineClick}>Underline</button>
                     <button className="editor-button" onClick={this.onToggleCode}>Code Block</button>
@@ -84,7 +84,7 @@ export class SendForm extends React.PureComponent<SendFormProps, SendFormState> 
                     />
                 </div>
                 <div className="row">
-                    <span className="float-left">
+                    <span className="float-left send-button">
                         <button className="btn btn-info" type="button" onClick={this.sendMessage}>Send</button>
                     </span>
                 </div>

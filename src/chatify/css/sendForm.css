@@ -1,5 +1,6 @@
 .DraftEditor-root {
     background: #cccccc;
+    border-radius: 5px;
 }
 
 .editor-button {
@@ -22,4 +23,8 @@ pre > pre{
     background: none;
     border: none;
     padding: 0;
+}
+
+.send-button {
+    margin: 15px;
 }
