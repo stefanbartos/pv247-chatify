@@ -1,23 +1,22 @@
 import * as React from 'react';
-import {IChatMessage} from '../../models/IChatMessage';
+import { IChatMessage } from '../../models/IChatMessage';
 
-export interface MessageProps {
+export interface IMessageOwnProps {
     readonly id: Uuid;
     readonly index: number;
-    readonly likes: number;
+    // readonly likes: number;
+    readonly channelId: Uuid;
 }
 
 export interface IMessageStateProps {
     readonly message: IChatMessage;
-    readonly channelId: Uuid;
 }
 
 export interface IMessageDispatchProps {
-    readonly onClick: () => void;
     readonly onDeleteMessage: (channelId: Uuid, chatMessageId: Uuid) => void;
 }
 
-type IProps = MessageProps & IMessageStateProps & IMessageDispatchProps;
+type IProps = IMessageOwnProps & IMessageStateProps & IMessageDispatchProps;
 
 export class Message extends React.PureComponent<IProps, any> {
 
@@ -26,13 +25,13 @@ export class Message extends React.PureComponent<IProps, any> {
     };
 
     public render() {
-        const {index, message} = this.props;
+        const { index, message } = this.props;
 
         return (
             <li key={index} className="nav-item">
                 <div className="media">
                     <span className="media-left">
-                        <img src={message.messageAuthorImage} className="img-circle" width="25" height="25"/>
+                        <img src={message.messageAuthorImage} className="img-circle" width="25" height="25" />
                     </span>
                     <span className="media-right">
                         <div key={message.messageAuthor}> {message.messageAuthor}</div>

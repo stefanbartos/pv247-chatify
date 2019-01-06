@@ -19,7 +19,6 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
     };
 
     componentDidMount() {
-        console.log('fetch messages');
         this.props.fetchMessages(this.props.channelId);
     }
 
@@ -30,7 +29,6 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
     }
 
     public render() {
-        // @ts-ignore
         return (
             <div>
                 <ul className="message-list">
@@ -39,6 +37,7 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
                             key={index}
                             id={id}
                             index={index + 1}
+                            channelId={this.props.channelId}
                         />
                     ))
                     }
