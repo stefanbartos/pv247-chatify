@@ -31,3 +31,7 @@ export const fetchAllChannelsApiAsync = (token: string): Promise<IChannelServer[
         }
     });
 };
+
+export const addMemberToChannelApiAsync = (token: string) => {
+    console.log(token);
+};

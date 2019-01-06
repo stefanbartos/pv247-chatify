@@ -7,6 +7,7 @@ import { IChatMessage } from '../../models/IChatMessage';
 import { Navigation } from '../../../common/components/Navigation';
 import { RouteComponentProps } from 'react-router';
 import { CHANNEL_ID } from '../../constants/routes';
+import { ChannelMembersListContainer } from '../../containers/ChannelMembersListContainer';
 
 interface IChatifyRouterProps {
     match: string;
@@ -32,12 +33,13 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
     render() {
         const { match } = this.props;
         const isChannelSelected = match.path === CHANNEL_ID;
+        const channelId = match.params.id ? match.params.id : '';
         return (
             <>
                 <Navigation />
                 <div id="container">
                     <div className="row">
-                        <div id="sidebar" className="col-md-3">
+                        <div id="sidebar" className="col-lg-3">
                             <ChannelList
                                 channelsIds={this.props.channelIds}
                                 onChannelAdd={this.props.onChannelAdd}
@@ -46,20 +48,27 @@ export class Chatify extends React.PureComponent<IChatifyStateProps & IChatifyDi
                         </div>
                         {isChannelSelected
                             ?
-                            <div id="messageList" className="col-md-6">
-                                <div className="container">
-                                    <Title/>
+                            <>
+                                <div id="messageList" className="col-lg-6">
+                                    <div className="container">
+                                        <Title />
+                                    </div>
+                                    <div className="container">
+                                        <MessageList
+                                            messageIdsList={this.props.messageIdsList}
+                                            onSendMessage={this.props.onSendMessage}
+                                            channelId={channelId}
+                                            fetchMessages={this.props.fetchMessages} />
+                                    </div>
                                 </div>
-                                <div className="container">
-                                    <MessageList
-                                        messageIdsList={this.props.messageIdsList}
-                                        onSendMessage={this.props.onSendMessage}
-                                        channelId={match.params.id ? match.params.id : ''}
-                                        fetchMessages={this.props.fetchMessages}/>
+                                <div id="right-bar" className="col-lg-3">
+                                    <ChannelMembersListContainer
+                                        channelId={channelId}
+                                    />
                                 </div>
-                            </div>
+                            </>
                             :
-                            <div className="col-md-5" style={{ height: '500px' }}>
+                            <div className="col-lg-6" style={{ height: '500px' }}>
                                 Select channel please
                             </div>
                         }
