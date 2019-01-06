@@ -5,18 +5,14 @@ import * as PropTypes from 'prop-types';
 import {SendForm} from './SendForm';
 import {IChatMessage} from '../../models/IChatMessage';
 
-interface MessageListProps {
+interface IMessageListProps {
     onSendMessage: (channelId: Uuid, message: IChatMessage) => void;
     messageIdsList: Immutable.List<Uuid>;
     channelId: Uuid;
     fetchMessages: (channelId: Uuid) => void;
 }
 
-interface IState {
-
-}
-
-export class MessageList extends React.PureComponent<MessageListProps, IState> {
+export class MessageList extends React.PureComponent<IMessageListProps> {
 
     static propTypes = {
         onSendMessage: PropTypes.func.isRequired
