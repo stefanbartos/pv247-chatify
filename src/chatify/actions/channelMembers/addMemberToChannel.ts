@@ -25,8 +25,6 @@ export const addMemberToChannel = (channelId: string, memberName: string): any =
             }
         };
 
-        console.log(channelServerDetails);
-
         try {
             const updatedServerDetails = await updateChannelApiAsync(token, channelServerDetails);
             const updatedChannel: IChannelItem = Object.assign(
