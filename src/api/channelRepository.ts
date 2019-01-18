@@ -48,8 +48,3 @@ export const updateChannelApiAsync = (token: string, serverDetails: IChannelServ
         }
     });
 };
-
-export const addMemberToChannelApiAsync = (token: string) => {
-
-    console.log(token);
-};
