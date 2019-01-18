@@ -27,6 +27,10 @@ export class MessageList extends React.PureComponent<IMessageListProps> {
         if (prevProps.channelId !== this.props.channelId) {
             this.props.fetchMessages(this.props.channelId);
         }
+
+        if (prevProps.messageIdsList.size !== this.props.messageIdsList.size) {
+            this.props.fetchMessages(this.props.channelId);
+        }
     }
 
     public render() {
