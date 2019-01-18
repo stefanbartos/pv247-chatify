@@ -29,6 +29,7 @@ export class SendForm extends React.PureComponent<SendFormProps, SendFormState> 
             id: '',
             chatMessageText: this.state.editorState.getCurrentContent().getPlainText(),
             messageUpvotes: 0,
+            messageTime: new Date(),
         };
 
         this.props.onSendMessage(this.props.channelId, chatMessage);

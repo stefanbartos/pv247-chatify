@@ -4,4 +4,5 @@ export interface IChatMessage {
     id: Uuid;
     chatMessageText: string;
     messageUpvotes: number;
+    messageTime: Date;
 }

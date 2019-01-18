@@ -62,4 +62,3 @@ export const updateChatMessageSuccess = (chatMessage: ChatMessageGetModel): Acti
 export const updateChatMessageFailure = (): Action => ({
     type: actionTypes.CHATIFY_MESSAGE_UPDATE_FAILURE
 });
-

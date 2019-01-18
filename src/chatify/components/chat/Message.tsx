@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { IChatMessage } from '../../models/IChatMessage';
 import '../../css/chatMessage.css';
+// import {getStringTimestamp} from './util';
 
 export interface IMessageOwnProps {
     readonly id: Uuid;

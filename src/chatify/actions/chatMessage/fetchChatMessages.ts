@@ -23,6 +23,7 @@ export const fetchChatMessages = (channelId: Uuid): any =>
                     messageAuthor: chatMessage.createdBy,
                     messageAuthorImage: 'http://pngimg.com/uploads/smiley/smiley_PNG36233.png',
                     messageUpvotes: 0,
+                    messageTime: chatMessage.createdAt,
                 });
             }
             dispatch(fetchChatMessagesSuccess(Immutable.List(channelMessages)));
