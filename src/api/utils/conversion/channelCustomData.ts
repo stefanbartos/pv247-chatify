@@ -1,4 +1,4 @@
-import { ICreateChannelDto } from '../../../chatify/models/api/ICreateChannelDto';
+import { ICreateChannelDto } from '../../../chatify/models/dtos/ICreateChannelDto';
 
 export const convertCreatingChannelToChannelCustomData = (createChannelDto: ICreateChannelDto) => {
     return {

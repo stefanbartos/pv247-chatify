@@ -1,7 +1,7 @@
 import { fetchUpdate } from './utils/fetchUpdate';
 import { IChannelUpdateServer } from './models/IChannelUpdateServer';
 import { API_CHANNEL_URL, createSpecificChannelUrl } from '../chatify/constants/api';
-import { ICreateChannelDto } from '../chatify/models/api/ICreateChannelDto';
+import { ICreateChannelDto } from '../chatify/models/dtos/ICreateChannelDto';
 import { convertCreatingChannelToChannelCustomData } from './utils/conversion/channelCustomData';
 import { fetchRequest } from './utils/fetchRequest';
 import { IChannelServer } from './models/IChannelServer';

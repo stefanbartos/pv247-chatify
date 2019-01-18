@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import { IState } from '../../../common/IState';
 import { createChannelStarted, createChannelFailed, createChannelSuccess } from './actionCreator';
 import { createChannelApiAsync } from '../../../api/channelRepository';
-import { ICreateChannelDto } from '../../models/api/ICreateChannelDto';
+import { ICreateChannelDto } from '../../models/dtos/ICreateChannelDto';
 import * as Immutable from 'immutable';
 import { IChannelItem } from '../../models/IChannelItem';
 
