@@ -13,5 +13,5 @@ export const addMemberToChannelSuccess = (channelItem: IChannelItem): Action => 
 });
 
 export const addMemberToChannelFailed = (): Action => ({
-    type: actionTypes.CHATIFY_CHANNEL_ADD_MEMBER_FAILED,
+    type: actionTypes.CHATIFY_CHANNEL_ADD_MEMBER_FAILURE,
 });

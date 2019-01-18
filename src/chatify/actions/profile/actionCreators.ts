@@ -9,7 +9,7 @@ export const updateProfileUserDetailsSuccess = (userDetails: IUserDetails): Acti
 });
 
 export const updateProfileUserDetailsFailed = (): Action => ({
-    type: actionTypes.CHATIFY_PROFILE_UPDATE_USER_DETAILS_FAILED,
+    type: actionTypes.CHATIFY_PROFILE_UPDATE_USER_DETAILS_FAILURE,
 });
 
 export const updateProfileUserDetailsStarted = (): Action => ({
@@ -28,7 +28,7 @@ export const fetchProfileUserDetailsSuccess = (userDetails: IUserDetails): Actio
 });
 
 export const fetchProfileUserDetailsFailed = (): Action => ({
-    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_FAILED,
+    type: actionTypes.CHATIFY_PROFILE_FETCHING_USER_DETAILS_FAILURE,
 });
 
 // AVATAR UPLOADING
@@ -42,7 +42,7 @@ export const uploadAvatarSuccess = (): Action => ({
 });
 
 export const uploadAvatarFailed = (): Action => ({
-    type: actionTypes.CHATIFY_PROFILE_UPLOAD_AVATAR_FAILED,
+    type: actionTypes.CHATIFY_PROFILE_UPLOAD_AVATAR_FAILURE,
 });
 
 // AVATAR FETCHING
@@ -59,5 +59,5 @@ export const fetchAvatarSuccess = (avatarUrl: string): Action => ({
 });
 
 export const fetchAvatarFailed = (): Action => ({
-    type: actionTypes.CHATIFY_PROFILE_FETCH_AVATAR_FAILED,
+    type: actionTypes.CHATIFY_PROFILE_FETCH_AVATAR_FAILURE,
 });

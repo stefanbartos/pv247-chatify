@@ -1,6 +1,6 @@
 import {
     CHATIFY_PROFILE_FETCH_AVATAR_STARTED,
-    CHATIFY_PROFILE_FETCH_AVATAR_FAILED,
+    CHATIFY_PROFILE_FETCH_AVATAR_FAILURE,
     CHATIFY_PROFILE_FETCH_AVATAR_SUCCESS
 } from '../../constants/actionTypes';
 import { isFetchingAvatar } from './isFetchingAvatar';
@@ -17,9 +17,9 @@ describe('isFetchingAvatar reducer test', () => {
         expect(isFetchingAvatar(false, startedAction)).toBeTruthy();
     });
 
-    it(`should handle ${CHATIFY_PROFILE_FETCH_AVATAR_FAILED}`, () => {
+    it(`should handle ${CHATIFY_PROFILE_FETCH_AVATAR_FAILURE}`, () => {
         const failAction: Action = {
-            type: CHATIFY_PROFILE_FETCH_AVATAR_FAILED
+            type: CHATIFY_PROFILE_FETCH_AVATAR_FAILURE
         };
         expect(isFetchingAvatar(false, failAction)).toBeFalsy();
     });
