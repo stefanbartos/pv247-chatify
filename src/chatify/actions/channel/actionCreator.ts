@@ -31,3 +31,18 @@ export const fetchChannelsSuccess = (channelItems: Immutable.List<IChannelItem>)
 export const fetchChannelsFailed = (): Action => ({
     type: actionTypes.CHATIFY_FETCH_CHANNELS_FAILURE,
 });
+
+export const updateChannelNameStarted = (): Action => ({
+    type: actionTypes.CHATIFY_CHANNEL_ADD_SUCCESS,
+});
+
+export const updateChannelNameSuccess = (channelItem: IChannelItem): Action => ({
+    type: actionTypes.CHATIFY_CHANNEL_ADD_SUCCESS,
+    payload: {
+        channelItem
+    }
+});
+
+export const updateChannelNameFailed = (): Action => ({
+    type: actionTypes.CHATIFY_CHANNEL_UPDATE_FAILURE,
+});
