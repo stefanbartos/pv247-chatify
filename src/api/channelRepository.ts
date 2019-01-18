@@ -6,6 +6,7 @@ import { convertCreatingChannelToChannelCustomData } from './utils/conversion/ch
 import { fetchRequest } from './utils/fetchRequest';
 import { IChannelServer } from './models/IChannelServer';
 import { fetchReceive } from './utils/fetchReceive';
+import { fetchDelete } from './utils/fetchDelete';
 
 export const createChannelApiAsync = (createChannelDto: ICreateChannelDto, token: string): Promise<IChannelServer> => {
     const url = API_CHANNEL_URL;
@@ -42,6 +43,19 @@ export const updateChannelApiAsync = (token: string, serverDetails: IChannelServ
     return new Promise(async (resolve, reject) => {
         try {
             const response: IChannelServer = await fetchUpdate(url, token, updateServerDetails);
+            resolve(response);
+        } catch (err) {
+            reject(err);
+        }
+    });
+};
+
+export const deleteChannelApiAsync = (token: string, channelId: string): Promise<any> => {
+    const url = createSpecificChannelUrl(channelId);
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            const response = await fetchDelete(url, token);
             resolve(response);
         } catch (err) {
             reject(err);
