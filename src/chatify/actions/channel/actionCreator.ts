@@ -46,3 +46,18 @@ export const updateChannelNameSuccess = (channelItem: IChannelItem): Action => (
 export const updateChannelNameFailed = (): Action => ({
     type: actionTypes.CHATIFY_CHANNEL_UPDATE_FAILURE,
 });
+
+export const deleteChannelStarted = (): Action => ({
+    type: actionTypes.CHATIFY_CHANNEL_DELETE_STARTED
+});
+
+export const deleteChannelSuccess = (channelId: Uuid): Action => ({
+    type: actionTypes.CHATIFY_CHANNEL_DELETE_SUCCESS,
+    payload: {
+        channelId
+    }
+});
+
+export const deleteChannelFailed = (): Action => ({
+    type: actionTypes.CHATIFY_CHANNEL_DELETE_FAILURE
+});

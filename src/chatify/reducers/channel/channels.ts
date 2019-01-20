@@ -1,7 +1,8 @@
 import {
     CHATIFY_CHANNEL_ADD_SUCCESS,
     CHATIFY_FETCH_CHANNELS_SUCCESS,
-    CHATIFY_CHANNEL_ADD_MEMBER_SUCCESS
+    CHATIFY_CHANNEL_ADD_MEMBER_SUCCESS,
+    CHATIFY_CHANNEL_DELETE_SUCCESS
 } from './../../constants/actionTypes';
 import * as Immutable from 'immutable';
 import { IChannelItem } from '../../models/IChannelItem';
@@ -23,6 +24,9 @@ export const channels = (prevState = Immutable.List<IChannelItem>(), action: Act
 
         case CHATIFY_FETCH_CHANNELS_SUCCESS: {
             return action.payload.channelItems;
+        }
+        case CHATIFY_CHANNEL_DELETE_SUCCESS: {
+            return prevState.remove(prevState.findIndex(ch => ch.id === action.payload.channelId));
         }
         default:
             return prevState;
