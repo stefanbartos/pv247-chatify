@@ -10,7 +10,6 @@ export const registerUser = (email: string): any => async (dispatch: Dispatch): 
         console.log('response= ' + response);
         dispatch(registerUserSuccess());
     } catch (err) {
-        console.log('erro');
         console.log(err);
         dispatch(registerUserFailure());
     }

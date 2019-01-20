@@ -58,6 +58,5 @@ export const UserDetails = withFormik<UserDetailsFormikDispatchProps & UserDetai
         },
         handleSubmit: (values, { props }) => {
             props.uploadData(values);
-            console.log(values);
         }
     })(UserDetailsForm);

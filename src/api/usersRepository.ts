@@ -38,7 +38,6 @@ export const registerApiAsync = async (email: string): Promise<IUserRegistration
 
         try {
             const response = await fetch(createUserRegistrationApiUrl(), requestOptions);
-            console.log(response);
             if (response.ok) {
                 const userRegistrationResponse: IUserRegistrationResponse = await response.json();
                 resolve(userRegistrationResponse);
@@ -53,7 +52,6 @@ export const registerApiAsync = async (email: string): Promise<IUserRegistration
 
 export const uploadUserDetailsApiAsync = async (userDetails: IUserDetails, token: string) => {
     const url = createApiSpecificUserUrl(userDetails.email);
-    console.log(userDetails);
     const serverDetail = convertToServerDetails(userDetails);
 
     return new Promise(async (resolve, reject) => {

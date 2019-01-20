@@ -11,7 +11,6 @@ const defaultValues = {
 };
 
 export const userDetails = (prevState: IUserDetails | undefined = defaultValues, action: Action): IUserDetails | undefined => {
-    console.log(action.type);
     switch (action.type) {
         case CHATIFY_PROFILE_FETCHING_USER_DETAILS_SUCCESS:
         case CHATIFY_PROFILE_UPDATE_USER_DETAILS_SUCCESS: {
