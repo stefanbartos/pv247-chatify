@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import * as PropTypes from 'prop-types';
 import * as routes from '../../constants/routes';
+import { ErrorsContainer } from '../../containers/ErrorsContainer';
 
 export interface ILoginDispatchProps {
     onLogin(email: string, redirect: () => void): void;
@@ -93,6 +94,9 @@ export class Login extends React.PureComponent<ILoginDispatchProps & ILoginOwnPr
                     <div className="form-group">
                         <button className="btn btn-primary">Login</button>
                         <Link to={routes.REGISTER} className="btn btn-link">Register</Link>
+                    </div>
+                    <div className="row">
+                        <ErrorsContainer key="errors" />
                     </div>
                 </form>
             </div>
