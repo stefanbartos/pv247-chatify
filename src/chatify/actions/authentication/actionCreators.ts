@@ -1,4 +1,5 @@
 import * as actionTypes from '../../constants/actionTypes';
+import { errorActionFactory } from '../errorActionFactory';
 
 export const receiveToken = (token: string): Action => ({
     type: actionTypes.CHATIFY_RECEIVE_TOKEN,
@@ -22,12 +23,7 @@ export const loginUserSuccess = (email: string): Action => ({
     }
 });
 
-export const loginUserFailure = (err: any): Action => ({
-    type: actionTypes.CHATIFY_USER_LOGIN_FAILURE,
-    payload: {
-        err
-    }
-});
+export const loginUserFailure = errorActionFactory(actionTypes.CHATIFY_USER_LOGIN_FAILURE);
 
 export const registerUserStarted = (): Action => ({
     type: actionTypes.CHATIFY_USER_REGISTER_STARTED

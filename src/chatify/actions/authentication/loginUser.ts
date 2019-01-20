@@ -1,3 +1,4 @@
+import { FAILED_LOGIN_MESSAGE } from './../../constants/uiMessages';
 import { Dispatch } from 'redux';
 import { loginApiAsync } from '../../../api/usersRepository';
 import { loginUserStarted, loginUserSuccess, loginUserFailure, receiveToken } from './actionCreators';
@@ -15,7 +16,6 @@ export const loginUser = (email: string, redirect: () => void): any => async (di
         redirect();
     }
     catch (err) {
-        console.log(err);
-        dispatch(loginUserFailure(err));
+        dispatch(loginUserFailure(FAILED_LOGIN_MESSAGE, err));
     }
 };
