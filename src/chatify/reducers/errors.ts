@@ -8,7 +8,7 @@ export const errors = (prevState = Immutable.OrderedMap<Uuid, IError>(), action:
             return prevState.set(action.payload.error.id, { ...action.payload.error });
         }
         case CHATIFY_DISMISS_ERROR: {
-            return prevState.delete(action.payload.error.id);
+            return prevState.delete(action.payload.errorId);
         }
         // TODO: uncomment when connect router will be working
         // case LOCATION_CHANGE: {
