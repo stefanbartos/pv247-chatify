@@ -16,13 +16,9 @@ export const loginApiAsync = async (email: string): Promise<IAuthenticationRespo
             body: JSON.stringify({ email })
         };
         try {
-            const response = await fetch(createApiAuthenticationUrl(), requestOptions);
-            if (response.ok) {
-                const authResponse: IAuthenticationResponse = await response.json();
-                resolve(authResponse);
-            } else {
-                reject(response);
-            }
+            const response = await fetch(createApiAuthenticationUrl(), requestOptions)
+                .then(validateResponse);
+            resolve(response);
         } catch (e) {
             reject(e);
         }
