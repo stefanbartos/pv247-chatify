@@ -1,12 +1,14 @@
 import {
     CHATIFY_USER_LOGIN_FAILURE,
-    CHATIFY_DISMISS_ERROR
+    CHATIFY_DISMISS_ERROR,
+    CHATIFY_USER_REGISTER_FAILURE
 } from './../constants/actionTypes';
 import * as Immutable from 'immutable';
 import { IError } from '../models/IError';
 
 export const errors = (prevState = Immutable.OrderedMap<Uuid, IError>(), action: Action): Immutable.OrderedMap<Uuid, any> => {
     switch (action.type) {
+        case CHATIFY_USER_REGISTER_FAILURE:
         case CHATIFY_USER_LOGIN_FAILURE: {
             return prevState.set(action.payload.error.id, { ...action.payload.error });
         }

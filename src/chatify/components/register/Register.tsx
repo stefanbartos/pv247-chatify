@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as routes from '../../constants/routes';
+import { ErrorsContainer } from '../../containers/ErrorsContainer';
 
 export interface IRegisterProps {
     onRegister(email: string): void;
@@ -51,6 +52,9 @@ export class Register extends React.PureComponent<IRegisterProps, IRegisterState
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
                         Already registered? <Link to={routes.LOGIN} className="btn btn-link">Login</Link>
+                    </div>
+                    <div className="row">
+                        <ErrorsContainer key="errors" />
                     </div>
                 </form>
             </div>

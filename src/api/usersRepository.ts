@@ -6,6 +6,7 @@ import { convertToServerDetails, convertFromServerUserDetails } from './utils/co
 import { fetchUpdate } from './utils/fetchUpdate';
 import { fetchReceive } from './utils/fetchReceive';
 import { fetchFileUpload } from './utils/fetchFileUpload';
+import { validateResponse } from './utils/validateResponse';
 
 export const loginApiAsync = async (email: string): Promise<IAuthenticationResponse> => {
     return new Promise(async (resolve, reject) => {
@@ -37,15 +38,11 @@ export const registerApiAsync = async (email: string): Promise<IUserRegistration
         };
 
         try {
-            const response = await fetch(createUserRegistrationApiUrl(), requestOptions);
-            if (response.ok) {
-                const userRegistrationResponse: IUserRegistrationResponse = await response.json();
-                resolve(userRegistrationResponse);
-            } else {
-                reject(response);
-            }
-        } catch (e) {
-            reject(e);
+            const response = await fetch(createUserRegistrationApiUrl(), requestOptions)
+                .then(validateResponse);
+            resolve(response);
+        } catch (err) {
+            reject(err);
         }
     });
 };

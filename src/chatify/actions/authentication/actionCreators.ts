@@ -33,9 +33,7 @@ export const registerUserSuccess = (): Action => ({
     type: actionTypes.CHATIFY_USER_REGISTER_SUCCESS
 });
 
-export const registerUserFailure = (): Action => ({
-    type: actionTypes.CHATIFY_USER_REGISTER_FAILURE
-});
+export const registerUserFailure = errorActionFactory(actionTypes.CHATIFY_USER_REGISTER_FAILURE);
 
 export const logoutUserSuccess = (): Action => ({
     type: actionTypes.CHATIFY_USER_LOGOUT
