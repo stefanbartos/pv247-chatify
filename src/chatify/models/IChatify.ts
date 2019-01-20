@@ -12,4 +12,5 @@ export interface IChatify {
     isLoggedIn: boolean;
     profile: IProfile;
     email: string | null;
+    errors: Immutable.OrderedMap<string, any>;
 }
