@@ -1,7 +1,8 @@
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { Login, ILoginDispatchProps } from '../components/login/Login';
+import { Login, ILoginDispatchProps, ILoginStateProps } from '../components/login/Login';
 import { loginUser } from '../actions/authentication/loginUser';
+import { IState } from '../../common/IState';
 
 const mapDispatchToProps = (dispatch: Dispatch): ILoginDispatchProps => {
   return {
@@ -9,5 +10,11 @@ const mapDispatchToProps = (dispatch: Dispatch): ILoginDispatchProps => {
   };
 };
 
+const mapStateToProps = (state: IState): ILoginStateProps => {
+  return {
+    isLoggingIn: state.chatify.isLoggingIn
+  };
+};
+
 // @ts-ignore
-export const LoginContainer = connect(null, mapDispatchToProps)(Login);
+export const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -4,9 +4,14 @@ import { RouteComponentProps } from 'react-router';
 import * as PropTypes from 'prop-types';
 import * as routes from '../../constants/routes';
 import { ErrorsContainer } from '../../containers/ErrorsContainer';
+import { ClipLoader } from 'react-spinners';
 
 export interface ILoginDispatchProps {
     onLogin(email: string, redirect: () => void): void;
+}
+
+export interface ILoginStateProps {
+    isLoggingIn: boolean;
 }
 
 export interface ILoginOwnProps extends RouteComponentProps<any> { }
@@ -17,7 +22,9 @@ interface ILoginState {
     submitted: boolean;
 }
 
-export class Login extends React.PureComponent<ILoginDispatchProps & ILoginOwnProps, ILoginState> {
+type ILoginProps = ILoginDispatchProps & ILoginStateProps & ILoginOwnProps;
+
+export class Login extends React.PureComponent<ILoginProps, ILoginState> {
     static displayName = 'Login';
 
     static propTypes = {
@@ -92,7 +99,13 @@ export class Login extends React.PureComponent<ILoginDispatchProps & ILoginOwnPr
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Login</button>
+                        <button
+                            className="btn btn-primary"
+                            disabled={this.props.isLoggingIn}
+                        >Login</button>
+                        <ClipLoader
+                            size={30}
+                            loading={this.props.isLoggingIn} />
                         <Link to={routes.REGISTER} className="btn btn-link">Register</Link>
                     </div>
                     <div className="row">
