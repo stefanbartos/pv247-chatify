@@ -12,7 +12,7 @@ const mapStateToProps = (state: IState): IErrorsStateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch): IErrorsDispatchProps => {
     return {
-        onDismissClick: (errorId: string) => dispatch(dismissError(errorId))
+        onDismissClick: (errorId: Uuid) => dispatch(dismissError(errorId))
     };
 };
 export const ErrorsContainer = connect<IErrorsStateProps, IErrorsDispatchProps>(

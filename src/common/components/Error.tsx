@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import { IError } from '../../chatify/models/IError';
 
 interface IErrorOwnProps {
     readonly onClick: (id: Uuid) => void;
-    readonly error: any;
+    readonly error: IError;
 }
 export class Error extends React.PureComponent<IErrorOwnProps> {
     static propTypes = {

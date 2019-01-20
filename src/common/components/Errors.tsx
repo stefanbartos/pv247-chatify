@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Error } from './Error';
 import * as Immutable from 'immutable';
+import { IError } from '../../chatify/models/IError';
 
 export interface IErrorsStateProps {
-    readonly errors: Immutable.OrderedMap<string, any>;
+    readonly errors: Immutable.OrderedMap<string, IError>;
 }
 
 export interface IErrorsDispatchProps {

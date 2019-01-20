@@ -2,6 +2,7 @@ import * as Immutable from 'immutable';
 import { IChannelItem } from './IChannelItem';
 import { IChatMessage } from './IChatMessage';
 import { IProfile } from './IProfile';
+import { IError } from './IError';
 
 export interface IChatify {
     channels: Immutable.List<IChannelItem>;
@@ -12,5 +13,5 @@ export interface IChatify {
     isLoggedIn: boolean;
     profile: IProfile;
     email: string | null;
-    errors: Immutable.OrderedMap<string, any>;
+    errors: Immutable.OrderedMap<Uuid, IError>;
 }
