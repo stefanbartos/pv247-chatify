@@ -26,7 +26,7 @@ export class NavigationPicture extends React.PureComponent<INavigationPicuteDisp
 
     render() {
         const showAttr = this.state.isExpanded ? 'show' : '';
-        const menuClass = `dropdown-menu ${showAttr}`;
+        const menuClass = `dropdown-menu dropdown-menu-right position-absolute ${showAttr}`;
         const navDropdownClass = `nav-item dropdown ${showAttr}`;
         return (
             <li className={navDropdownClass} onClick={this.toggleDropdown}>
