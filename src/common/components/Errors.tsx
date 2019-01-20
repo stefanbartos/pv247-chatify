@@ -18,7 +18,7 @@ export class Errors extends React.PureComponent<IErrorProps>  {
 
         return (
             (errors || [])
-            && errors.map(error => (
+            && errors.valueSeq().map(error => (
                 <Error key={error.id} error={error} onClick={onDismissClick} />
             ))
         );
