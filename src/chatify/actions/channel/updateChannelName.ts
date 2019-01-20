@@ -10,7 +10,7 @@ import {
 import { IChannelServer } from '../../../api/models/IChannelServer';
 import { updateChannelApiAsync } from '../../../api/channelRepository';
 
-export const updateChannelName = (updateChannelNameDto: IUpdateChannelNameDto) =>
+export const updateChannelName = (updateChannelNameDto: IUpdateChannelNameDto): any =>
     async (dispatch: Dispatch, getState: () => IState) => {
         dispatch(updateChannelNameStarted());
 

@@ -8,6 +8,7 @@ import { Navigation } from '../../../common/components/Navigation';
 import { RouteComponentProps } from 'react-router';
 import { CHANNEL_ID } from '../../constants/routes';
 import { ChannelMembersListContainer } from '../../containers/ChannelMembersListContainer';
+import { IUpdateChannelNameDto } from '../../models/dtos/IUpdateChannelNameDto';
 
 interface IChatifyRouterProps {
     match: string;
@@ -23,6 +24,7 @@ export interface IChatifyStateProps {
 
 export interface IChatifyDispatchProps {
     readonly onChannelAdd: (text: string) => void;
+    readonly updateChannel: (updateChannelNameDto: IUpdateChannelNameDto) => void;
     readonly fetchChannels: () => void;
     readonly fetchMessages: (chanelId: Uuid) => void;
     readonly onSendMessage: (chanelId: Uuid, chatMessage: IChatMessage) => void;
