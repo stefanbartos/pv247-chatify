@@ -1,4 +1,7 @@
-import { CHATIFY_USER_LOGIN_FAILURE, CHATIFY_DISMISS_ERROR } from './../constants/actionTypes';
+import {
+    CHATIFY_USER_LOGIN_FAILURE,
+    CHATIFY_DISMISS_ERROR
+} from './../constants/actionTypes';
 import * as Immutable from 'immutable';
 import { IError } from '../models/IError';
 
