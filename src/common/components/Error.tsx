@@ -19,7 +19,7 @@ export class Error extends React.PureComponent<IErrorOwnProps> {
     render() {
         return (
             <div
-                className="alert alert-danger alert-dismissible fade text-center"
+                className="alert alert-danger alert-dismissible text-center"
                 role="alert">
                 <button
                     type="button"
