@@ -14,7 +14,7 @@ export class Error extends React.PureComponent<IErrorOwnProps> {
         onClick: PropTypes.func.isRequired,
     };
 
-    private onClick = () => this.props.onClick(this.props.error.id);
+    onClick = () => this.props.onClick(this.props.error.id);
 
     render() {
         return (
