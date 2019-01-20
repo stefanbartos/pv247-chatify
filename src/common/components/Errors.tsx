@@ -7,7 +7,7 @@ export interface IErrorsStateProps {
 }
 
 export interface IErrorsDispatchProps {
-    readonly onDismissClick: (id: any) => void;
+    readonly onDismissClick: (id: Uuid) => void;
 }
 
 type IErrorProps = IErrorsStateProps & IErrorsDispatchProps;

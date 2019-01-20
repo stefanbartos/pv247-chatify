@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 
 interface IErrorOwnProps {
-    readonly onClick: (id: any) => void;
+    readonly onClick: (id: Uuid) => void;
     readonly error: any;
 }
 export class Error extends React.PureComponent<IErrorOwnProps> {
