@@ -5,6 +5,7 @@ import * as PropTypes from 'prop-types';
 import * as routes from '../../constants/routes';
 import { ErrorsContainer } from '../../containers/ErrorsContainer';
 import { ClipLoader } from 'react-spinners';
+import '../../css/login.css';
 
 export interface ILoginDispatchProps {
     onLogin(email: string, redirect: () => void): void;
@@ -71,47 +72,65 @@ export class Login extends React.PureComponent<ILoginProps, ILoginState> {
     public render() {
         const { email, password, submitted } = this.state;
         return (
-            <div className="col-md-6 offset-md-3">
-                <h2>Login</h2>
-                <form className="form-login" onSubmit={this.onSubmit}>
-                    <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="email"
-                            value={email}
-                            onChange={this.handleEmailChange} />
-                        {submitted && !email &&
-                            <div className="help-block">Email is required</div>
-                        }
+            <div className="container login-page h-100">
+                <div className="row justify-content-md-center h-100">
+                    <div className="card-wrapper">
+                        <div className="card fat">
+                            <div className="card-body">
+                                <h4 className="card-title">
+                                    Login
+                                </h4>
+                                <form className="form-login" onSubmit={this.onSubmit}>
+                                    <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
+                                        <label htmlFor="email">Email</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name="email"
+                                            value={email}
+                                            onChange={this.handleEmailChange} />
+                                        {submitted && !email &&
+                                            <div className="help-block">Email is required</div>
+                                        }
+                                    </div>
+                                    <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
+                                        <label htmlFor="password">Password</label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            name="password"
+                                            value={password}
+                                            onChange={this.handlePasswordChange} />
+                                        {submitted && !password &&
+                                            <div className="help-block">Password is required</div>
+                                        }
+                                    </div>
+                                    <div className="form-group m-0">
+                                        <ClipLoader
+                                            size={30}
+                                            loading={this.props.isLoggingIn} />
+                                        <button
+                                            className="btn btn-primary btn-block"
+                                            disabled={this.props.isLoggingIn}
+                                        >
+                                            Login
+                                        </button>
+                                    </div>
+                                    <div className="mt-4 text-center">
+                                        Don't have an account?&nbsp;
+                                        <Link to={routes.REGISTER}>Create One</Link>
+                                    </div>
+                                    <div className="row">
+                                        <ErrorsContainer key="errors" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="footer">
+                            PV247 - Chatify
+                        </div>
                     </div>
-                    <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            className="form-control"
-                            name="password"
-                            value={password}
-                            onChange={this.handlePasswordChange} />
-                        {submitted && !password &&
-                            <div className="help-block">Password is required</div>
-                        }
-                    </div>
-                    <div className="form-group">
-                        <button
-                            className="btn btn-primary"
-                            disabled={this.props.isLoggingIn}
-                        >Login</button>
-                        <ClipLoader
-                            size={30}
-                            loading={this.props.isLoggingIn} />
-                        <Link to={routes.REGISTER} className="btn btn-link">Register</Link>
-                    </div>
-                    <div className="row">
-                        <ErrorsContainer key="errors" />
-                    </div>
-                </form>
+                </div>
             </div>
         );
     }

@@ -1,0 +1,7 @@
+html, body, #app-root, #app-root>div {
+    height: 100%
+}
+
+body {
+    background-color: #f7f9fb;
+}

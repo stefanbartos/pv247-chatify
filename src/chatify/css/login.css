@@ -1,0 +1,35 @@
+.login-page {
+	font-size: 14px;
+}
+
+.login-page .card-wrapper {
+    width: 400px;
+}
+
+.login-page .card {
+    margin-top: 100px;
+    border-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+}
+
+.login-page .card.fat {
+    padding: 10px;
+}
+
+.login-page .form-control {
+    border-width: 2.3px;
+}
+
+.login-page .form-control label {
+    width: 100%;
+}
+
+.login-page .btn.btn-block {
+    padding: 12px 10px;
+}
+
+.login-page .footer {
+    margin: 40px 0;
+    color: #888;
+    text-align: center;
+}

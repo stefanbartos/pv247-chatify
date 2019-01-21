@@ -14,6 +14,7 @@ import { RegisterContainer } from './chatify/containers/RegisterContainer';
 import * as routes from './chatify/constants/routes';
 import { ErrorBoundary } from './common/components/ErrorBounderies';
 import { ProfileContainer } from './chatify/containers/profile/ProfileContainer';
+import './chatify/css/app.css';
 
 const store = createChatifyStore();
 
