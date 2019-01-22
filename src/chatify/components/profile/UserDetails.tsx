@@ -40,20 +40,14 @@ export interface UserDetailsFormikDispatchProps {
     uploadData: (data: IUserDetails) => void;
 }
 
-export interface UserDetailsFormikStateProps {
-    email: string;
-    firstName: string;
-    lastName: string;
-}
+export interface UserDetailsFormikStateProps extends IUserDetails { }
 
 export const UserDetails = withFormik<UserDetailsFormikDispatchProps & UserDetailsFormikStateProps,
     IUserDetailsFormData>({
         enableReinitialize: true,
         mapPropsToValues: (props) => {
             return {
-                email: props.email,
-                firstName: props.firstName,
-                lastName: props.lastName
+                ...props
             };
         },
         handleSubmit: (values, { props }) => {
