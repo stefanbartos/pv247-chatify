@@ -7,6 +7,6 @@ import { avatarUrl } from './avatarUrl';
 export const profile = (prevState = {} as IProfile, action: Action): IProfile => ({
     userDetails: userDetails(prevState.userDetails, action),
     isFetchingUserDetails: isFetchingUserDetails(prevState.isFetchingUserDetails, action),
-    isFetchingAvatar: isFetchingAvatar(prevState.isFetchingUserDetails, action),
+    isFetchingAvatar: isFetchingAvatar(prevState.isFetchingAvatar, action),
     avatarUrl: avatarUrl(prevState.avatarUrl, action)
 });
