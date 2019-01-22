@@ -4,13 +4,7 @@ import {
     CHATIFY_PROFILE_FETCHING_USER_DETAILS_SUCCESS
 } from '../../constants/actionTypes';
 
-const defaultValues = {
-    email: 'string',
-    firstName: 'meno',
-    lastName: 'priezvisko'
-};
-
-export const userDetails = (prevState: IUserDetails | undefined = defaultValues, action: Action): IUserDetails | undefined => {
+export const userDetails = (prevState: IUserDetails | undefined = undefined, action: Action): IUserDetails | undefined => {
     switch (action.type) {
         case CHATIFY_PROFILE_FETCHING_USER_DETAILS_SUCCESS:
         case CHATIFY_PROFILE_UPDATE_USER_DETAILS_SUCCESS: {
