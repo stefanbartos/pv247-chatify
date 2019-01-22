@@ -11,6 +11,7 @@ export interface IChatify {
     token: string | null;
     isLoggingIn: boolean;
     isLoggedIn: boolean;
+    isRegistering: boolean;
     profile: IProfile;
     email: string | null;
     errors: Immutable.OrderedMap<Uuid, IError>;

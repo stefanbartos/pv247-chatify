@@ -7,6 +7,7 @@ import { token } from './token';
 import { isLoggedIn } from './isLoggedIn';
 import { email } from './email';
 import { errors } from './errors';
+import { isRegistering } from './isRegistering';
 
 export const chatify = (prevState = {} as IChatify, action: Action): IChatify => ({
     channels: channels(prevState.channels, action),
@@ -14,6 +15,7 @@ export const chatify = (prevState = {} as IChatify, action: Action): IChatify =>
     activeChannel: '',
     isLoggingIn: isLoggingIn(prevState.isLoggingIn, action),
     isLoggedIn: isLoggedIn(prevState.isLoggedIn, action),
+    isRegistering: isRegistering(prevState.isRegistering, action),
     token: token(prevState.token, action),
     profile: profile(prevState.profile, action),
     email: email(prevState.email, action),
