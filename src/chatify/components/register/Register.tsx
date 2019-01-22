@@ -79,6 +79,9 @@ export class Register extends React.PureComponent<IRegisterProps, IRegisterState
                                 </form>
                             </div>
                         </div>
+                        <div className="footer">
+                            PV247 - Chatify
+                        </div>
                     </div>
                 </div>
             </div>
