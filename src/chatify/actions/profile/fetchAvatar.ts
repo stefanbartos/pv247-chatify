@@ -1,7 +1,11 @@
 import { fetchFileApiAsync } from './../../../api/usersRepository';
 import { IState } from '../../../common/IState';
 import { Dispatch } from 'redux';
-import { fetchAvatarStarted, fetchAvatarFailed, fetchAvatarSuccess } from './actionCreators';
+import {
+    fetchAvatarStarted,
+    fetchAvatarFailed,
+    fetchAvatarSuccess
+} from './actionCreators';
 
 export const fetchAvatar = (avatarId: string): any =>
     async (dispatch: Dispatch, getState: () => IState) => {
