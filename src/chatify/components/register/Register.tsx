@@ -3,14 +3,21 @@ import { Link } from 'react-router-dom';
 import * as routes from '../../constants/routes';
 import { ErrorsContainer } from '../../containers/ErrorsContainer';
 import '../../css/register.css';
+import { ClipLoader } from 'react-spinners';
 
-export interface IRegisterProps {
+export interface IRegisterDispatchProps {
     onRegister(email: string): void;
+}
+
+export interface IRegisterStateProps {
+    isRegistering: boolean;
 }
 
 interface IRegisterState {
     email: string;
 }
+
+type IRegisterProps = IRegisterDispatchProps & IRegisterStateProps;
 
 export class Register extends React.PureComponent<IRegisterProps, IRegisterState> {
     readonly state = {
@@ -57,6 +64,9 @@ export class Register extends React.PureComponent<IRegisterProps, IRegisterState
                                         />
                                     </div>
                                     <div className="form-group m-0">
+                                        <ClipLoader
+                                            size={30}
+                                            loading={this.props.isRegistering} />
                                         <button className="btn btn-primary btn-block">Register</button>
                                     </div>
                                     <div className="mt-4 text-center">

@@ -1,12 +1,23 @@
 import { connect } from 'react-redux';
-import { Register, IRegisterProps } from '../components/register/Register';
+import {
+    Register,
+    IRegisterDispatchProps,
+    IRegisterStateProps
+} from '../components/register/Register';
 import { Dispatch } from 'redux';
 import { registerUser } from '../actions/authentication/registerUser';
+import { IState } from '../../common/IState';
 
-const mapDispatchToProps = (dispatch: Dispatch): IRegisterProps => {
+const mapDispatchToProps = (dispatch: Dispatch): IRegisterDispatchProps => {
     return {
         onRegister: (email: string) => dispatch(registerUser(email))
     };
 };
 
-export const RegisterContainer = connect(null, mapDispatchToProps)(Register);
+const mapStateToProps = (state: IState): IRegisterStateProps => {
+    return {
+        isRegistering: state.chatify.isRegistering
+    };
+};
+
+export const RegisterContainer = connect(mapStateToProps, mapDispatchToProps)(Register);
